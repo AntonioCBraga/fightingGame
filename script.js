@@ -7,6 +7,7 @@ canvas.height = 576;
 c.fillRect(0,0,canvas.width,canvas.height);
 
 
+let ingame = 0; //change controlls from character select to fighting. to be updated
 
 
 
@@ -16,15 +17,19 @@ let counterdjp2 = 0;   //doublejump player2 counter and may help with stun
 
 let player1turn = 1;  // var [-1 || 1] that tells what side to shoot projectile
 
+let unvp1 = 1; // attacks that make you unv
+let unvp2 = 2; // attacks that make you unv
 
 let p1move =1;  //tells when player can and cant move
 let p2move =1;  //tells when player can and cant move
 
+let getRoped = 0;
 
 const gravity = 0.5;
 
-const projectiles = []  //projectile p1 attack
+const projectiles = []  //projectile  attack
 const ropes =[] //rope p1 attack
+
 
 //--------------------------------------------------------------Sprite!!---------------------------------------------//
 class Sprite{
@@ -71,7 +76,7 @@ class Sprite{
                   
             }
         }
-        c.fillStyle ='purple';
+        //c.fillStyle ='purple';
         
         //c.fillRect(this.attackBox2.position.x,this.attackBox2.position.y, this.attackBox2.width,this.attackBox2.height)
        
@@ -128,28 +133,28 @@ class Projectile{
     }
 }
 
-
+//--------------------------------------------------Rope Attack-----------------------------------------------------//
 
 class rope{
     constructor({position,velocity}){
         this.position = position;
         this.velocity = velocity;
-        this.radius = 15;
+        this.width = 30;
+        this.height = 12;
     }
     draw(){
-        c.beginPath();
-        
         c.fillStyle = 'red';
+        c.fillRect(this.position.x,this.position.y,this.width,this.height);
+        
+        
         c.fill()
-        c.closePath();
+        
     }
     update(){
         this.draw()
-        this.position.x += this.velocity.x
-        this.position.y += this.velocity.y 
+        this.width += this.velocity.x 
     }
 }
-
 
 
 
@@ -207,7 +212,7 @@ const keys = {
 
 //----------------------------------------------------Animate--------------------------------------------------------//
 
-let lastKey
+
 
 function animate(){
     
@@ -217,6 +222,9 @@ function animate(){
     c.fillRect(0,0,canvas.width,canvas.height);
 
     //-------------------------------------------------Updates--------------------------------------------------------//
+
+ 
+    
 
 
     player.update();
@@ -261,10 +269,24 @@ function animate(){
     }
 
     
-     //------------------------------------------Enemy Movement------------------------------------------------//
+    //------------------------------------------Enemy Movement------------------------------------------------//
     enemy.velocity.x = 0;
+    if(getRoped != 0){ // i------------------------if gets hit by rope
+        
+        if(enemy.position.x >= player.position + player.width + 50){
+            enemy.velocity.x = 0;
+        }
+        else{
+            enemy.velocity.x -= 4 * player1turn; 
+        }
 
-    if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1){
+        getRoped ++
+        
+        if(getRoped >= 80){
+            getRoped = 0;
+        }
+    }
+    else if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1){
         if(enemy.position.x >= 0){
             enemy.velocity.x = -5;
         }
@@ -291,7 +313,7 @@ function animate(){
 
     //----------------------------------------------Collision Detection---------------------------------------------//
 
-    //------------------------------------------------p1 AA -------------------------------------------------------//
+                                //----------------------p1 AA -------------------------//
     if(player.attackBox1.position.x + player.attackBox1.width >= enemy.position.x
         && player.attackBox1.position.x <= enemy.position.x + enemy.width
         && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
@@ -308,7 +330,7 @@ function animate(){
             console.log('whatdifok')
         
     }
-//-----------------------------------------------------Pj collision--------------------------------------------------//
+                                //----------------------Pj collision-----------------------//
     projectiles.forEach((projectile,index )=> {
 
         if(projectile.position.x + projectile.radius >= 1024 || projectile.position.x + projectile.radius <= 0  ){
@@ -322,15 +344,44 @@ function animate(){
                 console.log('hit!')
                 projectiles.splice(index,1)
             }
-        
-        
         else{
             projectile.update();
         }
 
        
     })
-}   
+
+                          //------------------------rope collision----------------------------//
+
+    ropes.forEach((rope,index ) =>{
+        if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
+
+            ropes.splice(index,1)
+           
+        }//-------------------- adjust so it isnt only 1 pixel of the rope under.
+        else if(rope.position.x + rope.width >= enemy.position.x &&    
+             rope.position.x + rope.width <= enemy.position.x + enemy.width &&  
+             rope.position.y + rope.height >= enemy.position.y && 
+             rope.position.y <= enemy.position.y + enemy.height){
+            
+            
+         
+            
+            ropes.splice(index,1);
+            getRoped =1 ;
+            
+        }
+        else {
+            rope.update();
+        }
+    })
+                        
+                        
+        
+
+
+
+}   // END OF ANIMATE()
 
 
 //-----------------------------------------------------Key commands-------------------------------------------------//
@@ -356,6 +407,7 @@ window.addEventListener('keydown',(e)=>{
             counterdjp1 ++
             break;
         case ' ':
+            console.log(ropes.lenght)
             player.attack()
             break;
         case 'q':
@@ -366,18 +418,29 @@ window.addEventListener('keydown',(e)=>{
                         y:player.position.y + 50
                     },
                     velocity:{
-                       x: 5 * player1turn,
+                       x: 7 * player1turn,
                        y:0 
                     }
                 })) 
             }
-            case 'e':
-                break;
-            case 'r':
-                break;
-          
-            console.log(player.position.x)
             break;
+        case 'e':
+            ropes.push(new rope({ //maybe push rope1 as soon as game starts so projectile always stick
+                position:{
+                    x:player.position.x + 40,
+                    y:player.position.y + 75
+                },
+                velocity:{
+                    x: 5 * player1turn,
+                    y:0
+                },
+            
+            }))
+            break;
+        case 'r':
+            break;
+    
+        //--------------------------------------------------Player 2 commands-------------------------------------------//
         
         case 'ArrowRight':
             keys.ArrowRight.pressed = true;
@@ -399,7 +462,7 @@ window.addEventListener('keydown',(e)=>{
 
 })
 
-
+//--------------------------------------------------p2 and p1 keyUP---------------------------------------------------//
 window.addEventListener('keyup',(e)=>{
     switch(e.key){
         case 'd':
