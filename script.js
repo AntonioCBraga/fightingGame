@@ -11,17 +11,20 @@ c.fillRect(0,0,canvas.width,canvas.height);
 
 
 
-let counterdjp1 = 0;   //doublejump player1 counter
-let counterdjp2 = 0;   //doublejump player2 counter
+let counterdjp1 = 0;   //doublejump player1 counter and may help with stun
+let counterdjp2 = 0;   //doublejump player2 counter and may help with stun
 
-let p1move =1;
-let p2move =1;
+let player1turn = 1;  // var [-1 || 1] that tells what side to shoot projectile
+
+
+let p1move =1;  //tells when player can and cant move
+let p2move =1;  //tells when player can and cant move
 
 
 const gravity = 0.5;
 
-const projectiles = []
-
+const projectiles = []  //projectile p1 attack
+const ropes =[] //rope p1 attack
 
 //--------------------------------------------------------------Sprite!!---------------------------------------------//
 class Sprite{
@@ -54,7 +57,19 @@ class Sprite{
         //attackBox
         c.fillStyle ='blue';
         if(this.isAttacking){
-            c.fillRect(this.attackBox1.position.x,this.attackBox1.position.y, this.attackBox1.width,this.attackBox1.height)
+            if(player1turn == 1){
+                c.fillRect(this.attackBox1.position.x,
+                    this.attackBox1.position.y,
+                    this.attackBox1.width,
+                    this.attackBox1.height)
+            }
+            else if(player1turn == -1){
+                c.fillRect(this.attackBox1.position.x - 50,
+                    this.attackBox1.position.y,
+                    this.attackBox1.width,
+                    this.attackBox1.height)
+                  
+            }
         }
         c.fillStyle ='purple';
         
@@ -89,6 +104,10 @@ class Sprite{
 
 
 //--------------------------------------------------Projectile---------------------------------------------------//
+
+
+
+
 class Projectile{
     constructor({position,velocity}){
         this.position = position;
@@ -111,6 +130,25 @@ class Projectile{
 
 
 
+class rope{
+    constructor({position,velocity}){
+        this.position = position;
+        this.velocity = velocity;
+        this.radius = 15;
+    }
+    draw(){
+        c.beginPath();
+        
+        c.fillStyle = 'red';
+        c.fill()
+        c.closePath();
+    }
+    update(){
+        this.draw()
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y 
+    }
+}
 
 
 
@@ -187,6 +225,14 @@ function animate(){
     //---------------------------------------------Player Movement--------------------------------------------------------//
     
     
+
+    if(player.position.x <= enemy.position.x){
+        player1turn = 1;
+    }
+    else{
+        player1turn = -1;
+    }
+
     player.velocity.x = 0;
 
     if(keys.a.pressed && player.lastKey ==='a' && p1move ==1){
@@ -244,17 +290,28 @@ function animate(){
     }
 
     //----------------------------------------------Collision Detection---------------------------------------------//
+
+    //------------------------------------------------p1 AA -------------------------------------------------------//
     if(player.attackBox1.position.x + player.attackBox1.width >= enemy.position.x
         && player.attackBox1.position.x <= enemy.position.x + enemy.width
         && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
         &&player.attackBox1.position.y <= enemy.position.y + enemy.height
-        && player.isAttacking){
+        && player.isAttacking && player1turn == 1){
         console.log('deded')
+    }
+    else if(player.attackBox1.position.x + player.attackBox1.width  >= enemy.position.x
+        && player.attackBox1.position.x <= enemy.position.x + enemy.width +50
+        && player1turn == -1 && player.isAttacking 
+        && player.attackBox1.position.y <= enemy.position.y + enemy.height
+        && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
+         ){
+            console.log('whatdifok')
+        
     }
 //-----------------------------------------------------Pj collision--------------------------------------------------//
     projectiles.forEach((projectile,index )=> {
 
-        if(projectile.position.x + projectile.radius >= 1024 ){
+        if(projectile.position.x + projectile.radius >= 1024 || projectile.position.x + projectile.radius <= 0  ){
             console.log(projectiles)
             projectiles.splice(index,1)
         }
@@ -277,6 +334,9 @@ function animate(){
 
 
 //-----------------------------------------------------Key commands-------------------------------------------------//
+
+
+
 
 
 window.addEventListener('keydown',(e)=>{
@@ -306,11 +366,15 @@ window.addEventListener('keydown',(e)=>{
                         y:player.position.y + 50
                     },
                     velocity:{
-                       x:5,
+                       x: 5 * player1turn,
                        y:0 
                     }
                 })) 
             }
+            case 'e':
+                break;
+            case 'r':
+                break;
           
             console.log(player.position.x)
             break;
@@ -331,8 +395,8 @@ window.addEventListener('keydown',(e)=>{
              break;
         }
     }
-    
-    
+
+
 })
 
 
