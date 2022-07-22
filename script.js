@@ -176,6 +176,12 @@ class Ground{
 
             this.position.x += 50
             this.counter2 ++
+            if(this.counter2 == 3){
+                this.height = 120;
+                this.position.y -= 50
+                this.width = 50
+                
+            }
         }
         else if(counter == 180){
             
