@@ -28,9 +28,8 @@ let getRoped = 0;
 const gravity = 0.5;
 
 const projectiles = []  //projectile  attack
-const ropes =[] //rope p1 attack
-
-
+const ropes = [] //rope p1 attack
+//const grounds = []
 //--------------------------------------------------------------Sprite!!---------------------------------------------//
 class Sprite{
     constructor({position,velocity,color = 'red'}){
@@ -46,11 +45,6 @@ class Sprite{
             height: 50
         }
 
-        // this.attackBox2 ={
-        //     position:this.position,
-        //     width: 200,
-        //     height: 25
-        // }
         this.color = color;
         this.isAttacking
     }
@@ -111,7 +105,7 @@ class Sprite{
 //--------------------------------------------------Projectile---------------------------------------------------//
 
 
-
+//------------------------------------------------------P1 moves--------------------------------------------------//
 
 class Projectile{
     constructor({position,velocity}){
@@ -156,9 +150,49 @@ class rope{
     }
 }
 
+//----------------------------------------------Ground Attack--------------------------------------------//
+class Ground{
+    constructor({position}){
+        this.position = position;
+       
+        this.width = 30;
+        this.height = 60;
+        this.counter = 0;
+        this.counter2 = 0;
+    }
+    draw(){
+        c.fillStyle = 'purple';
+        c.fillRect(this.position.x,this.position.y,this.width,this.height);
+        
+        
+        c.fill()
+        
+    }
+    update(){
+        this.draw()
+        this.counter ++;
+
+        if(this.counter % 50  == 0 && this.counter2 <3 ){
+
+            this.position.x += 50
+            this.counter2 ++
+        }
+        else if(counter == 180){
+            
+        }
+    }
+}
+
+const grounds = [new Ground({
+    position:{
+        x:300,
+        y:300
+    }
+    
+})]
 
 
-
+//------------------------------------------------P2 moves------------------------------------------------//
 
 
 
@@ -273,10 +307,12 @@ function animate(){
     enemy.velocity.x = 0;
     if(getRoped != 0){ // i------------------------if gets hit by rope
         
-        if(enemy.position.x >= player.position + player.width + 50){
+        if((player.position.x + player.width + 20 <= enemy.position.x  && player.position.x + player.width + 25 >= enemy.position.x) || 
+            (enemy.position.x + enemy.width + 20 <= player.position.x && enemy.position.x + enemy.width + 25 >= player.position.x)){
             enemy.velocity.x = 0;
+            p2move = 0;
         }
-        else{
+        else if(p2move != 0){
             enemy.velocity.x -= 4 * player1turn; 
         }
 
@@ -284,6 +320,7 @@ function animate(){
         
         if(getRoped >= 80){
             getRoped = 0;
+            p2move = 1;
         }
     }
     else if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1){
@@ -375,6 +412,10 @@ function animate(){
             rope.update();
         }
     })
+
+    grounds.forEach(ground =>{
+        ground.update();
+    })
                         
                         
         
@@ -414,7 +455,7 @@ window.addEventListener('keydown',(e)=>{
             if(projectiles.length <1 ){
                 projectiles.push(new Projectile({
                     position: {
-                        x:player.position.x +30,
+                        x:player.position.x  + 20 ,
                         y:player.position.y + 50
                     },
                     velocity:{
@@ -425,7 +466,7 @@ window.addEventListener('keydown',(e)=>{
             }
             break;
         case 'e':
-            ropes.push(new rope({ //maybe push rope1 as soon as game starts so projectile always stick
+            ropes.push(new rope({ 
                 position:{
                     x:player.position.x + 40,
                     y:player.position.y + 75
@@ -438,6 +479,7 @@ window.addEventListener('keydown',(e)=>{
             }))
             break;
         case 'r':
+            
             break;
     
         //--------------------------------------------------Player 2 commands-------------------------------------------//
@@ -490,11 +532,7 @@ window.addEventListener('keyup',(e)=>{
             break;
         case 'ArrowUp':{
             keys.ArrowUp.pressed = false;
-            
-        
             break;
-            
-            
         }
     }
     
