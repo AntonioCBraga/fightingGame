@@ -2,7 +2,7 @@
 a very simple fighting game
 
 bugs list
-1.when use rope show previous projectile.
+1.all abilities show previus projectiles. might be some collorfill or somethign like that within the class or being a sphere
 
 
 
@@ -11,6 +11,5 @@ bugs list
 
 
 to be done
-1. work with rope collision
-2. ground ability
-3.character2 everything
+1. ground ability -> collision !
+2.character2 everything

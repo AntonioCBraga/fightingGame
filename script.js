@@ -29,7 +29,7 @@ const gravity = 0.5;
 
 const projectiles = []  //projectile  attack
 const ropes = [] //rope p1 attack
-//const grounds = []
+const grounds = []
 //--------------------------------------------------------------Sprite!!---------------------------------------------//
 class Sprite{
     constructor({position,velocity,color = 'red'}){
@@ -112,6 +112,7 @@ class Projectile{
         this.position = position;
         this.velocity = velocity;
         this.radius = 15;
+        this.counter =0;
     }
     draw(){
         c.beginPath();
@@ -121,10 +122,14 @@ class Projectile{
         c.closePath();
     }
     update(){
+        
         this.draw()
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y 
+        this.counter += 1
+        console.log(this.counter)
     }
+    
 }
 
 //--------------------------------------------------Rope Attack-----------------------------------------------------//
@@ -139,14 +144,12 @@ class rope{
     draw(){
         c.fillStyle = 'red';
         c.fillRect(this.position.x,this.position.y,this.width,this.height);
-        
-        
-        c.fill()
+        c.fill();
         
     }
     update(){
-        this.draw()
-        this.width += this.velocity.x 
+        this.draw();
+        this.width += this.velocity.x;
     }
 }
 
@@ -172,9 +175,9 @@ class Ground{
         this.draw()
         this.counter ++;
 
-        if(this.counter % 50  == 0 && this.counter2 <3 ){
+        if(this.counter % 40  == 0 && this.counter2 <3 ){
 
-            this.position.x += 50
+            this.position.x += 50 * player1turn
             this.counter2 ++
             if(this.counter2 == 3){
                 this.height = 120;
@@ -183,19 +186,13 @@ class Ground{
                 
             }
         }
-        else if(counter == 180){
-            
+        else if(this.counter == 200 && this.counter2 == 3 ){
+            grounds.splice(0,1);
         }
     }
 }
 
-const grounds = [new Ground({
-    position:{
-        x:300,
-        y:300
-    }
-    
-})]
+
 
 
 //------------------------------------------------P2 moves------------------------------------------------//
@@ -418,13 +415,23 @@ function animate(){
             rope.update();
         }
     })
-
+    //----------------------------------------------Ground collision----------------------------------//
     grounds.forEach(ground =>{
-        ground.update();
-    })
-                        
-                        
+        if(ground.position.x  >= enemy.position.x && enemy.position.x <= ground.position.x + ground.width){
+            console.log('uauza')
+        }
+            
         
+        ground.update();
+        })
+    
+
+        
+    
+                        
+                        
+/// (ground.position.x  >= enemy.position.x && enemy.position.x <= ground.position.x + ground.width) 
+//maybe later look at col
 
 
 
@@ -485,6 +492,13 @@ window.addEventListener('keydown',(e)=>{
             }))
             break;
         case 'r':
+            grounds.push(new Ground({
+                position:{
+                    x:player.position.x + 60* player1turn  ,
+                    y:player.position.y +100
+                }
+                
+            }))
             
             break;
     
