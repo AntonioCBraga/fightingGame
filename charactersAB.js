@@ -131,22 +131,30 @@ function ropecol(){
 
     if(getRoped != 0){ // i------------------------if gets hit by rope
         
-        if((player.position.x + player.width + 20 <= enemy.position.x  && player.position.x + player.width + 25 >= enemy.position.x) || 
-            (enemy.position.x + enemy.width + 20 <= player.position.x && enemy.position.x + enemy.width + 25 >= player.position.x)){
-            enemy.velocity.x = 0;
-            p2move = 0;
-        }
-        else if(p2move == 0){
+        if(p2move == 0 && p2stunned == 0 ){
             enemy.velocity.x -= 4 * player1turn; 
-        }
 
-        getRoped ++
-        
-        if(getRoped >= 80){
-            getRoped = 0;
-            p2move = 1;
+            if((player.position.x + player.width + 20 <= enemy.position.x  && player.position.x + player.width + 25 >= enemy.position.x) || 
+            (enemy.position.x + enemy.width + 20 <= player.position.x && enemy.position.x + enemy.width + 25 >= player.position.x)){
+                p2stunned =1;
+            }
+            
+        }
+        else {
+            getRoped ++;
+            enemy.velocity.x = 0;
+            if (getRoped == 30){
+                getRoped = 0;
+                p2move =1 ;
+                p2stunned =0;
+
+            }
         }
     }
+
+        
+        
+    
 }
 
 
