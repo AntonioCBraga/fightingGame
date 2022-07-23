@@ -28,9 +28,9 @@ function aap1(){
 
 const projectiles = []  //projectile  attack
 const ropes = [] //rope p1 attack
-const grounds = []
+const grounds = []// ground attack
 
-// ------------------------------------------------------------Red Samurai Q
+// ------------------------------------------------------------Red Samurai Q------------------------------------------------//
 
 class Projectile{
     constructor({position,velocity}){
@@ -195,7 +195,8 @@ class Ground{
 //--------------------------------Ground Collision ---------------------------------------//
  function groundcol(){
     grounds.forEach(ground =>{
-        if(ground.position.x  >= enemy.position.x && enemy.position.x <= ground.position.x + ground.width){
+        if((ground.position.x + ground.width >= enemy.position.x  && ground.position.x  <= enemy.position.x + enemy.width)||
+        ground.position.x <= enemy.position.x + enemy.width && ground.position.x >= enemy.position){
             console.log('uauza')
         }
             
