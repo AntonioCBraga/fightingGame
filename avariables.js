@@ -24,6 +24,7 @@ let p1stunned =0; //Tells if player1 is stunned
 let p2stunned =0; //Tells if player2 is stunned
 
 let getRoped = 0;//get hit by rope attack
+let getRoped2 =0;// get hit by rope p2
 
 const gravity = 0.5; // self explanatory
 

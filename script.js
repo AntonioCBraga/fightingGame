@@ -234,6 +234,7 @@ function animate(){
     }
     if(p2CharSelect == 'redsamurai'){
         projectilecolp2();
+        ropecolp2();
     }
 
 

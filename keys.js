@@ -123,6 +123,19 @@ window.addEventListener('keydown',(e)=>{
                 })) 
             }
             break;
+        case '8':
+            ropes2.push(new rope({ 
+                position:{
+                    x:enemy.position.x  +20,
+                    y:enemy.position.y + 75
+                },
+                velocity:{
+                    x: -5 * player1turn,
+                    y:0
+                },
+            
+            }))
+            break;
         
     }
 
