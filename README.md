@@ -15,6 +15,7 @@ bugs list --
 
 
 
+
 to be done
-1.player collision
+1.player collision script.js under enemy movement
 2.Add second character

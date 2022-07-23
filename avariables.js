@@ -14,6 +14,12 @@ let counterdjp2 = 0;   //doublejump player2 counter and may help with stun
 
 let player1turn = 1;  // var [-1 || 1] that tells what side to shoot projectile
 
+let pl1WalkR= 1; //allows player1 to walk to the right
+let pl1WalkL =1;  // allows player1 to walk to the left
+
+let pl2WalkR =1;// allows player2 to walk to the right
+let pl2WalkL =1;// allows player2 to walk to the left
+
 let unvp1 = 1; // attacks that make you unv
 let unvp2 = 2; // attacks that make you unv
 

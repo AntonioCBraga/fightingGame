@@ -165,13 +165,13 @@ function animate(){
 
     player.velocity.x = 0;
 
-    if(keys.a.pressed && player.lastKey ==='a' && p1move ==1 && p1stunned !=1){
+    if(keys.a.pressed && player.lastKey ==='a' && p1move ==1 && p1stunned !=1 && pl1WalkL == 1){
         if(player.position.x >= 0){
             player.velocity.x = -5;
         }
        
     }
-    else if(keys.d.pressed && player.lastKey ==='d' && p1move ==1 && p1stunned !=1 ){
+    else if(keys.d.pressed && player.lastKey ==='d' && p1move ==1 && p1stunned !=1 && pl1WalkR ==1){
         if(player.position.x  + player.width <= 1024){
             player.velocity.x = 5;
         }
@@ -195,12 +195,12 @@ function animate(){
     enemy.velocity.x = 0;
 
 
-    if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1 && p2stunned !=1){
+    if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1 && p2stunned !=1 && pl2WalkL == 1){
         if(enemy.position.x >= 0){
             enemy.velocity.x = -5;
         }
     }
-    else if(keys.ArrowRight.pressed && enemy.lastKey ==='ArrowRight' && p2move ==1 && p2stunned !=1){
+    else if(keys.ArrowRight.pressed && enemy.lastKey ==='ArrowRight' && p2move ==1 && p2stunned !=1 && pl2WalkR == 1){
         if(enemy.position.x + enemy.width <= 1024){
             enemy.velocity.x = 5;
         }
@@ -219,6 +219,27 @@ function animate(){
        
         counterdjp2 = 0;
     }
+
+    //---------------------------------------------player collision------------------------------------------------//
+
+    
+    if(player.position.x + player.width >= enemy.position.x - 5 ){
+        pl1WalkR = 0;
+        pl2WalkL = 0;
+    }
+    else if(player.position.x + player.width <= enemy.position.x ){
+        pl1WalkR = 1;
+        pl2WalkL = 1;
+    }
+   
+    
+   
+
+
+
+
+
+
 
    
     //----------------------------------------------And attacks doing stuff----------------------------------------//
