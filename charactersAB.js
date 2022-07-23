@@ -239,9 +239,9 @@ function ropecolp2(){
         if(p1move == 0 && p1stunned == 0 ){
             player.velocity.x += 4 * player1turn; 
 
-            if((enemy.position.x + enemy.width + 20 <= player.position.x  && enemy.position.x + enemy.width + 25 >= player.position.x) || 
-            (player.position.x + player.width + 20 <= enemy.position.x && enemy.position.x + player.width + 25 >= enemy.position.x)){
-                p1stunned =0;
+            if((player.position.x + player.width + 20 <= enemy.position.x  && player.position.x + player.width + 25 >= enemy.position.x) || 
+            (enemy.position.x + enemy.width + 20 <= player.position.x && enemy.position.x + enemy.width + 25 >= player.position.x)){
+                p1stunned =1;
             }
             
         }
