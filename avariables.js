@@ -2,7 +2,7 @@
 let ingame = 0; //change controlls from character select to fighting. to be updated
 
 let p1CharSelect = "redsamurai"
-let p2CharSelect = []
+let p2CharSelect = "redsamurai"
 
 //----------------------------------------------------Movement Variables-------------------------------------------//
 

@@ -44,11 +44,12 @@ function aap1(){
 
 
 
-//---------------------------------------------------------Red Samurai P1------------------------------------------------------//
+//---------------------------------------------------------Red Samurai P1 & P2------------------------------------------------------//
 
 //------------------------------------------------------Ability Variables---------------------------------------------//
 
 const projectiles = []  //projectile  attack
+const projectiles2 = [] // projectile p2
 const ropes = [] //rope p1 attack
 const grounds = []// ground attack
 
@@ -79,8 +80,8 @@ class Projectile{
     
 }
 
-//------------------------- PJ Colision--------------------//
-function pjcol(){
+//------------------------- PJ Colision--P1------------------//
+function projectilecolp1(){
     projectiles.forEach((projectile,index )=> {
         if(p1CharSelect == "redsamurai"){  
             if(projectile.position.x + projectile.radius >= 1024 || projectile.position.x + projectile.radius <= 0  ){
@@ -98,21 +99,32 @@ function pjcol(){
                 projectile.update();
             }
         }
-        else if(p2CharSelect == "redsamurai"){
+
+        
+
+       
+    })
+}
+//------------------------- PJ Colisio--P2------------------//
+function projectilecolp2(){
+    projectiles2.forEach((projectile,index )=> {
+        if(p2CharSelect == "redsamurai"){  
             if(projectile.position.x + projectile.radius >= 1024 || projectile.position.x + projectile.radius <= 0  ){
-                projectiles.splice(index,1)
+                console.log(projectiles)
+                projectiles2.splice(index,1)
             }
-            else if(projectile.position.x + projectile.radius >= enemy.position.x + 10 
-                && projectile.position.x <= enemy.position.x + enemy.width
-                    &&projectile.position.y + projectile.radius >= enemy.position.y
-                    &&projectile.position.y <= enemy.position.y + enemy.height){
+            else if(projectile.position.x + projectile.radius >= player.position.x + 10 
+                && projectile.position.x <= player.position.x + player.width
+                    &&projectile.position.y + projectile.radius >= player.position.y
+                    &&projectile.position.y <= player.position.y + player.height){
                     console.log('hit!')
-                    projectiles.splice(index,1)
+                    projectiles2.splice(index,1)
                 }
             else{
                 projectile.update();
             }
         }
+
         
 
        
@@ -256,7 +268,13 @@ class Ground{
  }
 
 
+function p1redSamurai(){
 
+}
+
+function p2redSamurai(){
+
+}
 
 
 

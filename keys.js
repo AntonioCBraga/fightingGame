@@ -107,7 +107,22 @@ window.addEventListener('keydown',(e)=>{
             
             
             enemy.attack()
+            break;
         }
+        case '4':
+            if(projectiles2.length <1 ){
+                projectiles2.push(new Projectile({
+                    position: {
+                        x:enemy.position.x  + 20 ,
+                        y:enemy.position.y + 50
+                    },
+                    velocity:{
+                       x: -7 * player1turn,
+                       y:0 
+                    }
+                })) 
+            }
+            break;
         
     }
 

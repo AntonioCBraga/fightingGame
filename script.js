@@ -228,9 +228,12 @@ function animate(){
     
     //--------------------------------Character Select -----------------------------//
     if(p1CharSelect == 'redsamurai'){
-        pjcol();
+        projectilecolp1();
         ropecol();
         groundcol();
+    }
+    if(p2CharSelect == 'redsamurai'){
+        projectilecolp2();
     }
 
 
