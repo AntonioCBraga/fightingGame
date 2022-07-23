@@ -10,21 +10,22 @@ c.fillRect(0,0,canvas.width,canvas.height);
 
 //--------------------------------------------------------------Sprite!!---------------------------------------------//
 class Sprite{
-    constructor({position,velocity,color = 'red'}){
+    constructor({position,velocity,color = 'red',pl}){
         this.position = position
         this.width = 50;
         this.velocity = velocity
         this.height = 150;
         this.lastKey
-
+        
         this.attackBox1 ={
             position: this.position,
             width: 100,
             height: 50
         }
-
+       
         this.color = color;
         this.isAttacking
+        this.pl = pl;
     }
 
     draw(){
@@ -33,7 +34,8 @@ class Sprite{
         
         //attackBox
         c.fillStyle ='blue';
-        if(this.isAttacking){
+        if(this.isAttacking && this.pl == 1){
+           
             if(player1turn == 1){
                 c.fillRect(this.attackBox1.position.x,
                     this.attackBox1.position.y,
@@ -45,12 +47,30 @@ class Sprite{
                     this.attackBox1.position.y,
                     this.attackBox1.width,
                     this.attackBox1.height)
-                  
+                    
             }
         }
-        //c.fillStyle ='purple';
+        else if(this.isAttacking && this.pl == 2){
+            console.log(this.pl)
+            if(player1turn == -1){
+                c.fillRect(this.attackBox1.position.x,
+                    this.attackBox1.position.y,
+                    this.attackBox1.width,
+                    this.attackBox1.height)
+            }
+            else if(player1turn == 1){
+                c.fillRect(this.attackBox1.position.x - 50,
+                    this.attackBox1.position.y,
+                    this.attackBox1.width,
+                    this.attackBox1.height)
+                    
+            }
+        }
         
-        //c.fillRect(this.attackBox2.position.x,this.attackBox2.position.y, this.attackBox2.width,this.attackBox2.height)
+        
+     
+        
+
        
         
 
@@ -90,7 +110,8 @@ const player = new Sprite({
     velocity:{
         x:0,
         y:0
-    }
+    },
+    pl:1 
 })
 
 
@@ -104,7 +125,8 @@ const enemy = new Sprite({
         x:0,
         y:0
     },
-    color: 'blue'
+    color: 'blue',
+    pl:2 
 })
 
 

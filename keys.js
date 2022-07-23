@@ -103,6 +103,12 @@ window.addEventListener('keydown',(e)=>{
             
              break;
         }
+        case '0': {
+            
+            
+            enemy.attack()
+        }
+        
     }
 
 

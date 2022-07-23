@@ -1,28 +1,50 @@
 //General p1 AA
 
 function aap1(){
-    if(player.attackBox1.position.x + player.attackBox1.width >= enemy.position.x
-        && player.attackBox1.position.x <= enemy.position.x + enemy.width
-        && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
-        &&player.attackBox1.position.y <= enemy.position.y + enemy.height
-        && player.isAttacking && player1turn == 1){
-        console.log('deded')
-    }
-    else if(player.attackBox1.position.x + player.attackBox1.width  >= enemy.position.x
-        && player.attackBox1.position.x <= enemy.position.x + enemy.width +50
-        && player1turn == -1 && player.isAttacking 
-        && player.attackBox1.position.y <= enemy.position.y + enemy.height
-        && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
-         ){
-            console.log('whatdifok')
-        
+     if(player.isAttacking){
+        if(player.attackBox1.position.x + player.attackBox1.width >= enemy.position.x
+            && player.attackBox1.position.x <= enemy.position.x + enemy.width
+            && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
+            &&player.attackBox1.position.y <= enemy.position.y + enemy.height
+            && player.isAttacking && player1turn == 1){
+            console.log('deded')
+        }
+        else if(player.attackBox1.position.x + player.attackBox1.width  >= enemy.position.x
+            && player.attackBox1.position.x <= enemy.position.x + enemy.width +50
+            && player1turn == -1 && player.isAttacking 
+            && player.attackBox1.position.y <= enemy.position.y + enemy.height
+            && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
+            ){
+                console.log('whatdifok')
+            
+        }
+     }
+    else if(enemy.isAttacking){
+        console.log("hello")
+        if(enemy.attackBox1.position.x - enemy.attackBox1.width <= player.position.x + player.width
+           
+            && enemy.attackBox1.position.y + enemy.attackBox1.height >= player.position.y
+            &&enemy.attackBox1.position.y <= player.position.y + player.height
+            && enemy.isAttacking && player1turn == 1){
+            console.log('deded')
+        }
+        else if(enemy.attackBox1.position.x + enemy.attackBox1.width  >= player.position.x
+            && enemy.attackBox1.position.x <= player.position.x + player.width +50
+            && player1turn == -1 && enemy.isAttacking 
+            && enemy.attackBox1.position.y <= player.position.y + player.height
+            && enemy.attackBox1.position.y + enemy.attackBox1.height >= player.position.y
+            ){
+                console.log('whatdifok')
+            
+        }
+
     }
 }
 
 
 
 
-//---------------------------------------------------------Red Samurai------------------------------------------------------//
+//---------------------------------------------------------Red Samurai P1------------------------------------------------------//
 
 //------------------------------------------------------Ability Variables---------------------------------------------//
 
@@ -60,21 +82,38 @@ class Projectile{
 //------------------------- PJ Colision--------------------//
 function pjcol(){
     projectiles.forEach((projectile,index )=> {
-
-        if(projectile.position.x + projectile.radius >= 1024 || projectile.position.x + projectile.radius <= 0  ){
-            console.log(projectiles)
-            projectiles.splice(index,1)
-        }
-        else if(projectile.position.x + projectile.radius >= enemy.position.x + 10 
-            && projectile.position.x <= enemy.position.x + enemy.width
-                &&projectile.position.y + projectile.radius >= enemy.position.y
-                &&projectile.position.y <= enemy.position.y + enemy.height){
-                console.log('hit!')
+        if(p1CharSelect == "redsamurai"){  
+            if(projectile.position.x + projectile.radius >= 1024 || projectile.position.x + projectile.radius <= 0  ){
+                console.log(projectiles)
                 projectiles.splice(index,1)
             }
-        else{
-            projectile.update();
+            else if(projectile.position.x + projectile.radius >= enemy.position.x + 10 
+                && projectile.position.x <= enemy.position.x + enemy.width
+                    &&projectile.position.y + projectile.radius >= enemy.position.y
+                    &&projectile.position.y <= enemy.position.y + enemy.height){
+                    console.log('hit!')
+                    projectiles.splice(index,1)
+                }
+            else{
+                projectile.update();
+            }
         }
+        else if(p2CharSelect == "redsamurai"){
+            if(projectile.position.x + projectile.radius >= 1024 || projectile.position.x + projectile.radius <= 0  ){
+                projectiles.splice(index,1)
+            }
+            else if(projectile.position.x + projectile.radius >= enemy.position.x + 10 
+                && projectile.position.x <= enemy.position.x + enemy.width
+                    &&projectile.position.y + projectile.radius >= enemy.position.y
+                    &&projectile.position.y <= enemy.position.y + enemy.height){
+                    console.log('hit!')
+                    projectiles.splice(index,1)
+                }
+            else{
+                projectile.update();
+            }
+        }
+        
 
        
     })
