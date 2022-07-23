@@ -80,7 +80,8 @@ window.addEventListener('keydown',(e)=>{
                 position:{
                     x:player.position.x + 60* player1turn  ,
                     y:player.position.y +100
-                }
+                },
+                pl:1,
                 
             }))
             
@@ -135,6 +136,17 @@ window.addEventListener('keydown',(e)=>{
                 },
             
             }))
+            break;
+        case '6':
+            grounds2.push(new Ground({
+                position:{
+                    x:enemy.position.x + - 60* player1turn  ,
+                    y:enemy.position.y + 100
+                },
+                pl:2,
+                
+            }))
+            
             break;
         
     }

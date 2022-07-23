@@ -232,9 +232,14 @@ function animate(){
         ropecol();
         groundcol();
     }
+
+
+
+
     if(p2CharSelect == 'redsamurai'){
         projectilecolp2();
         ropecolp2();
+        groundcolp2();
     }
 
 

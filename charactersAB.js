@@ -268,13 +268,14 @@ function ropecolp2(){
 
 
 class Ground{
-    constructor({position}){
+    constructor({position,pl}){
         this.position = position;
        
         this.width = 30;
         this.height = 60;
         this.counter = 0;
         this.counter2 = 0;
+        this.pl = pl;
     }
     draw(){
         c.fillStyle = 'purple';
@@ -288,9 +289,18 @@ class Ground{
         this.draw()
         this.counter ++;
 
-        if(this.counter % 40  == 0 && this.counter2 <3 ){
-
-            this.position.x += 50 * player1turn
+        if(this.counter % 40  == 0 && this.counter2 <3 ){  //---------------------------------------------- Work on this babyyyyyyyyyyyy
+        
+            if(this.pl == 1){
+                console.log(this.position.x)
+                this.position.x += 125 * player1turn;
+            }
+            else if(this.pl == 2){
+                this.position.x += -125 * player1turn
+            }
+           
+          
+            
             this.counter2 ++
             if(this.counter2 == 3){
                 this.height = 120;
@@ -300,7 +310,14 @@ class Ground{
             }
         }
         else if(this.counter == 200 && this.counter2 == 3 ){
-            grounds.splice(0,1);
+            if(this.pl == 1){
+                grounds.splice(0,1);
+            }
+            if(this.pl ==2){
+                grounds2.splice(0,1);
+            }
+
+            
         }
     }
 }
@@ -321,6 +338,22 @@ class Ground{
         })
     
  }
+
+ function groundcolp2(){
+    grounds2.forEach(ground =>{
+       
+        if(((ground.position.x + ground.width >= player.position.x  && ground.position.x  <= player.position.x + player.width)||
+        (ground.position.x <= player.position.x + player.width && ground.position.x >= player.position.x)) &&
+        ground.position.y  <= player.position.y + player.height ){
+            console.log('uauza')
+        }
+            
+        
+        ground.update();
+        })
+    
+ }
+ 
 
 
 function p1redSamurai(){
