@@ -195,8 +195,10 @@ class Ground{
 //--------------------------------Ground Collision ---------------------------------------//
  function groundcol(){
     grounds.forEach(ground =>{
-        if((ground.position.x + ground.width >= enemy.position.x  && ground.position.x  <= enemy.position.x + enemy.width)||
-        ground.position.x <= enemy.position.x + enemy.width && ground.position.x >= enemy.position){
+       
+        if(((ground.position.x + ground.width >= enemy.position.x  && ground.position.x  <= enemy.position.x + enemy.width)||
+        (ground.position.x <= enemy.position.x + enemy.width && ground.position.x >= enemy.position.x)) &&
+        ground.position.y  <= enemy.position.y + enemy.height ){
             console.log('uauza')
         }
             
