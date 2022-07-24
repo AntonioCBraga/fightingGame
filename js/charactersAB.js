@@ -396,11 +396,15 @@ class Ground{
 
 
 function p1redSamurai(){
-
+    projectilecolp1();
+    ropecol();
+    groundcol();
 }
 
 function p2redSamurai(){
-
+    projectilecolp2();
+    ropecolp2();
+    groundcolp2();
 }
 
 

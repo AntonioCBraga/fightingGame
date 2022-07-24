@@ -6,8 +6,10 @@ let ingame = 0; //change controlls from character select to fighting. to be upda
 
 let p1CharSelect = "redsamurai"
 let p2CharSelect = "redsamurai"
+let mapChoice = "oaklands"
 
 //-------------------------------------------------Variables-------------------------------------------//
+
 
 let timer = 60; // game timer
 let timerID  
