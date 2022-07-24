@@ -1,13 +1,16 @@
 
 let ingame = 0; //change controlls from character select to fighting. to be updated
 
+
+
+
 let p1CharSelect = "redsamurai"
 let p2CharSelect = "redsamurai"
 
-//----------------------------------------------------Movement Variables-------------------------------------------//
+//-------------------------------------------------Variables-------------------------------------------//
 
-
-
+let timer = 60; // game timer
+let timerID  
 
 let counterdjp1 = 0;   //doublejump player1 counter and may help with stun
 let counterdjp2 = 0;   //doublejump player2 counter and may help with stun

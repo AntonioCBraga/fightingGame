@@ -39,7 +39,6 @@ function aap1(){
      }
     else if(enemy.isAttacking){
         if(enemy.attackBox1.position.x - enemy.attackBox1.width <= player.position.x + player.width
-           
             && enemy.attackBox1.position.y + enemy.attackBox1.height >= player.position.y
             &&enemy.attackBox1.position.y <= player.position.y + player.height
             && enemy.isAttacking && player1turn == 1){
