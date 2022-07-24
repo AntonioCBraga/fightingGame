@@ -221,16 +221,31 @@ function animate(){
     }
 
     //---------------------------------------------player collision------------------------------------------------//
+  
+   
+    // if(player.position.x + player.width > enemy.position.x - 5 && player.position.x + player.width + enemy.position.x -3){
+        
+    //     //player.velocity.y = 0;
+    //     pl1WalkR = 0;
+    //     if(player.position.y + player.height <= enemy.position.y  ){
+    //         console.log('ayayay')
+    //         pl1WalkR = 1;
 
-    
-    if(player.position.x + player.width >= enemy.position.x - 5 ){
-        pl1WalkR = 0;
-        pl2WalkL = 0;
-    }
-    else if(player.position.x + player.width <= enemy.position.x ){
-        pl1WalkR = 1;
-        pl2WalkL = 1;
-    }
+    //         if(player.position.y + player.height <= enemy.position.y  && player.position.y + player.height >= enemy.position.y -1){
+    //             console.log('what')
+    //             player.velocity.y =0 ;
+    //         }
+    //     }
+        
+    //     // if(player.position.x > enemy.position.x + enemy.width){
+    //     //     player.velocity.y =
+    //     // }
+        
+    // }
+    // else if(player.position.x + player.width <= enemy.position.x -6  ){
+    //     pl1WalkR = 1;
+        
+    // }
    
     
    

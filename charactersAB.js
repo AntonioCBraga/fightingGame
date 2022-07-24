@@ -53,6 +53,8 @@ const projectiles2 = [] // projectile p2
 const ropes = [] //rope p1 attack
 const ropes2 = [] //rope p1 attack
 const grounds = []// ground attack
+let groundsc1 =0;
+let groundsc2 =0;
 const grounds2 = []// ground attackp2
 // ------------------------------------------------------------Red Samurai Q------------------------------------------------//
 
@@ -272,7 +274,7 @@ class Ground{
         this.position = position;
        
         this.width = 30;
-        this.height = 60;
+        this.height = 0;
         this.counter = 0;
         this.counter2 = 0;
         this.pl = pl;
@@ -287,36 +289,44 @@ class Ground{
     }
     update(){
         this.draw()
-        this.counter ++;
+        this.counter += 2;
+        if(this.pl == 1){
+            groundsc1 ++;
 
-        if(this.counter % 40  == 0 && this.counter2 <3 ){  //---------------------------------------------- Work on this babyyyyyyyyyyyy
-        
-            if(this.pl == 1){
-                console.log(this.position.x)
-                this.position.x += 125 * player1turn;
-            }
-            else if(this.pl == 2){
-                this.position.x += -125 * player1turn
-            }
-           
-          
-            
-            this.counter2 ++
-            if(this.counter2 == 3){
-                this.height = 120;
-                this.position.y -= 50
-                this.width = 50
-                
-            }
         }
-        else if(this.counter == 200 && this.counter2 == 3 ){
+        else if(this.pl == 2){
+            groundsc2 ++;
+        }
+        
+         //---------------------------------------------- Work on this babyyyyyyyyyyyy
+       
+            
+        this.height += 1.5;
+        this.position.y --;
+         
+        
+        if(this.counter == 100 ){
+            this.height =0;
+            this.position.y = 576;
+            this.counter2 ++;
+            this.counter = 0;
+            if(this.pl == 2){
+                this.position.x = player.position.x + 12 ;
+            }
             if(this.pl == 1){
-                grounds.splice(0,1);
+                this.position.x = enemy.position.x +12 ;
             }
-            if(this.pl ==2){
-                grounds2.splice(0,1);
-            }
+            
+            if(this.counter2 == 3 ){
+                if(this.pl == 1){
 
+                    grounds.splice(0,1);
+                }
+                if(this.pl ==2){
+                    grounds2.splice(0,1);
+                }
+            }
+            
             
         }
     }

@@ -78,8 +78,8 @@ window.addEventListener('keydown',(e)=>{
         case 'r':
             grounds.push(new Ground({
                 position:{
-                    x:player.position.x + 60* player1turn  ,
-                    y:player.position.y +100
+                    x:enemy.position.x + +12  ,
+                    y:576
                 },
                 pl:1,
                 
@@ -127,7 +127,7 @@ window.addEventListener('keydown',(e)=>{
         case '8':
             ropes2.push(new rope({ 
                 position:{
-                    x:enemy.position.x  +20,
+                    x:enemy.position.x  ,
                     y:enemy.position.y + 75
                 },
                 velocity:{
@@ -140,15 +140,14 @@ window.addEventListener('keydown',(e)=>{
         case '6':
             grounds2.push(new Ground({
                 position:{
-                    x:enemy.position.x + - 60* player1turn  ,
-                    y:enemy.position.y + 100
+                    x:player.position.x  + 12  ,
+                    y:576
                 },
                 pl:2,
+
                 
             }))
-            
             break;
-        
     }
 
 
