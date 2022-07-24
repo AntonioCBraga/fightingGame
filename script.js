@@ -26,7 +26,9 @@ class Sprite{
         this.color = color;
         this.isAttacking
         this.pl = pl;
+        this.health = 100;
     }
+        
 
     draw(){
         c.fillStyle = this.color;

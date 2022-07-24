@@ -65,7 +65,7 @@ window.addEventListener('keydown',(e)=>{
         case 'e':
             ropes.push(new rope({ 
                 position:{
-                    x:player.position.x + 40,
+                    x:player.position.x + 12,
                     y:player.position.y + 75
                 },
                 velocity:{
@@ -114,7 +114,7 @@ window.addEventListener('keydown',(e)=>{
             if(projectiles2.length <1 ){
                 projectiles2.push(new Projectile({
                     position: {
-                        x:enemy.position.x  + 20 ,
+                        x:enemy.position.x  + 12 ,
                         y:enemy.position.y + 50
                     },
                     velocity:{
