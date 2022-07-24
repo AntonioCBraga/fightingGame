@@ -79,7 +79,7 @@ window.addEventListener('keydown',(e)=>{
             grounds.push(new Ground({
                 position:{
                     x:enemy.position.x + +12  ,
-                    y:576
+                    y:576 - 90
                 },
                 pl:1,
                 
@@ -141,7 +141,7 @@ window.addEventListener('keydown',(e)=>{
             grounds2.push(new Ground({
                 position:{
                     x:player.position.x  + 12  ,
-                    y:576
+                    y:576 -90
                 },
                 pl:2,
 

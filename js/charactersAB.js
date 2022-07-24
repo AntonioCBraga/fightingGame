@@ -341,9 +341,11 @@ class Ground{
             this.counter = 0;
             if(this.pl == 2){
                 this.position.x = player.position.x + 12 ;
+                this.position.y = 576 - 90
             }
             if(this.pl == 1){
                 this.position.x = enemy.position.x +12 ;
+                this.position.y = 576 - 90
             }
             
             if(this.counter2 == 3 ){
