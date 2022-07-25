@@ -3,8 +3,8 @@ class Sprite{
         this.position = position
         this.width = 50;
         this.height = 150;
-        this.img = new Image()
-        this.img.src = imgSrc
+        this.image = new Image()
+        this.image.src = imgSrc
         this.scale = scale
         this.framesMax = framesMax
         this.framesCurrent =0;
@@ -14,15 +14,15 @@ class Sprite{
     
     }
     draw(){
-       c.drawImage(this.img,
-        this.framesCurrent * (this.img.width / this.framesMax),//from here
+       c.drawImage(this.image,
+        this.framesCurrent * (this.image.width / this.framesMax),//from here
         0,
-        this.img.width / this.framesMax,
-        this.img.height,//to here is animation code.
+        this.image.width / this.framesMax,
+        this.image.height,//to here is animation code.
         this.position.x - this.offset.x,
         this.position.y - this.offset.y,
-        (this.img.width /this.framesMax) * this.scale,
-        this.img.height * this.scale) 
+        (this.image.width /this.framesMax) * this.scale,
+        this.image.height * this.scale) 
         
         
     }
@@ -51,14 +51,14 @@ class Sprite{
 
 
 class Fighter extends Sprite{
-    constructor({position,velocity,color = 'red',pl,imgSrc,scale = 1,framesMax = 1,offset = {x:0, y:0}}){
+    constructor({position,velocity,color = 'red',pl,imgSrc,scale = 1,framesMax = 1,offset = {x:0, y:0},sprites}){
         super({
             position,
             imgSrc,
             scale,
             framesMax,
             offset,
-            sprites
+            
         })
 
         this.framesCurrent =0;
@@ -79,16 +79,61 @@ class Fighter extends Sprite{
         this.isAttacking
         this.pl = pl;
         this.health = 100;
+        this.sprites = sprites
 
-    }2.75
+
+        //------------------------Animation Machine
+        for (const sprite in this.sprites){
+            sprites[sprite].image = new Image()
+            sprites[sprite].image.src = sprites[sprite].imgSrc
+        }
+        console.log(this.sprites)
+    }//2.75 dunno what it was
+    switchSprite(sprite){
+        switch(sprite){
+            case "idle":
+                if(this.image !== this.sprites.idle.image){
+                    this.image = this.sprites.idle.image
+                    this.framesMax = this.sprites.idle.framesMax;
+                    this.framesCurrent = 0;
+                }
+                
+                break;
+            case "run":
+                if(this.image !== this.sprites.run.image){
+                    this.image = this.sprites.run.image
+                    this.framesMax = this.sprites.run.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "jump":
+                if(this.image !== this.sprites.jump.image){
+                    this.image = this.sprites.jump.image
+                    this.framesMax = this.sprites.jump.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "fall":
+                if(this.image !== this.sprites.fall.image){
+                    this.image = this.sprites.fall.image
+                    this.framesMax = this.sprites.fall.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+        }
+    }
     update(){
         this.draw()
         this.animateFrames();
         
         this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;
+        
+        //-------------------------------Gravity
         if(this.position.y + this.height + this.velocity.y >= canvas.height - 95 ){
             this.velocity.y = 0
+            this.position.y = 331
+
         }
         else{
             this.velocity.y += gravity;
@@ -144,6 +189,24 @@ const player = new Fighter({
     offset:{
         x:190,
         y:115
+    },
+    sprites:{
+        idle:{
+            imgSrc: './img/Red_Samurai/Sprites/idle.png',
+            framesMax:4
+        },
+        run:{
+            imgSrc: './img/Red_Samurai/Sprites/run.png',
+            framesMax:8
+        },
+        jump:{
+            imgSrc: './img/Red_Samurai/Sprites/jump.png',
+            framesMax:2
+        },
+        fall:{
+            imgSrc: './img/Red_Samurai/Sprites/fall.png',
+            framesMax:2
+        },
     }
 })
 

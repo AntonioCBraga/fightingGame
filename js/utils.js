@@ -26,11 +26,5 @@ function decreaseTimer(){
     }
     if(timer == 0){
         winner(timerID);
-    }
-    
-    
-    
-
-    
-    
+    }  
 }
