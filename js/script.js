@@ -30,7 +30,7 @@ function animate(){
     background.update();
     shop.update();
     player.update();
-    enemy.update();
+    //enemy.update();
     
     if(enemy.health < 0 || player.health < 0){
         winner(timerID);
@@ -65,7 +65,7 @@ function animate(){
     if(keys.w.pressed ){
         if( counterdjp1 == 1 || counterdjp1 ==3 && p1stunned !=1 ){
             
-            player.velocity.y = -12.8;
+            player.velocity.y = -11.2;
             counterdjp1 ++
         }
     }

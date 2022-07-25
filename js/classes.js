@@ -1,5 +1,5 @@
 class Sprite{
-    constructor({position,imgSrc,scale = 1,framesMax = 1}){
+    constructor({position,imgSrc,scale = 1,framesMax = 1, offset= {x:0, y:0}}){
         this.position = position
         this.width = 50;
         this.height = 150;
@@ -10,6 +10,7 @@ class Sprite{
         this.framesCurrent =0;
         this.framesElapsed = 0
         this.framesHold = 8
+        this.offset = offset
     
     }
     draw(){
@@ -18,16 +19,14 @@ class Sprite{
         0,
         this.img.width / this.framesMax,
         this.img.height,//to here is animation code.
-
-        this.position.x,
-        this.position.y,
+        this.position.x - this.offset.x,
+        this.position.y - this.offset.y,
         (this.img.width /this.framesMax) * this.scale,
         this.img.height * this.scale) 
         
         
     }
-    
-    update(){
+    animateFrames(){
         this.framesElapsed ++;
         if(this.framesElapsed % this.framesHold === 0){
             if(this.framesCurrent < this.framesMax - 1){
@@ -37,6 +36,9 @@ class Sprite{
                 this.framesCurrent = 0;
             }
         }
+    }
+    update(){
+        this.animateFrames();
         this.draw()
    
         
@@ -48,9 +50,20 @@ class Sprite{
 
 
 
-class Fighter{
-    constructor({position,velocity,color = 'red',pl}){
-        this.position = position
+class Fighter extends Sprite{
+    constructor({position,velocity,color = 'red',pl,imgSrc,scale = 1,framesMax = 1,offset = {x:0, y:0}}){
+        super({
+            position,
+            imgSrc,
+            scale,
+            framesMax,
+            offset,
+            sprites
+        })
+
+        this.framesCurrent =0;
+        this.framesElapsed = 0
+        this.framesHold = 8
         this.width = 50;
         this.velocity = velocity
         this.height = 150;
@@ -66,60 +79,11 @@ class Fighter{
         this.isAttacking
         this.pl = pl;
         this.health = 100;
-    }
-        
 
-    draw(){
-        c.fillStyle = this.color;
-        c.fillRect(this.position.x,this.position.y,this.width,this.height);
-        
-        //attackBox
-        c.fillStyle ='blue';
-        if(this.isAttacking && this.pl == 1){
-           
-            if(player1turn == 1){
-                c.fillRect(this.attackBox1.position.x,
-                    this.attackBox1.position.y,
-                    this.attackBox1.width,
-                    this.attackBox1.height)
-            }
-            else if(player1turn == -1){
-                c.fillRect(this.attackBox1.position.x - 50,
-                    this.attackBox1.position.y,
-                    this.attackBox1.width,
-                    this.attackBox1.height)
-                    
-            }
-        }
-        else if(this.isAttacking && this.pl == 2){
-            console.log(this.pl)
-            if(player1turn == -1){
-                c.fillRect(this.attackBox1.position.x,
-                    this.attackBox1.position.y,
-                    this.attackBox1.width,
-                    this.attackBox1.height)
-            }
-            else if(player1turn == 1){
-                c.fillRect(this.attackBox1.position.x - 50,
-                    this.attackBox1.position.y,
-                    this.attackBox1.width,
-                    this.attackBox1.height)
-                    
-            }
-        }
-        
-        
-     
-        
-
-       
-        
-
-    }
-    
+    }2.75
     update(){
         this.draw()
-
+        this.animateFrames();
         
         this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;
@@ -139,6 +103,8 @@ class Fighter{
     }
 
 }
+
+//---------------------------------------------------Background
 const background = new Sprite({
     position:{
         x:0,
@@ -146,6 +112,8 @@ const background = new Sprite({
     },
     imgSrc: './img/background.png'
 })
+
+
 const shop = new Sprite({
     position:{
         x:600,
@@ -156,7 +124,7 @@ const shop = new Sprite({
     framesMax: 6
 })
 
-
+//--------------------------------------------------Players
 
 
 
@@ -169,7 +137,14 @@ const player = new Fighter({
         x:0,
         y:0
     },
-    pl:1 
+    pl:1 ,
+    imgSrc: './img/Red_Samurai/Sprites/Idle.png',
+    scale:2.05,
+    framesMax: 4,
+    offset:{
+        x:190,
+        y:115
+    }
 })
 
 
@@ -189,8 +164,3 @@ const enemy = new Fighter({
 
 
 
-
-
-
-
-//------------------------------------------------p1 && p2------------------------------------------------//
