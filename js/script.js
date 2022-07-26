@@ -41,8 +41,17 @@ function animate(){
 
     // //---------------------------------------------Player Movement--------------------------------------------------------//
     //-------------------------------------------------And animations------------------------------------------------------//
+    //trying out cooldowns
+    if(coldred_samurai_Qp1 >= 180){
+        coldred_samurai_Qp1 = 0;
+    }
+    else if(coldred_samurai_Qp1 != 0){
+        coldred_samurai_Qp1 ++;
+        
+     
+    }
+
     
-    console.log(player.position.y)
     
     //------------------------tells what way players should be facing and send abilities.
     if(player.position.x <= enemy.position.x){

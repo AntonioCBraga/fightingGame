@@ -90,7 +90,7 @@ class Projectile{
         this.position = position;
         this.velocity = velocity;
         this.radius = 15;
-        this.counter =0;
+        
         this.width = 15;
         this.height = 15;
     }
@@ -106,8 +106,8 @@ class Projectile{
         this.draw()
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y 
-        this.counter += 1
-        console.log(this.counter)
+        
+        
     }
     
 }
@@ -118,6 +118,10 @@ function projectilecolp1(){
         if(p1CharSelect == "redsamurai"){  
             if(projectile.position.x + projectile.radius >= 1024 || projectile.position.x + projectile.radius <= 0  ){
                 console.log(projectiles)
+
+                projectiles.splice(index,1)
+            }
+            else if(projectile.position.y >= canvas.height - 95 || projectile.position.y <=200){
                 projectiles.splice(index,1)
             }
             else if(projectile.position.x + projectile.radius >= enemy.position.x + 10 
@@ -137,6 +141,55 @@ function projectilecolp1(){
        
     })
 }
+let coldred_samurai_Qp1 = 0
+function red_samurai_p1Q(){
+   if(coldred_samurai_Qp1 == 0){
+        coldred_samurai_Qp1 ++;
+        if(projectiles.length <3 ){
+            projectiles.push(new Projectile({
+                position: {
+                    x:player.position.x  + 20 ,
+                    y:player.position.y + 50
+                },
+                velocity:{
+                x: 7 * player1turn,
+                y:0 
+                }
+            })) 
+        }
+        if(projectiles.length <3 ){
+            projectiles.push(new Projectile({
+                position: {
+                    x:player.position.x  + 20 ,
+                    y:player.position.y + 50
+                },
+                velocity:{
+                x: 6.5 * player1turn,
+                y:2 * player1turn
+                }
+            })) 
+        }
+        if(projectiles.length <3 ){
+            projectiles.push(new Projectile({
+                position: {
+                    x:player.position.x  + 20 ,
+                    y:player.position.y + 50
+                },
+                velocity:{
+                x: 6.5 * player1turn,
+                y:-2 * player1turn
+                }
+            })) 
+        }
+    }
+    
+
+}
+
+
+
+
+
 //------------------------- PJ Colisio--P2------------------//
 function projectilecolp2(){
     projectiles2.forEach((projectile,index )=> {

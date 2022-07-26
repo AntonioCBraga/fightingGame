@@ -45,22 +45,11 @@ window.addEventListener('keydown',(e)=>{
             counterdjp1 ++
             break;
         case ' ':
-            console.log(ropes.lenght)
+            player.switchSprite('attack');
             player.attack()
             break;
         case 'q':
-            if(projectiles.length <1 ){
-                projectiles.push(new Projectile({
-                    position: {
-                        x:player.position.x  + 20 ,
-                        y:player.position.y + 50
-                    },
-                    velocity:{
-                       x: 7 * player1turn,
-                       y:0 
-                    }
-                })) 
-            }
+            red_samurai_p1Q();
             break;
         case 'e':
             ropes.push(new rope({ 

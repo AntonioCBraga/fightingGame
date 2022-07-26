@@ -87,9 +87,13 @@ class Fighter extends Sprite{
             sprites[sprite].image = new Image()
             sprites[sprite].image.src = sprites[sprite].imgSrc
         }
-        console.log(this.sprites)
+        
     }//2.75 dunno what it was
     switchSprite(sprite){
+        if(this.image === this.sprites.attack.image 
+            && this.framesCurrent < this.sprites.attack.framesMax -1) return
+        
+        
         switch(sprite){
             case "idle":
                 if(this.image !== this.sprites.idle.image){
@@ -117,6 +121,13 @@ class Fighter extends Sprite{
                 if(this.image !== this.sprites.fall.image){
                     this.image = this.sprites.fall.image
                     this.framesMax = this.sprites.fall.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+                case "attack":
+                if(this.image !== this.sprites.attack.image){
+                    this.image = this.sprites.attack.image
+                    this.framesMax = this.sprites.attack.framesMax;
                     this.framesCurrent = 0;
                 }
                 break;
@@ -206,6 +217,10 @@ const player = new Fighter({
         fall:{
             imgSrc: './img/Red_Samurai/Sprites/fall.png',
             framesMax:2
+        },
+        attack:{
+            imgSrc: './img/Red_Samurai/Sprites/attack.png',
+            framesMax:4
         },
     }
 })
