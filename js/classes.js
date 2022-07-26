@@ -110,6 +110,12 @@ class Fighter extends Sprite{
         else if(this.image === this.sprites.abilityQL.image 
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
             && player1turn == -1) return
+        else if(this.image === this.sprites.abilityQR.image 
+            && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
+            && player1turn == -1 && pl ==2) return
+        else if(this.image === this.sprites.abilityQL.image 
+            && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
+            && player1turn == 1 && p2 ==2) return
     
         
         

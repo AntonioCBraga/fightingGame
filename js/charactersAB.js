@@ -1,6 +1,6 @@
 //General p1 AA
-let p1AACD =0;
-let p2AACD =0;
+let p1AAcounter =0;
+let p2AAcounter =0;
 
 
 
