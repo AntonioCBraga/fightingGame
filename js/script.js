@@ -65,19 +65,22 @@ function animate(){
 
     if(keys.a.pressed && player.lastKey ==='a' && p1move ==1 && p1stunned !=1 && pl1WalkL == 1){
         if(player.position.x >= 0){
-            player.switchSprite('run');
+            animationTurns(player,'run');
             player.velocity.x = -5;
         }
        
     }
     else if(keys.d.pressed && player.lastKey ==='d' && p1move ==1 && p1stunned !=1 && pl1WalkR ==1){
         if(player.position.x  + player.width <= 1024){
-            player.switchSprite('run');
+            
+            animationTurns(player,'run');
             player.velocity.x = 5;
         }
     }  
     else{
-        player.switchSprite('idle');
+        
+        animationTurns(player,'idle');
+       
     }
 
 
@@ -90,10 +93,14 @@ function animate(){
     }
     //--------------------------------jump animation
     if(player.velocity.y < 0){
-        player.switchSprite('jump');
+
+        
+        animationTurns(player,'jump');
+
+
     }
     else if(player.velocity.y > 0 ){
-        player.switchSprite('fall');
+        animationTurns(player,'fall');
     }
 
     if(player.position.y + player.height + player.velocity.y >= canvas.height- 95){

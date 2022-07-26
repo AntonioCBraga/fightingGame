@@ -45,10 +45,11 @@ window.addEventListener('keydown',(e)=>{
             counterdjp1 ++
             break;
         case ' ':
-            player.switchSprite('attack');
+            animationTurns(player,'attack');
             player.attack()
             break;
         case 'q':
+            animationTurns(player,'abilityQ')
             red_samurai_p1Q();
             break;
         case 'e':

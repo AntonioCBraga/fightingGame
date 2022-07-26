@@ -1,3 +1,5 @@
+
+//Display game results Live
 function winner(timerId){
     clearTimeout(timerId);
     document.querySelector('#displayText').style.visibility = 'visible';
@@ -17,7 +19,7 @@ function winner(timerId){
 
 
 
-
+//Game timer
 function decreaseTimer(){
     timerID =setTimeout(decreaseTimer,1000)
     if(timer > 0){
@@ -27,4 +29,26 @@ function decreaseTimer(){
     if(timer == 0){
         winner(timerID);
     }  
+}
+
+// Takes fighterName and animationName to decide
+//wich sided animation to use
+function animationTurns(fighterName,animationName){
+    if(fighterName.pl == 1){
+        if(player1turn == 1){
+            
+            player.switchSprite(animationName + 'R');
+        }
+        else if(player1turn == -1){
+            player.switchSprite(animationName + 'L');
+        }
+    }
+   else {
+        if(player1turn == -1){
+            player.switchSprite(animationName + 'R');
+        }
+        else if(player1turn == 1){
+            player.switchSprite(animationName + 'L');
+        }
+   }
 }

@@ -89,48 +89,110 @@ class Fighter extends Sprite{
         }
         
     }//2.75 dunno what it was
+    //-------------------------------------ANIMATIONS---------------------------------//
     switchSprite(sprite){
-        if(this.image === this.sprites.attack.image 
-            && this.framesCurrent < this.sprites.attack.framesMax -1) return
+        if(this.image === this.sprites.attackR.image 
+            && this.framesCurrent < this.sprites.attackR.framesMax -1 
+            && player1turn ==1) return
+        else if(this.image === this.sprites.attackL.image 
+            && this.framesCurrent < this.sprites.attackL.framesMax -1 
+            && player1turn == -1) return
+        else if(this.image === this.sprites.abilityQR.image 
+            && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
+            && player1turn == 1) return
+        else if(this.image === this.sprites.abilityQL.image 
+            && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
+            && player1turn == -1) return
+    
         
         
         switch(sprite){
-            case "idle":
-                if(this.image !== this.sprites.idle.image){
-                    this.image = this.sprites.idle.image
-                    this.framesMax = this.sprites.idle.framesMax;
+            case "idleR":
+                if(this.image !== this.sprites.idleR.image){
+                    this.image = this.sprites.idleR.image
+                    this.framesMax = this.sprites.idleR.framesMax;
                     this.framesCurrent = 0;
                 }
+                break;
+            case "idleL":
+                if(this.image !== this.sprites.idleL.image){
+                    this.image = this.sprites.idleL.image
+                    this.framesMax = this.sprites.idleL.framesMax;
+                    this.framesCurrent = 0;
+                }
+            
+            break;
+            case "runR":
+                if(this.image !== this.sprites.runR.image){
+                    this.image = this.sprites.runR.image
+                    this.framesMax = this.sprites.runR.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "runL":
+                if(this.image !== this.sprites.runL.image){
+                    this.image = this.sprites.runL.image
+                    this.framesMax = this.sprites.runL.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "jumpR":
+                if(this.image !== this.sprites.jumpR.image){
+                    this.image = this.sprites.jumpR.image
+                    this.framesMax = this.sprites.jumpR.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "jumpL":
+                if(this.image !== this.sprites.jumpL.image){
+                    this.image = this.sprites.jumpL.image
+                    this.framesMax = this.sprites.jumpL.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "fallR":
+                if(this.image !== this.sprites.fallR.image){
+                    this.image = this.sprites.fallR.image
+                    this.framesMax = this.sprites.fallR.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "fallL":
+                if(this.image !== this.sprites.fallL.image){
+                    this.image = this.sprites.fallL.image
+                    this.framesMax = this.sprites.fallL.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+                case "attackR":
+                if(this.image !== this.sprites.attackR.image){
+                    this.image = this.sprites.attackR.image
+                    this.framesMax = this.sprites.attackR.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "attackL":
+                if(this.image !== this.sprites.attackL.image){
+                    this.image = this.sprites.attackL.image
+                    this.framesMax = this.sprites.attackL.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "abilityQR":
+                if(this.image !== this.sprites.abilityQR.image){
+                    this.image = this.sprites.abilityQR.image
+                    this.framesMax = this.sprites.abilityQR.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "abilityQL":
+                if(this.image !== this.sprites.abilityQL.image){
+                    this.image = this.sprites.abilityQL.image
+                    this.framesMax = this.sprites.abilityQL.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
                 
-                break;
-            case "run":
-                if(this.image !== this.sprites.run.image){
-                    this.image = this.sprites.run.image
-                    this.framesMax = this.sprites.run.framesMax;
-                    this.framesCurrent = 0;
-                }
-                break;
-            case "jump":
-                if(this.image !== this.sprites.jump.image){
-                    this.image = this.sprites.jump.image
-                    this.framesMax = this.sprites.jump.framesMax;
-                    this.framesCurrent = 0;
-                }
-                break;
-            case "fall":
-                if(this.image !== this.sprites.fall.image){
-                    this.image = this.sprites.fall.image
-                    this.framesMax = this.sprites.fall.framesMax;
-                    this.framesCurrent = 0;
-                }
-                break;
-                case "attack":
-                if(this.image !== this.sprites.attack.image){
-                    this.image = this.sprites.attack.image
-                    this.framesMax = this.sprites.attack.framesMax;
-                    this.framesCurrent = 0;
-                }
-                break;
         }
     }
     update(){
@@ -182,6 +244,8 @@ const shop = new Sprite({
 
 //--------------------------------------------------Players
 
+// Right = R = the character is turned to the rightSide
+//Left = L = the character is turned to the rightSide
 
 
 const player = new Fighter({
@@ -194,7 +258,7 @@ const player = new Fighter({
         y:0
     },
     pl:1 ,
-    imgSrc: './img/Red_Samurai/Sprites/Idle.png',
+    imgSrc: './img/Red_Samurai/Sprites/animationsR/idle.png',
     scale:2.05,
     framesMax: 4,
     offset:{
@@ -202,26 +266,55 @@ const player = new Fighter({
         y:115
     },
     sprites:{
-        idle:{
-            imgSrc: './img/Red_Samurai/Sprites/idle.png',
+        idleR:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsR/idle.png',
             framesMax:4
         },
-        run:{
-            imgSrc: './img/Red_Samurai/Sprites/run.png',
+        idleL:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsL/idleL.png',
+            framesMax:4
+        },
+        runR:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsR/runForw.png',
             framesMax:8
         },
-        jump:{
-            imgSrc: './img/Red_Samurai/Sprites/jump.png',
+        runL:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsL/runForwL.png',
+            framesMax:8
+        },
+
+        jumpR:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsR/jump.png',
             framesMax:2
         },
-        fall:{
-            imgSrc: './img/Red_Samurai/Sprites/fall.png',
+        jumpL:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsL/jumpL.png',
             framesMax:2
         },
-        attack:{
-            imgSrc: './img/Red_Samurai/Sprites/attack.png',
+        fallR:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsR/fall.png',
+            framesMax:2
+        },
+        fallL:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsL/fallL.png',
+            framesMax:2
+        },
+        attackR:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsR/attack.png',
+            framesMax:4
+        },   
+        attackL:{
+            imgSrc: './img/Red_Samurai/Sprites/animationsL/attackL.png',
             framesMax:4
         },
+        abilityQR :{
+            imgSrc: './img/Red_Samurai/Sprites/abilityQ/throw2.png',
+            framesMax:5
+        },
+        abilityQL :{
+            imgSrc: './img/Red_Samurai/Sprites/abilityQ/throwL.png',
+            framesMax:5
+        }
     }
 })
 
