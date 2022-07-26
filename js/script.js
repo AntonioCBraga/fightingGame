@@ -146,7 +146,7 @@ function animate(){
 
 
     }
-    else if(player.velocity.y > 0 ){
+    else if(enemy.velocity.y > 0 ){
         animationTurns(enemy,'fall');
     }
   
