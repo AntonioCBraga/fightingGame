@@ -31,7 +31,7 @@ function animate(){
     background.update();
     shop.update();
     player.update();
-    //enemy.update();
+    enemy.update();
     
     if(enemy.health < 0 || player.health < 0){
         winner(timerID);
@@ -116,13 +116,18 @@ function animate(){
 
     if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1 && p2stunned !=1 && pl2WalkL == 1){
         if(enemy.position.x >= 0){
+            animationTurns(enemy,'run');
             enemy.velocity.x = -5;
         }
     }
     else if(keys.ArrowRight.pressed && enemy.lastKey ==='ArrowRight' && p2move ==1 && p2stunned !=1 && pl2WalkR == 1){
         if(enemy.position.x + enemy.width <= 1024){
+            animationTurns(enemy,'run');
             enemy.velocity.x = 5;
         }
+    }
+    else{
+        animationTurns(enemy,'idle');
     }
 
 
@@ -134,7 +139,16 @@ function animate(){
         }
     }
 
+    if(enemy.velocity.y < 0){
 
+        
+        animationTurns(enemy,'jump');
+
+
+    }
+    else if(player.velocity.y > 0 ){
+        animationTurns(enemy,'fall');
+    }
   
     if(enemy.position.y + enemy.height + enemy.velocity.y >= canvas.height- 95){
        
@@ -142,40 +156,6 @@ function animate(){
     }
 
     //---------------------------------------------player collision------------------------------------------------//
-  
-   
-    // if(player.position.x + player.width > enemy.position.x - 5 && player.position.x + player.width + enemy.position.x -3){
-        
-    //     //player.velocity.y = 0;
-    //     pl1WalkR = 0;
-    //     if(player.position.y + player.height <= enemy.position.y  ){
-    //         console.log('ayayay')
-    //         pl1WalkR = 1;
-
-    //         if(player.position.y + player.height <= enemy.position.y  && player.position.y + player.height >= enemy.position.y -1){
-    //             console.log('what')
-    //             player.velocity.y =0 ;
-    //         }
-    //     }
-        
-    //     // if(player.position.x > enemy.position.x + enemy.width){
-    //     //     player.velocity.y =
-    //     // }
-        
-    // }
-    // else if(player.position.x + player.width <= enemy.position.x -6  ){
-    //     pl1WalkR = 1;
-        
-    // }
-   
-    
-   
-
-
-
-
-
-
 
    
     //----------------------------------------------And attacks doing stuff----------------------------------------//

@@ -1,11 +1,12 @@
 //General p1 AA
-let p1AAcounter =0;
-let p2AAcounter =0;
+let p1AACD =0;
+let p2AACD =0;
 
 
 
 function aap1(){
-     if(player.isAttacking){
+     
+    if(player.isAttacking){
         if(player.attackBox1.position.x + player.attackBox1.width >= enemy.position.x
             && player.attackBox1.position.x <= enemy.position.x + enemy.width
             && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
@@ -185,6 +186,8 @@ function red_samurai_p1Q(){
     
 
 }
+
+
 
 
 

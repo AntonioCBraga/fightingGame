@@ -60,7 +60,7 @@ class Fighter extends Sprite{
             offset,
             
         })
-
+        
         this.framesCurrent =0;
         this.framesElapsed = 0
         this.framesHold = 8
@@ -70,6 +70,7 @@ class Fighter extends Sprite{
         this.lastKey
         
         this.attackBox1 ={
+            
             position: this.position,
             width: 100,
             height: 50
@@ -81,7 +82,7 @@ class Fighter extends Sprite{
         this.health = 100;
         this.sprites = sprites
 
-
+        
         //------------------------Animation Machine
         for (const sprite in this.sprites){
             sprites[sprite].image = new Image()
@@ -93,10 +94,16 @@ class Fighter extends Sprite{
     switchSprite(sprite){
         if(this.image === this.sprites.attackR.image 
             && this.framesCurrent < this.sprites.attackR.framesMax -1 
-            && player1turn ==1) return
+            && player1turn ==1) {return}
+        else if(this.image === this.sprites.attackR.image 
+            && this.framesCurrent < this.sprites.attackR.framesMax -1 
+            && player1turn ==-1 && this.pl ==2) {return}
         else if(this.image === this.sprites.attackL.image 
             && this.framesCurrent < this.sprites.attackL.framesMax -1 
-            && player1turn == -1) return
+            && player1turn == -1) {return}
+        else if(this.image === this.sprites.attackL.image 
+                && this.framesCurrent < this.sprites.attackL.framesMax -1 
+                && player1turn == 1&& this.pl ==2) {return}
         else if(this.image === this.sprites.abilityQR.image 
             && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
             && player1turn == 1) return
@@ -214,6 +221,13 @@ class Fighter extends Sprite{
 
     }
     attack(){
+        console.log(this.pl)
+        if(this.pl == 1){
+            animationTurns(player,'attack');
+        }
+        else{
+            animationTurns(enemy,'attack');
+        }
         this.isAttacking = true;
         setTimeout(()=>{
             this.isAttacking = false;
@@ -248,90 +262,7 @@ const shop = new Sprite({
 //Left = L = the character is turned to the rightSide
 
 
-const player = new Fighter({
-    position:{
-    x:0,
-    y:0
-    },
-    velocity:{
-        x:0,
-        y:0
-    },
-    pl:1 ,
-    imgSrc: './img/Red_Samurai/Sprites/animationsR/idle.png',
-    scale:2.05,
-    framesMax: 4,
-    offset:{
-        x:190,
-        y:115
-    },
-    sprites:{
-        idleR:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsR/idle.png',
-            framesMax:4
-        },
-        idleL:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsL/idleL.png',
-            framesMax:4
-        },
-        runR:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsR/runForw.png',
-            framesMax:8
-        },
-        runL:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsL/runForwL.png',
-            framesMax:8
-        },
 
-        jumpR:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsR/jump.png',
-            framesMax:2
-        },
-        jumpL:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsL/jumpL.png',
-            framesMax:2
-        },
-        fallR:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsR/fall.png',
-            framesMax:2
-        },
-        fallL:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsL/fallL.png',
-            framesMax:2
-        },
-        attackR:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsR/attack.png',
-            framesMax:4
-        },   
-        attackL:{
-            imgSrc: './img/Red_Samurai/Sprites/animationsL/attackL.png',
-            framesMax:4
-        },
-        abilityQR :{
-            imgSrc: './img/Red_Samurai/Sprites/abilityQ/throw2.png',
-            framesMax:5
-        },
-        abilityQL :{
-            imgSrc: './img/Red_Samurai/Sprites/abilityQ/throwL.png',
-            framesMax:5
-        }
-    }
-})
-
-
-
-const enemy = new Fighter({
-    position:{
-    x:400,
-    y:100
-    },
-    velocity:{
-        x:0,
-        y:0
-    },
-    color: 'blue',
-    pl:2 
-})
 
 
 

@@ -45,10 +45,10 @@ function animationTurns(fighterName,animationName){
     }
    else {
         if(player1turn == -1){
-            player.switchSprite(animationName + 'R');
+            enemy.switchSprite(animationName + 'R');
         }
         else if(player1turn == 1){
-            player.switchSprite(animationName + 'L');
+            enemy.switchSprite(animationName + 'L');
         }
    }
 }

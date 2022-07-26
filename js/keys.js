@@ -45,7 +45,6 @@ window.addEventListener('keydown',(e)=>{
             counterdjp1 ++
             break;
         case ' ':
-            animationTurns(player,'attack');
             player.attack()
             break;
         case 'q':
@@ -96,23 +95,12 @@ window.addEventListener('keydown',(e)=>{
         }
         case '0': {
             
-            
             enemy.attack()
             break;
         }
         case '4':
-            if(projectiles2.length <1 ){
-                projectiles2.push(new Projectile({
-                    position: {
-                        x:enemy.position.x  + 12 ,
-                        y:enemy.position.y + 50
-                    },
-                    velocity:{
-                       x: -7 * player1turn,
-                       y:0 
-                    }
-                })) 
-            }
+            animationTurns(enemy,'abilityQ')
+            red_samurai_p1Q();
             break;
         case '8':
             ropes2.push(new rope({ 
