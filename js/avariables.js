@@ -6,7 +6,14 @@ let ingame = 0; //change controlls from character select to fighting. to be upda
 
 let p1CharSelect = "redsamurai"
 let p2CharSelect = "redsamurai"
-let mapChoice = "oaklands"
+
+let mapChoice = 3 //change it to change map
+let mapGameEnd = 0 //at game end changes to zero and allows to re-do map physics
+
+
+let distance2Ground = 0; // to reset double jump
+let playerMinHeight = 0;
+let mapChecker = 0;
 
 //-------------------------------------------------Variables-------------------------------------------//
 

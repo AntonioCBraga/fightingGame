@@ -28,8 +28,10 @@ function animate(){
 
     //-------------------------------------------------Updates--------------------------------------------------------//
 
-    background.update();
-    shop.update();
+
+    //-----------------------------------------Maps-------------------------------------------//
+    mapUpdate();
+
     player.update();
     enemy.update();
     
@@ -86,7 +88,7 @@ function animate(){
 
     if(keys.w.pressed ){
         if( counterdjp1 == 1 || counterdjp1 ==3 && p1stunned !=1 ){
-            
+            console.log('hello')
             player.velocity.y = -11.2;
             counterdjp1 ++
         }
@@ -103,8 +105,8 @@ function animate(){
         animationTurns(player,'fall');
     }
 
-    if(player.position.y + player.height + player.velocity.y >= canvas.height- 95){
-       
+    if(player.position.y + player.height + player.velocity.y >= distance2Ground){
+        
         counterdjp1 = 0;
     }
 
@@ -149,8 +151,8 @@ function animate(){
     else if(enemy.velocity.y > 0 ){
         animationTurns(enemy,'fall');
     }
-  
-    if(enemy.position.y + enemy.height + enemy.velocity.y >= canvas.height- 95){
+    console.log(player.position.y)
+    if(enemy.position.y + enemy.height + enemy.velocity.y >= playerMinHeight){
        
         counterdjp2 = 0;
     }

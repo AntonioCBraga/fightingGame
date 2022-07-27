@@ -216,9 +216,9 @@ class Fighter extends Sprite{
         this.position.y += this.velocity.y;
         
         //-------------------------------Gravity
-        if(this.position.y + this.height + this.velocity.y >= canvas.height - 95 ){
+        if(this.position.y + this.height + this.velocity.y >= distance2Ground ){
             this.velocity.y = 0
-            this.position.y = 331
+            this.position.y = playerMinHeight;
 
         }
         else{

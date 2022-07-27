@@ -52,3 +52,43 @@ function animationTurns(fighterName,animationName){
         }
    }
 }
+
+
+function mapUpdate(){
+    
+    if(mapChoice == 0){
+        DefaultMap.update();
+        shop.update();
+        if(mapGameEnd == 0){
+                
+            distance2Ground = canvas.height - 95;
+            playerMinHeight = 331;
+            mapGameEnd ++
+        }
+
+    }
+    else if(mapChoice ==1){
+        LesslovedMap.update();
+        distance2Ground = canvas.height - 49;
+        playerMinHeight = 380;
+        
+    }
+    else if(mapChoice == 2){
+        Stars.update();
+           if(mapGameEnd == 0){
+                
+            distance2Ground = canvas.height - 95;
+            playerMinHeight = 331;
+            mapGameEnd ++
+        }
+    }
+    else if(mapChoice == 3){
+        Waterfall.update();
+        if(mapGameEnd == 0){
+                
+            distance2Ground = canvas.height - 95;
+            playerMinHeight = 331;
+            mapGameEnd ++
+        }
+    }
+}
