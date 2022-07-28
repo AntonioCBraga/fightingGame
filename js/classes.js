@@ -1,8 +1,9 @@
 class Sprite{
-    constructor({position,imgSrc,scale = 1,framesMax = 1, offset= {x:0, y:0}}){
+    constructor({position,velocity = {x:0,y:0},width = 50,height = 150 ,imgSrc,scale = 1,framesMax = 1, offset= {x:0, y:0}}){
         this.position = position
-        this.width = 50;
-        this.height = 150;
+        this.velocity = velocity
+        this.width = width;
+        this.height = height;
         this.image = new Image()
         this.image.src = imgSrc
         this.scale = scale
