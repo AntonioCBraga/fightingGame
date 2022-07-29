@@ -90,7 +90,7 @@ class Projectile{
     constructor({position,velocity}){
         this.position = position;
         this.velocity = velocity;
-        this.radius = 15;
+        
         
         this.width = 15;
         this.height = 15;
@@ -114,6 +114,8 @@ class Projectile{
 }
 
 //------------------------- PJ Colision--P1------------------//
+
+
 function projectilecolp1(){
     projectiles.forEach((projectile,index )=> {
         if(p1CharSelect == "redsamurai"){  
@@ -122,7 +124,7 @@ function projectilecolp1(){
 
                 projectiles.splice(index,1)
             }
-            else if(projectile.position.y >= canvas.height - 95 || projectile.position.y <=200){
+            else if(projectile.position.y >= distance2Ground || projectile.position.y <=200){
                 projectiles.splice(index,1)
             }
             else if(projectile.position.x + projectile.radius >= enemy.position.x + 10 
@@ -457,6 +459,7 @@ function p1redSamurai(){
     projectilecolp1();
     ropecol();
     groundcol();
+    
 }
 
 function p2redSamurai(){

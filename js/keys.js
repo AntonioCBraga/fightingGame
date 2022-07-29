@@ -49,7 +49,10 @@ window.addEventListener('keydown',(e)=>{
             break;
         case 'q':
             animationTurns(player,'abilityQ')
-            red_samurai_p1Q();
+            
+            rs_p1Q();
+            
+            
             break;
         case 'e':
             ropes.push(new rope({ 

@@ -39,7 +39,7 @@ function animate(){
         winner(timerID);
     }
 
-
+   
 
     // //---------------------------------------------Player Movement--------------------------------------------------------//
     //-------------------------------------------------And animations------------------------------------------------------//
@@ -53,8 +53,6 @@ function animate(){
      
     }
 
-    
-    
     //------------------------tells what way players should be facing and send abilities.
     if(player.position.x <= enemy.position.x){
         player1turn = 1;
@@ -62,6 +60,9 @@ function animate(){
     else{
         player1turn = -1;
     }
+
+    
+
 
     player.velocity.x = 0;
 
@@ -113,7 +114,19 @@ function animate(){
     
     
     //------------------------------------------Enemy Movement------------------------------------------------//
+    //Tells what side enemy should be facing
+    
     enemy.velocity.x = 0;
+
+    if(player.position.x <= enemy.position.x){
+        player2turn = -1;
+    }
+    else{
+        player1turn = 1;
+    }
+
+
+
 
 
     if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1 && p2stunned !=1 && pl2WalkL == 1){
@@ -151,7 +164,7 @@ function animate(){
     else if(enemy.velocity.y > 0 ){
         animationTurns(enemy,'fall');
     }
-    console.log(player.position.y)
+ 
     if(enemy.position.y + enemy.height + enemy.velocity.y >= playerMinHeight){
        
         counterdjp2 = 0;
@@ -168,6 +181,10 @@ function animate(){
     //--------------------------------Character Select -----------------------------//
     if(p1CharSelect == 'redsamurai'){
         p1redSamurai();
+
+
+        p1RS();
+
     }
 
 
@@ -175,6 +192,8 @@ function animate(){
 
     if(p2CharSelect == 'redsamurai'){
         p2redSamurai()
+
+    
     }
 
 

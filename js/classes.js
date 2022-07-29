@@ -1,5 +1,5 @@
 class Sprite{
-    constructor({position,velocity = {x:0,y:0},width = 50,height = 150 ,imgSrc,scale = 1,framesMax = 1, offset= {x:0, y:0}}){
+    constructor({position,velocity = {x:0,y:0},framesHold = 8,ColAnim = 0,width = 50,height = 150 ,imgSrc,scale = 1,framesMax = 1, offset= {x:0, y:0}}){
         this.position = position
         this.velocity = velocity
         this.width = width;
@@ -10,9 +10,16 @@ class Sprite{
         this.framesMax = framesMax
         this.framesCurrent =0;
         this.framesElapsed = 0
-        this.framesHold = 8
+        this.framesHold = framesHold
         this.offset = offset
-    
+        this.ColAnim = ColAnim
+    }
+    drawe(){
+        if(this.ColAnim ==1){
+            c.fillStyle = 'red';
+            c.fillRect(this.position.x,this.position.y,this.width,this.height);
+            c.fill();
+        }
     }
     draw(){
        c.drawImage(this.image,
@@ -40,8 +47,10 @@ class Sprite{
     }
     update(){
         this.animateFrames();
-        this.draw()
-   
+        this.draw();
+        this.drawe();
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
         
 
     }
