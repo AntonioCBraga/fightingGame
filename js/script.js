@@ -165,7 +165,7 @@ function animate(){
         animationTurns(enemy,'fall');
     }
  
-    if(enemy.position.y + enemy.height + enemy.velocity.y >= playerMinHeight){
+    if(enemy.position.y + enemy.height + enemy.velocity.y >= distance2Ground){
        
         counterdjp2 = 0;
     }

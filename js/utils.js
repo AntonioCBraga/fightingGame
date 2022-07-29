@@ -55,10 +55,11 @@ function animationTurns(fighterName,animationName){
 
 
 function mapUpdate(){
-    
+   
     if(mapChoice == 0){
         DefaultMap.update();
         shop.update();
+        
         if(mapGameEnd == 0){
                 
             distance2Ground = canvas.height - 95;
@@ -91,4 +92,24 @@ function mapUpdate(){
             mapGameEnd ++
         }
     }
+}
+
+
+
+function collision(projectile,fighter){
+    if(projectile.position.x + projectile.width >= fighter.position.x + 10 
+    && projectile.position.x <= fighter.position.x + fighter.width
+    &&projectile.position.y + projectile.height >= fighter.position.y + 40
+    &&projectile.position.y <= fighter.position.y + fighter.height){
+        return true;
+    }
+    return false
+}
+
+
+
+function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
 }

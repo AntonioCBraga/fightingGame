@@ -55,17 +55,9 @@ window.addEventListener('keydown',(e)=>{
             
             break;
         case 'e':
-            ropes.push(new rope({ 
-                position:{
-                    x:player.position.x + 12,
-                    y:player.position.y + 75
-                },
-                velocity:{
-                    x: 5 * player1turn,
-                    y:0
-                },
-            
-            }))
+
+            rs_E(player,player1turn,p1E1,p1E2)
+        
             break;
         case 'r':
             grounds.push(new Ground({
