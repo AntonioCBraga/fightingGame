@@ -20,11 +20,21 @@ function Q_col(arr,fighter){
                 && projectile.position.x <= fighter.position.x + fighter.width
                     &&projectile.position.y + projectile.height >= fighter.position.y + 40
                     &&projectile.position.y <= fighter.position.y + fighter.height ){
-                    console.log('hit!')
-                    p1Q.splice(index,1)
-                    
-                    enemy.health -= 10;
-                    document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                        
+                       
+                        arr.splice(index,1)
+                        
+                       
+                        if(fighter === enemy){
+                            enemy.health -= 10;
+                            document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                        }
+                        else{
+                            console.log('hit')
+                            player.health -= 10;
+                            document.querySelector('#playerHealth').style.width = player.health +'%'
+                        }
+
                 }
             else{
                 projectile.update();
@@ -113,6 +123,6 @@ function p1RS(){
 }
 
 
-// function p2RS(){
-//     Q_col()
-// }
+ function p2RS(){
+    Q_col(p2Q,player)
+ }

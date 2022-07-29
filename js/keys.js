@@ -103,7 +103,7 @@ window.addEventListener('keydown',(e)=>{
         }
         case '4':
             animationTurns(enemy,'abilityQ')
-            red_samurai_p1Q();
+            rs_Q(enemy,player2turn,p2Q)
             break;
         case '8':
             ropes2.push(new rope({ 

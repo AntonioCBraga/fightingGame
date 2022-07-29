@@ -193,7 +193,7 @@ function animate(){
     if(p2CharSelect == 'redsamurai'){
         p2redSamurai()
 
-    
+        p2RS();
     }
 
 
