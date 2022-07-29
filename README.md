@@ -15,6 +15,12 @@
 4.Add movement stopping when attacking <br/>
 5.Finish and polish character1 collisions and stuff<br />
 6.Deal with collisions properly <br />
-7.Do a chroma version of the Hero<br />
-8.Add character2 <br />
-9.Add running backwards <br />
+7.Deal with Health properly<br />
+
+
+
+
+7.Rap up the game <br />
+X.Do a chroma version of the Hero<br />
+X.Add character2 <br />
+X.Add running backwards <br />

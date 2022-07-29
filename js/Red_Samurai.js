@@ -2,7 +2,7 @@
 //--------------------------------------------------------_RS = red samurai
 
 let p1Q = []
-
+let p2Q = []
 function Q_col(arr,fighter){
     arr.forEach((projectile,index )=> {
         if(p1CharSelect == "redsamurai"){  
@@ -22,6 +22,9 @@ function Q_col(arr,fighter){
                     &&projectile.position.y <= fighter.position.y + fighter.height ){
                     console.log('hit!')
                     p1Q.splice(index,1)
+                    
+                    enemy.health -= 10;
+                    document.querySelector('#enemyHealth').style.width = enemy.health +'%'
                 }
             else{
                 projectile.update();
@@ -31,17 +34,16 @@ function Q_col(arr,fighter){
 }
 
 
-let rs_cdQ_p1 = 0
-
-function rs_p1Q(){
+function rs_Q(fighter,playerTurn,arr){
     if(projectiles.length <3 ){
-        p1Q.push(new Sprite({
+        console.log(playerTurn)
+        arr.push(new Sprite({
             position:{
-                x:player.position.x + 20,
-                y:player.position.y  + 54
+                x:fighter.position.x + 20 * playerTurn,
+                y:fighter.position.y  + 54 
             },
             velocity:{
-                x:8 * player1turn,
+                x:8 * playerTurn,
                 y:0
             },
             offset:{
@@ -57,13 +59,13 @@ function rs_p1Q(){
         })
     )}
     if(projectiles.length <3 ){
-        p1Q.push(new Sprite({
+        arr.push(new Sprite({
             position:{
-                x:player.position.x + 20,
-                y:player.position.y  + 50
+                x:fighter.position.x + 20 *playerTurn,
+                y:fighter.position.y  + 50
             },
             velocity:{
-                x:8 * player1turn,
+                x:8 * playerTurn,
                 y: 3.5
             },
             offset:{
@@ -79,13 +81,13 @@ function rs_p1Q(){
         })
     )}
     if(projectiles.length <3 ){
-        p1Q.push(new Sprite({
+        arr.push(new Sprite({
             position:{
-                x:player.position.x + 20,
-                y:player.position.y  + 50
+                x:fighter.position.x + 20 * playerTurn,
+                y:fighter.position.y  + 50
             },
             velocity:{
-                x:8 * player1turn,
+                x:8 * playerTurn,
                 y: -3.5
             },
             offset:{
@@ -109,3 +111,8 @@ function rs_p1Q(){
 function p1RS(){
     Q_col(p1Q,enemy);
 }
+
+
+// function p2RS(){
+//     Q_col()
+// }

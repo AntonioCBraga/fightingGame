@@ -122,7 +122,7 @@ function animate(){
         player2turn = -1;
     }
     else{
-        player1turn = 1;
+        player2turn = 1;
     }
 
 

@@ -122,10 +122,10 @@ class Fighter extends Sprite{
             && player1turn == -1) return
         else if(this.image === this.sprites.abilityQR.image 
             && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
-            && player1turn == -1 && pl ==2) return
+            && player1turn == -1 && this.pl ==2) return
         else if(this.image === this.sprites.abilityQL.image 
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
-            && player1turn == 1 && p2 ==2) return
+            && player1turn == 1 && this.p2 ==2) return
     
         
         
@@ -254,34 +254,6 @@ class Fighter extends Sprite{
 
 
 //-------------------------------------------------------------------------------------------Ability----------------------------------------------------------------------------------------------------//
-class Ability extends Sprite {
-    constructor({position,velocity = {x:0,y:0},imgSrc,scale = 1,framesMax = 1,offset = {x:0, y:0},sprites},framesElapsed = 0,framesHold = 8){
-        super(
-            position,
-            imgSrc,
-            scale,
-            framesMax,
-            offset,
-            )
-            this.velocity = velocity
-            this.framesCurrent =0;
-            this.framesElapsed = framesElapsed // frame speed
-            this.framesHold = framesHold // frame speed  != 0
-
-            this.sprites = sprites
-            for (const sprite in this.sprites){
-                sprites[sprite].image = new Image()
-                sprites[sprite].image.src = sprites[sprite].imgSrc
-            }
-    }  
-    update(){
-        this.draw()
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
-    }
-
-   
-}
 
 
 
