@@ -129,7 +129,7 @@ function rs_E(fighter,playerTurn,arr ,arr2){
                 x: 8,
                 y:10
             },
-            imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/ropeshuriken.png',
+            imgSrc: sideRope,
             scale:1,
             framesMax: 8,
             framesHold: 16,
@@ -137,64 +137,49 @@ function rs_E(fighter,playerTurn,arr ,arr2){
             height:25,
            
         }))
-        arr.push(new Sprite({
-            position:{
-                x:fighter.position.x + 20 * playerTurn,
-                y:fighter.position.y  + 61
-            },
-            offset:{
-                x: 8,
-                y:10
-            },
-            imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/rope01.png',
-            scale:2,
-            framesMax: 8,
-            framesHold: 16,
-            width:15,
-            height:12,
-        }))
-
 }
 
-//E_col(fighter, arr , pmove)
-function E_col(fighterRival,fighter,arr,pmove,pRstunned){
+//E_col(fighterRival,fighter, arr , pmove,pRstunned)
+function E_col(fighterRival,arr,getRope){
     arr.forEach((rope,index ) =>{
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
-
+            
             arr.splice(index,1)
            
         }//-------------------- adjust so it isnt only 1 pixel of the rope under.
-        else if(collision(rope,fighterRival,pmove)){
+        else if(collision(rope,fighterRival)){
             
             arr.splice(index,1);
-            getRoped =1 ;
+            getRope =1 ;
             pRmove = 0;
         }
         else {
-            rope.update();
+            
+            console.log(rope)
+            rope.update()
         }
     })
-    if(getRoped != 0){ // i------------------------if gets hit by rope
+    // if(getRope != 0){ // i------------------------if gets hit by rope
         
-        if(pRmove == 0 && pRstunned == 0 ){
-            fighterRival.velocity.x -= 4 * player1turn; 
+    //     if(pmove == 0 && pRstunned == 0 ){
+    //         fighterRival.velocity.x -= 4 * player1turn; 
 
-            if((fighter.position.x + fighter.width + 20 <= fighterRival.position.x  && fighter.position.x + fighter.width + 25 >= fighterRival.position.x) || 
-            (fighterRival.position.x + fighterRival.width + 20 <= fighter.position.x && fighterRival.position.x + fighterRival.width + 25 >= fighter.position.x)){
-                pRstunned =1;
-            }
-        }
-        else {
-            getRoped ++;
-            fighterRival.velocity.x = 0;
-            if (getRoped == 30){
-                getRoped = 0;
-                pmove =1 ;
-                pRstunned =0;
-            }
-        }
-    }
-}     
+    //         if((fighter.position.x + fighter.width + 20 <= fighterRival.position.x  && fighter.position.x + fighter.width + 25 >= fighterRival.position.x) || 
+    //         (fighterRival.position.x + fighterRival.width + 20 <= fighter.position.x && fighterRival.position.x + fighterRival.width + 25 >= fighter.position.x)){
+    //             pRstunned =1;
+    //         }
+    //     }
+    //     else {
+    //         getRope ++;
+    //         fighterRival.velocity.x = 0;
+    //         if (getRope == 30){
+    //             getRope = 0;
+    //             pmove =1 ;
+    //             pstunned =0;
+    //         }
+    //     }
+    // }
+}
         
     
 
@@ -204,7 +189,8 @@ function E_col(fighterRival,fighter,arr,pmove,pRstunned){
 
 function p1RS(){
     Q_col(p1Q,enemy);
-    E_col(enemy,player,p1E1,p2move,p2stunned);
+    E_col(enemy, p1E1,getRoped)
+   // E_col()
 }
 
 

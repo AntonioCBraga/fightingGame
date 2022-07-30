@@ -56,9 +56,11 @@ function animate(){
     //------------------------tells what way players should be facing and send abilities.
     if(player.position.x <= enemy.position.x){
         player1turn = 1;
+        sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshuriken.png'
     }
     else{
         player1turn = -1;
+        sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshurikenL.png'
     }
 
     

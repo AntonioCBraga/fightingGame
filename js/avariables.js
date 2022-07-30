@@ -17,6 +17,9 @@ let timer = 60; // game timer
 let timerID  
 
 //-------------------------------------------------Variables-------------------------------------------//
+
+let sideRope 
+
 let p1IsAnimating = 0; // tells if player1 is currently on attack animation | not implemented
 let p2IsAnimating = 0; // tells if player2 is currently on attack animation | not implemented
 
