@@ -38,6 +38,7 @@ function animate(){
     if(enemy.health < 0 || player.health < 0){
         winner(timerID);
     }
+    
 
 
 

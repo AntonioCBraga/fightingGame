@@ -265,8 +265,7 @@ class Ground{
             groundsc2 ++;
         }
         
-         //---------------------------------------------- Work on this babyyyyyyyyyyyy
-       
+         //---------------------------------------------- Work on this
             
         this.height += 1.5;
         this.position.y --;
@@ -309,7 +308,7 @@ class Ground{
         if(((ground.position.x + ground.width >= enemy.position.x  && ground.position.x  <= enemy.position.x + enemy.width)||
         (ground.position.x <= enemy.position.x + enemy.width && ground.position.x >= enemy.position.x)) &&
         ground.position.y  <= enemy.position.y + enemy.height ){
-            console.log('uauza')
+            
         }
             
         
@@ -318,7 +317,7 @@ class Ground{
     
  }
 
- function groundcolp2(){
+function groundcolp2(){
     grounds2.forEach(ground =>{
        
         if(((ground.position.x + ground.width >= player.position.x  && ground.position.x  <= player.position.x + player.width)||

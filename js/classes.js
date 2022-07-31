@@ -102,6 +102,7 @@ class Fighter extends Sprite{
     }//2.75 dunno what it was
     //-------------------------------------ANIMATIONS---------------------------------//
     switchSprite(sprite){
+        
         if(this.image === this.sprites.attackR.image 
             && this.framesCurrent < this.sprites.attackR.framesMax -1 
             && player1turn ==1) {return}
@@ -125,8 +126,14 @@ class Fighter extends Sprite{
             && player1turn == -1 && this.pl ==2) return
         else if(this.image === this.sprites.abilityQL.image 
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
-            && player2turn == -1 && this.pl ==2) return
-    
+            && player2turn == 1 && this.pl ==2) return
+        // else if(this.image === this.sprites.abilityER.image 
+        //     && this.framesCurrent < this.sprites.abilityER.framesMax -1 
+        //     && player1turn == 1 && this.pl ==1) {return}
+        // else if(this.image === this.sprites.abilityEL.image 
+        //     && this.framesCurrent < this.sprites.abilityEL.framesMax -1 
+        //     && player1turn == -1 && this.pl == 1) {return}
+            
         
         
         switch(sprite){
@@ -187,7 +194,7 @@ class Fighter extends Sprite{
                     this.framesCurrent = 0;
                 }
                 break;
-                case "attackR":
+            case "attackR":
                 if(this.image !== this.sprites.attackR.image){
                     this.image = this.sprites.attackR.image
                     this.framesMax = this.sprites.attackR.framesMax;
@@ -215,7 +222,20 @@ class Fighter extends Sprite{
                     this.framesCurrent = 0;
                 }
                 break;
-                
+            case "abilityER":
+                if(this.image !== this.sprites.abilityER.image){
+                    this.image = this.sprites.abilityER.image
+                    this.framesMax = this.sprites.abilityER.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            // case "abilityEL":
+            //     if(this.image !== this.sprites.abilityEL.image){
+            //         this.image = this.sprites.abilityEL.image
+            //         this.framesMax = this.sprites.abilityEL.framesMax;
+            //         this.framesCurrent = 0;
+            //     }
+            //     break;
         }
     }
     update(){

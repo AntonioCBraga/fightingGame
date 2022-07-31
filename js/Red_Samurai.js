@@ -217,6 +217,7 @@ function E_colp1(arr,arr2){
         else if(collision(rope,enemy)){
             console.log('hello')
             arr.splice(index,1);
+            
             getRoped1 =1 ;
             p1stunned = 1;
             p2stunned =1;
@@ -231,7 +232,7 @@ function E_colp1(arr,arr2){
             if(arr2[0]!= undefined){
                 arr2[0].update()
             }
-            
+           
             rope.update()
 
         }

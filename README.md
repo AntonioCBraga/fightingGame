@@ -21,6 +21,7 @@
 
 
 7.Rap up the game <br />
+X.Later maybe work On red_samurai col() 
 X.Do a chroma version of the Hero<br />
 X.Add character2 <br />
 X.Add running backwards <br />
