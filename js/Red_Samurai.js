@@ -215,7 +215,7 @@ function E_colp1(arr,arr2){
            
         }
         else if(collision(rope,enemy)){
-            
+            console.log('hello')
             arr.splice(index,1);
             getRoped1 =1 ;
             p1stunned = 1;
@@ -224,26 +224,27 @@ function E_colp1(arr,arr2){
        
         }
         else {
-            
-            if(arr2[0]!= undefined){
-                arr2[0].update()
-            }
             if(arr2.length >1){
                 arr2.splice(0,1);
                 
             }
+            if(arr2[0]!= undefined){
+                arr2[0].update()
+            }
+            
             rope.update()
 
         }
     })
 
     if(getRoped1 != 0 ){ // i------------------------if gets hit by rope
-        if(getRoped1 != 0 &&  getRoped2 !=0){
-            console.log(arr2)
+        if(getRoped1 == 1 &&  getRoped2 ==1){
+            
             arr2.splice(1,1);
             p1stunned = 0;
             p2stunned = 0;
-            getRoped1 = 0
+            getRoped1 = 0;
+            getRoped2 = 0;
             return;
         }
         
@@ -320,9 +321,13 @@ function E_colp2(arr,arr2){
             getRoped2 =1;
             p1stunned = 1;
             p2stunned =1;
+            console.log('hit')
         }
         else {
-            
+            if(arr2.length >1){
+                arr2.splice(0,1);
+                
+            }
             if(arr2[0]!= undefined){
                 arr2[0].update()
             }
@@ -333,11 +338,13 @@ function E_colp2(arr,arr2){
     })
 
     if(getRoped2 != 0 ){ // i------------------------if gets hit by rope
-        if(getRoped1 != 0 &&  getRoped2 !=0){
-            arr2.splice(0,1);
+        if(getRoped1 == 1 &&  getRoped2 ==1){
+            console.log(getRoped2)
+            console.log(getRoped1)
             p1stunned = 0;
             p2stunned = 0;
             getRoped2 = 0;
+            getRoped1 = 0;
             return;
         }
         if(player2turn == 1){    
