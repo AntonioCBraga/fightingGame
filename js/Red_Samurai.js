@@ -126,6 +126,24 @@ function rs_E(fighter,playerTurn,arr ,arr2){
         distance = 0;
         distance2 = +10
     }
+
+    if(fighter == player ){
+        if(player1turn == 1){
+            sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshuriken.png'
+        }
+        else {
+            sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshurikenL.png'
+        }
+    }
+    else{
+        if(player2turn == -1){
+            sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshurikenL.png'
+        }
+        else {
+            sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshuriken.png'
+        }
+    }
+
         arr.push(new Sprite({
             position:{
                 x:fighter.position.x + distance2,
@@ -186,12 +204,14 @@ class rope{
         this.width -= this.velocity.x / 2
     }
 }
-
+//-------------------------------------------------------------------Gotta make 1 collision detection for each dont know why 
 function E_col(fighterRival,fighter,arr,arr2,playerTurn){
     
     arr.forEach((rope,index ) =>{
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
-            
+            if(arr2[0] != undefined){
+                arr2.splice(0,1);
+            }
             arr.splice(index,1)
            
         }
@@ -287,12 +307,13 @@ function E_col(fighterRival,fighter,arr,arr2,playerTurn){
 
 function p1RS(){
     Q_col(p1Q,enemy);
-    E_col(enemy,player,p1E1,p1E2,player1turn)
+    E_col(enemy,player,p1E1,p1E2,player1turn) // one collision for each
    // E_col()
 }
 
 
  function p2RS(){
     Q_col(p2Q,player)
-    E_col(player,enemy,p2E1,p2E2,player2turn)
+    
+    
  }

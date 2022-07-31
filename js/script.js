@@ -127,9 +127,11 @@ function animate(){
 
     if(player.position.x <= enemy.position.x){
         player2turn = -1;
+        
     }
     else{
         player2turn = 1;
+        
     }
 
 

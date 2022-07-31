@@ -29,7 +29,7 @@ const keys = {
 //-----------------------------------------------------Key commands-------------------------------------------------//
 
 window.addEventListener('keydown',(e)=>{
-    console.log(e.key)
+  
     switch(e.key){
         case 'd':
             keys.d.pressed = true;
