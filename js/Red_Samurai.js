@@ -236,10 +236,8 @@ function E_colp1(arr,arr2){
 
         }
     })
-
     if(getRoped1 != 0 ){ // i------------------------if gets hit by rope
         if(getRoped1 == 1 &&  getRoped2 ==1){
-            
             arr2.splice(1,1);
             p1stunned = 0;
             p2stunned = 0;
@@ -339,8 +337,6 @@ function E_colp2(arr,arr2){
 
     if(getRoped2 != 0 ){ // i------------------------if gets hit by rope
         if(getRoped1 == 1 &&  getRoped2 ==1){
-            console.log(getRoped2)
-            console.log(getRoped1)
             p1stunned = 0;
             p2stunned = 0;
             getRoped2 = 0;
