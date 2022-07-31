@@ -131,13 +131,13 @@ function animate(){
 
 
 
-    if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1 && p2stunned !=1 && pl2WalkL == 1){
+    if(keys.ArrowLeft.pressed && enemy.lastKey ==='ArrowLeft' && p2move ==1 && p2stunned ==0 && pl2WalkL == 1){
         if(enemy.position.x >= 0){
             animationTurns(enemy,'run');
             enemy.velocity.x = -5;
         }
     }
-    else if(keys.ArrowRight.pressed && enemy.lastKey ==='ArrowRight' && p2move ==1 && p2stunned !=1 && pl2WalkR == 1){
+    else if(keys.ArrowRight.pressed && enemy.lastKey ==='ArrowRight' && p2move ==1 && p2stunned ==0 && pl2WalkR == 1){
         if(enemy.position.x + enemy.width <= 1024){
             animationTurns(enemy,'run');
             enemy.velocity.x = 5;
@@ -148,7 +148,7 @@ function animate(){
     }
 
 
-    if(keys.ArrowUp.pressed && p2move == 1 && p2stunned !=1){
+    if(keys.ArrowUp.pressed && p2move == 1 && p2stunned == 0){
         if( counterdjp2 == 1|| counterdjp2 ==3 ){
             
             enemy.velocity.y = -11.2;
@@ -182,7 +182,6 @@ function animate(){
     
     //--------------------------------Character Select -----------------------------//
     if(p1CharSelect == 'redsamurai'){
-        p1redSamurai();
 
 
         p1RS();

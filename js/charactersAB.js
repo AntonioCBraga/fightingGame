@@ -145,6 +145,7 @@ function projectilecolp1(){
     })
 }
 let coldred_samurai_Qp1 = 0
+
 function red_samurai_p1Q(){
    if(coldred_samurai_Qp1 == 0){
         coldred_samurai_Qp1 ++;
@@ -246,58 +247,7 @@ class rope{
 //-------------------------------------Rope Col p1
 
 
-function ropecol(){
-    ropes.forEach((rope,index ) =>{
-        if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
-
-            ropes.splice(index,1)
-           
-        }//-------------------- adjust so it isnt only 1 pixel of the rope under.
-        else if(rope.position.x + rope.width >= enemy.position.x &&    
-             rope.position.x + rope.width <= enemy.position.x + enemy.width &&  
-             rope.position.y + rope.height >= enemy.position.y && 
-             rope.position.y <= enemy.position.y + enemy.height){
-            
-            
-         
-            
-            ropes.splice(index,1);
-            getRoped =1 ;
-            p2move = 0;
-        }
-        else {
-            rope.update();
-        }
-    })
-
-    if(getRoped != 0){ // i------------------------if gets hit by rope
-        
-        if(p2move == 0 && p2stunned == 0 ){
-            enemy.velocity.x -= 4 * player1turn; 
-
-            if((player.position.x + player.width + 20 <= enemy.position.x  && player.position.x + player.width + 25 >= enemy.position.x) || 
-            (enemy.position.x + enemy.width + 20 <= player.position.x && enemy.position.x + enemy.width + 25 >= player.position.x)){
-                p2stunned =1;
-            }
-            
-        }
-        else {
-            getRoped ++;
-            enemy.velocity.x = 0;
-            if (getRoped == 30){
-                getRoped = 0;
-                p2move =1 ;
-                p2stunned =0;
-
-            }
-        }
-    }
-
-        
-        
-    
-}
-//-------------------------------------Rope Col p1
+//-------------------------------------Rope Col p2
 
 function ropecolp2(){
     ropes2.forEach((rope,index ) =>{
