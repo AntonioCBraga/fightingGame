@@ -116,10 +116,20 @@ let p2E2 = []
 //
 
 function rs_E(fighter,playerTurn,arr ,arr2){
+    let distance = 0
+    let distance2 = 0
+    if(player1turn == 1){
+        distance = 20;
+        distance2 = 40
+    }
+    else{
+        distance = 0;
+        distance2 = +10
+    }
         arr.push(new Sprite({
             position:{
-                x:fighter.position.x + 20 * playerTurn,
-                y:fighter.position.y  + 54 
+                x:fighter.position.x + distance2,
+                y:fighter.position.y  + 64 
             },
             velocity:{
                 x:8 * playerTurn,
@@ -133,21 +143,58 @@ function rs_E(fighter,playerTurn,arr ,arr2){
             scale:1,
             framesMax: 8,
             framesHold: 16,
-            width:45,
+            width:35,
             height:25,
            
         }))
+        arr2.push(new rope({ 
+            position:{
+                x:fighter.position.x + distance,
+                y:fighter.position.y + 74
+            },
+            velocity:{
+                x: 8 * playerTurn,
+                y:0
+            },
+            width: 1,
+           
+        
+        }))
 }
 
-//E_col(fighterRival,fighter, arr , pmove,pRstunned)
-function E_col(fighterRival,fighter,arr,playerTurn){
+
+
+class rope{
+    constructor({position,velocity}){
+        this.position = position;
+        this.velocity = velocity;
+        this.width = 30;
+        this.height = 6;
+    }
+    draw(){
+        c.fillStyle = 'brown';
+        c.fillRect(this.position.x,this.position.y,this.width,this.height);
+        c.fill();
+        
+    }
+    update(){
+        this.draw();
+        this.width += this.velocity.x;
+    }
+    deupdate(){
+        this.draw();
+        this.width -= this.velocity.x / 2
+    }
+}
+
+function E_col(fighterRival,fighter,arr,arr2,playerTurn){
     
     arr.forEach((rope,index ) =>{
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
             
             arr.splice(index,1)
            
-        }//-------------------- adjust so it isnt only 1 pixel of the rope under.
+        }
         else if(collision(rope,fighterRival)){
             
             arr.splice(index,1);
@@ -159,11 +206,19 @@ function E_col(fighterRival,fighter,arr,playerTurn){
             }
             else if(fighter == enemy){
                 getRoped2 =1 ;
-                
+                p2stunned =1;
                 p1stunned =1;
+               
             }
         }
         else {
+            
+            if(arr2[0]!= undefined){
+                arr2[0].update()
+            }
+            console.log(arr2[0])
+            
+            
             rope.update()
 
         
@@ -177,11 +232,14 @@ function E_col(fighterRival,fighter,arr,playerTurn){
             console.log(playerTurn)
             if(fighterRival.position.x > fighter.position.x + fighter.width  && p2stunned == 1){
                 fighterRival.velocity.x -= 4 * playerTurn; 
-                
-            
+                if(arr2[0]!= undefined){
+                    arr2[0].deupdate()
+                }
             }
             else {
-                
+                if(arr2[0] != undefined){
+                    arr2.splice(0,1);
+                }
                 p2stunned ++;
                 p1stunned = 0;
                 if(p2stunned == 90){
@@ -195,10 +253,16 @@ function E_col(fighterRival,fighter,arr,playerTurn){
             if(fighterRival.position.x + fighterRival.width < fighter.position.x && p2stunned == 1){
                 fighterRival.velocity.x -= 4 * playerTurn; 
                 
+                if(arr2[0]!= undefined){
+                    arr2[0].deupdate()
+                }
                 
             }
             else{
-               
+                if(arr2[0] != undefined){
+                    arr2.splice(0,1);
+                }
+                
                 p2stunned ++;
                 p1stunned = 0;
                 if(p2stunned == 90){
@@ -223,11 +287,12 @@ function E_col(fighterRival,fighter,arr,playerTurn){
 
 function p1RS(){
     Q_col(p1Q,enemy);
-    E_col(enemy,player,p1E1,player1turn)
+    E_col(enemy,player,p1E1,p1E2,player1turn)
    // E_col()
 }
 
 
  function p2RS(){
     Q_col(p2Q,player)
+    E_col(player,enemy,p2E1,p2E2,player2turn)
  }

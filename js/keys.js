@@ -57,6 +57,7 @@ window.addEventListener('keydown',(e)=>{
         case 'e':
 
             rs_E(player,player1turn,p1E1,p1E2);
+            
         
             break;
         case 'r':
@@ -98,17 +99,7 @@ window.addEventListener('keydown',(e)=>{
             rs_Q(enemy,player2turn,p2Q)
             break;
         case '8':
-            ropes2.push(new rope({ 
-                position:{
-                    x:enemy.position.x  ,
-                    y:enemy.position.y + 75
-                },
-                velocity:{
-                    x: -5 * player1turn,
-                    y:0
-                },
-            
-            }))
+            rs_E(enemy,player2turn,p2E1,p2E2);
             break;
         case '6':
             grounds2.push(new Ground({

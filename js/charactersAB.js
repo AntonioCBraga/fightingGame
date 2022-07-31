@@ -225,81 +225,11 @@ function projectilecolp2(){
 
 // -----------------------------------------------Red Samurai E Rope
 
-class rope{
-    constructor({position,velocity}){
-        this.position = position;
-        this.velocity = velocity;
-        this.width = 30;
-        this.height = 12;
-    }
-    draw(){
-        c.fillStyle = 'red';
-        c.fillRect(this.position.x,this.position.y,this.width,this.height);
-        c.fill();
-        
-    }
-    update(){
-        this.draw();
-        this.width += this.velocity.x;
-    }
-}
-
-//-------------------------------------Rope Col p1
-
 
 //-------------------------------------Rope Col p2
 
-function ropecolp2(){
-    ropes2.forEach((rope,index ) =>{
-        if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
-
-            ropes2.splice(index,1)
-           
-        }//-------------------- adjust so it isnt only 1 pixel of the rope under.
-        else if(rope.position.x + rope.width >= player.position.x &&    
-             rope.position.x + rope.width <= player.position.x + player.width &&  
-             rope.position.y + rope.height >= player.position.y && 
-             rope.position.y <= player.position.y + player.height){
-            
-            
-         
-            
-            ropes2.splice(index,1);
-            getRoped2 =1 ;
-            p1move = 0;
-        }
-        else {
-            rope.update();
-        }
-    })
-
-    if(getRoped2 != 0){ // i------------------------if gets hit by rope
         
-        if(p1move == 0 && p1stunned == 0 ){
-            player.velocity.x += 4 * player1turn; 
 
-            if((player.position.x + player.width + 20 <= enemy.position.x  && player.position.x + player.width + 25 >= enemy.position.x) || 
-            (enemy.position.x + enemy.width + 20 <= player.position.x && enemy.position.x + enemy.width + 25 >= player.position.x)){
-                p1stunned =1;
-            }
-            
-        }
-        else {
-            getRoped2 ++;
-            player.velocity.x = 0;
-            if (getRoped2 == 30){
-                getRoped2 = 0;
-                p1move =1 ;
-                p1stunned =0;
-
-            }
-        }
-    }
-
-        
-        
-    
-}
 
 
 
@@ -414,7 +344,7 @@ function p1redSamurai(){
 
 function p2redSamurai(){
     projectilecolp2();
-    ropecolp2();
+    
     groundcolp2();
 }
 

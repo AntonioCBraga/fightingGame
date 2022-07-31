@@ -87,15 +87,20 @@ function animate(){
         animationTurns(player,'idle');
        
     }
+    console.log(p1stunned)
 
-
-    if(keys.w.pressed ){
-        if( counterdjp1 == 1 || counterdjp1 ==3 && p1stunned !=1 ){
-            console.log('hello')
+    if(keys.w.pressed && p1stunned ==0 && p1move ==1){
+        if( counterdjp1 == 1 || counterdjp1 ==3  ){
             player.velocity.y = -11.2;
             counterdjp1 ++
         }
     }
+
+
+
+   
+
+
     //--------------------------------jump animation
     if(player.velocity.y < 0){
 
