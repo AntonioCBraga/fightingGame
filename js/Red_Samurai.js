@@ -206,7 +206,6 @@ class rope{
 }
 //-------------------------------------------------------------------Gotta make 1 collision detection for each dont know why 
 function E_colp1(arr,arr2){
-    
     arr.forEach((rope,index ) =>{
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
             if(arr2[0] != undefined){
@@ -229,20 +228,19 @@ function E_colp1(arr,arr2){
             if(arr2[0]!= undefined){
                 arr2[0].update()
             }
-            
-            
-            
+            if(arr2.length >1){
+                arr2.splice(0,1);
+                
+            }
             rope.update()
 
-        
-        
         }
     })
 
     if(getRoped1 != 0 ){ // i------------------------if gets hit by rope
         if(getRoped1 != 0 &&  getRoped2 !=0){
             console.log(arr2)
-            arr2.splice(0,1);
+            arr2.splice(1,1);
             p1stunned = 0;
             p2stunned = 0;
             getRoped1 = 0
@@ -309,7 +307,6 @@ function E_colp1(arr,arr2){
         
     
 function E_colp2(arr,arr2){
-    
     arr.forEach((rope,index ) =>{
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
             if(arr2[0] != undefined){
@@ -319,14 +316,10 @@ function E_colp2(arr,arr2){
            
         }
         else if(collision(rope,player)){
-            
-            arr.splice(index,1);
-            
+            arr.splice(index,1);         
             getRoped2 =1;
             p1stunned = 1;
             p2stunned =1;
-            
-       
         }
         else {
             
@@ -334,19 +327,14 @@ function E_colp2(arr,arr2){
                 arr2[0].update()
             }
             
-            
-            
             rope.update()
-
-        
-        
+ 
         }
     })
 
     if(getRoped2 != 0 ){ // i------------------------if gets hit by rope
         if(getRoped1 != 0 &&  getRoped2 !=0){
             arr2.splice(0,1);
-            
             p1stunned = 0;
             p2stunned = 0;
             getRoped2 = 0;

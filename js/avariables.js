@@ -18,7 +18,12 @@ let timerID
 
 //-------------------------------------------------Variables-------------------------------------------//
 
-let sideRope 
+let debugp1 = false;
+let debugp2 = false;
+
+
+
+let sideRope //Siderope indicates wich side red_samurai E ability comes from 
 
 let p1IsAnimating = 0; // tells if player1 is currently on attack animation | not implemented
 let p2IsAnimating = 0; // tells if player2 is currently on attack animation | not implemented
