@@ -141,6 +141,7 @@ function rs_E(fighter,playerTurn,arr ,arr2){
 
 //E_col(fighterRival,fighter, arr , pmove,pRstunned)
 function E_col(fighterRival,fighter,arr,playerTurn){
+    
     arr.forEach((rope,index ) =>{
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
             
@@ -150,10 +151,10 @@ function E_col(fighterRival,fighter,arr,playerTurn){
         else if(collision(rope,fighterRival)){
             
             arr.splice(index,1);
-
+            
             if(fighter == player){
                 getRoped1 =1 ;
-               
+                p1stunned = 1;
                 p2stunned =1;
             }
             else if(fighter == enemy){
@@ -163,22 +164,24 @@ function E_col(fighterRival,fighter,arr,playerTurn){
             }
         }
         else {
-            
-            
             rope.update()
+
+        
+        
         }
     })
 
     if(getRoped1 != 0){ // i------------------------if gets hit by rope
         
         if(playerTurn == 1){    
-            if(fighterRival.position.x > fighter.position.x + fighter.width  && p2stunned != 0){
+            console.log(playerTurn)
+            if(fighterRival.position.x > fighter.position.x + fighter.width  && p2stunned == 1){
                 fighterRival.velocity.x -= 4 * playerTurn; 
-                p1stunned = 1;
+                
             
             }
             else {
-                console.log(p2stunned)
+                
                 p2stunned ++;
                 p1stunned = 0;
                 if(p2stunned == 90){
@@ -187,14 +190,21 @@ function E_col(fighterRival,fighter,arr,playerTurn){
                 }
             
             }
-            }
+        }
         else if(playerTurn == -1){
-            if(fighterRival.position.x + fighterRival.width < fighter.position.x  - 50){
+            if(fighterRival.position.x + fighterRival.width < fighter.position.x && p2stunned == 1){
                 fighterRival.velocity.x -= 4 * playerTurn; 
-                if(fighterRival.position.x + fighterRival.width == fighter.position.x  - 50){
-
-                }
                 
+                
+            }
+            else{
+               
+                p2stunned ++;
+                p1stunned = 0;
+                if(p2stunned == 90){
+                    p2stunned = 0;
+                    getRoped1 = 0;        
+                }
             }
 
         }
@@ -213,7 +223,7 @@ function E_col(fighterRival,fighter,arr,playerTurn){
 
 function p1RS(){
     Q_col(p1Q,enemy);
-    E_col(enemy,player,p1E1,p2move,p2stunned,player1turn)
+    E_col(enemy,player,p1E1,player1turn)
    // E_col()
 }
 
