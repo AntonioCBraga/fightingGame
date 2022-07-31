@@ -67,14 +67,14 @@ const player = new Fighter({
             imgSrc: './img/Red_Samurai/Sprites/abilityQ/throwwL.png',
             framesMax:3
         },
-        // abilityER :{
-        //     imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRope.png',
-        //     framesMax:13
-        // },
-        // abilityEL :{
-        //     imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRopeL.png',
-        //     framesMax:13
-        // }
+        abilityER :{
+            imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRope.png',
+            framesMax:13
+        },
+        abilityEL :{
+            imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRopeL.png',
+            framesMax:13
+        }
     }
 })
 

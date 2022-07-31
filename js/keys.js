@@ -55,7 +55,7 @@ window.addEventListener('keydown',(e)=>{
             break;
         case 'e':
            
-            animationTurns(player,'abilityQ')
+            animationTurns(player,'abilityE')
             rs_E(player,player1turn,p1E1,p1E2);
             
         

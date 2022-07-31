@@ -127,12 +127,8 @@ class Fighter extends Sprite{
         else if(this.image === this.sprites.abilityQL.image 
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
             && player2turn == 1 && this.pl ==2) return
-        // else if(this.image === this.sprites.abilityER.image 
-        //     && this.framesCurrent < this.sprites.abilityER.framesMax -1 
-        //     && player1turn == 1 && this.pl ==1) {return}
-        // else if(this.image === this.sprites.abilityEL.image 
-        //     && this.framesCurrent < this.sprites.abilityEL.framesMax -1 
-        //     && player1turn == -1 && this.pl == 1) {return}
+      
+       
             
         
         
@@ -229,13 +225,13 @@ class Fighter extends Sprite{
                     this.framesCurrent = 0;
                 }
                 break;
-            // case "abilityEL":
-            //     if(this.image !== this.sprites.abilityEL.image){
-            //         this.image = this.sprites.abilityEL.image
-            //         this.framesMax = this.sprites.abilityEL.framesMax;
-            //         this.framesCurrent = 0;
-            //     }
-            //     break;
+            case "abilityEL":
+                if(this.image !== this.sprites.abilityEL.image){
+                    this.image = this.sprites.abilityEL.image
+                    this.framesMax = this.sprites.abilityEL.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
         }
     }
     update(){
