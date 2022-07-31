@@ -205,7 +205,7 @@ class rope{
     }
 }
 //-------------------------------------------------------------------Gotta make 1 collision detection for each dont know why 
-function E_col(fighterRival,fighter,arr,arr2,playerTurn){
+function E_colp1(arr,arr2){
     
     arr.forEach((rope,index ) =>{
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
@@ -215,28 +215,21 @@ function E_col(fighterRival,fighter,arr,arr2,playerTurn){
             arr.splice(index,1)
            
         }
-        else if(collision(rope,fighterRival)){
+        else if(collision(rope,enemy)){
             
             arr.splice(index,1);
+            getRoped1 =1 ;
+            p1stunned = 1;
+            p2stunned =1;
             
-            if(fighter == player){
-                getRoped1 =1 ;
-                p1stunned = 1;
-                p2stunned =1;
-            }
-            else if(fighter == enemy){
-                getRoped2 =1 ;
-                p2stunned =1;
-                p1stunned =1;
-               
-            }
+       
         }
         else {
             
             if(arr2[0]!= undefined){
                 arr2[0].update()
             }
-            console.log(arr2[0])
+            
             
             
             rope.update()
@@ -246,48 +239,64 @@ function E_col(fighterRival,fighter,arr,arr2,playerTurn){
         }
     })
 
-    if(getRoped1 != 0){ // i------------------------if gets hit by rope
+    if(getRoped1 != 0 ){ // i------------------------if gets hit by rope
+        if(getRoped1 != 0 &&  getRoped2 !=0){
+            console.log(arr2)
+            arr2.splice(0,1);
+            p1stunned = 0;
+            p2stunned = 0;
+            getRoped1 = 0
+            return;
+        }
         
-        if(playerTurn == 1){    
-            console.log(playerTurn)
-            if(fighterRival.position.x > fighter.position.x + fighter.width  && p2stunned == 1){
-                fighterRival.velocity.x -= 4 * playerTurn; 
+        if(player1turn == 1){    
+            
+            if(enemy.position.x > player.position.x + player.width  && p2stunned == 1){
+                enemy.velocity.x -= 4 * player1turn; 
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
                 }
             }
-            else {
+            else if(p2stunned >= 1) {
                 if(arr2[0] != undefined){
                     arr2.splice(0,1);
                 }
                 p2stunned ++;
                 p1stunned = 0;
-                if(p2stunned == 90){
+                if(p2stunned == 60){
+                    p1stunned = 0;
                     p2stunned = 0;
-                    getRoped1 = 0;        
+                    getRoped1 = 0;    
+                    if(arr2[0] != undefined){
+                        arr2.splice(0,1);
+                    }         
                 }
             
             }
         }
-        else if(playerTurn == -1){
-            if(fighterRival.position.x + fighterRival.width < fighter.position.x && p2stunned == 1){
-                fighterRival.velocity.x -= 4 * playerTurn; 
+        else if(player1turn == -1){
+            if(enemy.position.x + enemy.width < player.position.x && p2stunned == 1){
+                enemy.velocity.x -= 4 * player1turn; 
                 
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
                 }
                 
             }
-            else{
+            else if(p2stunned >= 1){
                 if(arr2[0] != undefined){
                     arr2.splice(0,1);
                 }
                 
                 p2stunned ++;
                 p1stunned = 0;
-                if(p2stunned == 90){
+                if(p2stunned == 60){
+                    p1stunned = 0;
                     p2stunned = 0;
-                    getRoped1 = 0;        
+                    getRoped1 = 0;   
+                    if(arr2[0] != undefined){
+                        arr2.splice(0,1);
+                    }          
                 }
             }
 
@@ -299,7 +308,107 @@ function E_col(fighterRival,fighter,arr,arr2,playerTurn){
 
         
     
+function E_colp2(arr,arr2){
+    
+    arr.forEach((rope,index ) =>{
+        if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
+            if(arr2[0] != undefined){
+                arr2.splice(0,1);
+            }
+            arr.splice(index,1)
+           
+        }
+        else if(collision(rope,player)){
+            
+            arr.splice(index,1);
+            
+            getRoped2 =1;
+            p1stunned = 1;
+            p2stunned =1;
+            
+       
+        }
+        else {
+            
+            if(arr2[0]!= undefined){
+                arr2[0].update()
+            }
+            
+            
+            
+            rope.update()
 
+        
+        
+        }
+    })
+
+    if(getRoped2 != 0 ){ // i------------------------if gets hit by rope
+        if(getRoped1 != 0 &&  getRoped2 !=0){
+            arr2.splice(0,1);
+            
+            p1stunned = 0;
+            p2stunned = 0;
+            getRoped2 = 0;
+            return;
+        }
+        if(player2turn == 1){    
+            
+            if(player.position.x > enemy.position.x + enemy.width && p1stunned == 1){
+                player.velocity.x -= 4 * player2turn; 
+                if(arr2[0]!= undefined){
+                    arr2[0].deupdate()
+                }
+            }
+            else if (p1stunned >= 1){
+                if(arr2[0] != undefined){
+                    arr2.splice(0,1);
+                }
+                
+                p1stunned ++;
+                p2stunned = 0;
+                if(p1stunned == 60){
+                    p1stunned = 0;
+                    p2stunned = 0;
+                    getRoped2 = 0;  
+                    if(arr2[0] != undefined){
+                        arr2.splice(0,1);
+                    }      
+                }
+            
+            }
+        }
+        else if(player2turn == -1){
+            if(player.position.x + player.width < enemy.position.x && p1stunned == 1){
+                player.velocity.x -= 4 * player2turn; 
+                
+                if(arr2[0]!= undefined){
+                    arr2[0].deupdate()
+                }
+                
+            }
+            else if(p1stunned >= 1){
+                if(arr2[0] != undefined){
+                    arr2.splice(0,1);
+                }
+                
+                p1stunned ++;
+                p2stunned = 0;
+                if(p1stunned == 60){
+                    p1stunned = 0;
+                    getRoped2 = 0;
+                    p2stunned = 0;     
+                    if(arr2[0] != undefined){
+                        arr2.splice(0,1);
+                    }        
+                }
+            }
+
+        }
+
+    }
+
+}
   
 
 
@@ -307,13 +416,14 @@ function E_col(fighterRival,fighter,arr,arr2,playerTurn){
 
 function p1RS(){
     Q_col(p1Q,enemy);
-    E_col(enemy,player,p1E1,p1E2,player1turn) // one collision for each
-   // E_col()
+    E_colp1(p1E1,p1E2) // one collision for each
+   
 }
 
 
  function p2RS(){
     Q_col(p2Q,player)
-    
+    E_colp2(p2E1,p2E2)
+   
     
  }

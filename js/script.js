@@ -39,7 +39,7 @@ function animate(){
         winner(timerID);
     }
 
-   
+
 
     // //---------------------------------------------Player Movement--------------------------------------------------------//
     //-------------------------------------------------And animations------------------------------------------------------//
@@ -52,7 +52,7 @@ function animate(){
         
      
     }
-
+    console.log(p1stunned)
     //------------------------tells what way players should be facing and send abilities.
     if(player.position.x <= enemy.position.x){
         player1turn = 1;
@@ -68,14 +68,14 @@ function animate(){
 
     player.velocity.x = 0;
 
-    if(keys.a.pressed && player.lastKey ==='a' && p1move ==1 && p1stunned !=1 && pl1WalkL == 1){
+    if(keys.a.pressed && player.lastKey ==='a' && p1move ==1 && p1stunned ==0 && pl1WalkL == 1){
         if(player.position.x >= 0){
             animationTurns(player,'run');
             player.velocity.x = -5;
         }
        
     }
-    else if(keys.d.pressed && player.lastKey ==='d' && p1move ==1 && p1stunned !=1 && pl1WalkR ==1){
+    else if(keys.d.pressed && player.lastKey ==='d' && p1move ==1 && p1stunned ==0 && pl1WalkR ==1){
         if(player.position.x  + player.width <= 1024){
             
             animationTurns(player,'run');
@@ -87,7 +87,7 @@ function animate(){
         animationTurns(player,'idle');
        
     }
-    console.log(p1stunned)
+    
 
     if(keys.w.pressed && p1stunned ==0 && p1move ==1){
         if( counterdjp1 == 1 || counterdjp1 ==3  ){
