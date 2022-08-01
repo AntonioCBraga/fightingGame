@@ -200,7 +200,7 @@ class Fighter extends Sprite{
             && this.framesCurrent < this.sprites.abilityEL.framesMax -1 
             && this.pl == 2 && player2turn == -1){
                 p2Animating = true;
-                p2stunned = 1;
+                p2stunned = 1; 
                 if(this.framesCurrent == this.sprites.abilityEL.framesMax -2){
                     p2Animating = false;
                     p2stunned = 0;

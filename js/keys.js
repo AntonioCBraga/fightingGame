@@ -69,15 +69,8 @@ window.addEventListener('keydown',(e)=>{
         
             break;
         case 'r':
-            grounds.push(new Ground({
-                position:{
-                    x:enemy.position.x + +12  ,
-                    y:576 - 90
-                },
-                pl:1,
-                
-            }))
-            
+                rs_R(enemy,p1R)
+                console.log(p1R)
             break;
     
         //--------------------------------------------------Player 2 commands-------------------------------------------//
@@ -99,6 +92,7 @@ window.addEventListener('keydown',(e)=>{
         }
         case '0': {
             if(p2stunned === 0){
+               
                 enemy.attack()
             }
             
@@ -117,15 +111,7 @@ window.addEventListener('keydown',(e)=>{
             }
             break;
         case '6':
-            grounds2.push(new Ground({
-                position:{
-                    x:player.position.x  + 12  ,
-                    y:576 -90
-                },
-                pl:2,
 
-                
-            }))
             break;
     }
 

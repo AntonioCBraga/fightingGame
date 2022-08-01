@@ -33,7 +33,16 @@ function decreaseTimer(){
 
 // Takes fighterName and animationName to decide
 //wich sided animation to use
-function animationTurns(fighterName,animationName){    
+function animationTurns(fighterName,animationName){
+
+    if(fighterName == player && animationName == 'idle'){
+        p1Animating = false;
+    }
+
+    if(fighterName == enemy && animationName == 'idle'){
+        p1Animating = false;
+    }
+    
 
     if(fighterName.pl == 1){
         if(player1turn == 1){
@@ -129,3 +138,7 @@ function doubleRopeDebug(){
     }
     
 }
+
+
+
+//collisoni of auto attacks--------------------------------------------------------------

@@ -251,6 +251,8 @@ function E_colp1(arr,arr2){
             
             if(enemy.position.x > player.position.x + player.width  && p2stunned == 1){
                 enemy.velocity.x -= 4 * player1turn; 
+                p1stunned = 1;
+                p2stunned = 1;
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
                 }
@@ -275,6 +277,8 @@ function E_colp1(arr,arr2){
         else if(player1turn == -1){
             if(enemy.position.x + enemy.width < player.position.x && p2stunned == 1){
                 enemy.velocity.x -= 4 * player1turn; 
+                p1stunned = 1;
+                p2stunned = 1;
                 
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
@@ -348,6 +352,8 @@ function E_colp2(arr,arr2){
             
             if(player.position.x > enemy.position.x + enemy.width && p1stunned == 1){
                 player.velocity.x -= 4 * player2turn; 
+                p2stunned = 1;
+                p1stunned = 1;
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
                 }
@@ -373,6 +379,8 @@ function E_colp2(arr,arr2){
         else if(player2turn == -1){
             if(player.position.x + player.width < enemy.position.x && p1stunned == 1){
                 player.velocity.x -= 4 * player2turn; 
+                p2stunned = 1;
+                p1stunned = 1;
                 
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
@@ -405,11 +413,120 @@ function E_colp2(arr,arr2){
 
 
 
+//-----------------------------------------------------------Ability R
+
+let p1R = []
+let p2R = []
+
+function rs_R(enemy,arr){
+        arr.push(new Sprite({
+            position:{
+                x:enemy.position.x +2 ,
+                y:  playerMinHeight + player.height - 45
+            },
+            velocity:{
+                x:0,
+                y:0
+            },
+            offset:{
+                x:25,
+                y:0
+            },
+            imgSrc:'./img/Red_Samurai/Sprites/ground/HalloweenVfxshorter.png' ,
+            scale:1.5,
+            framesMax: 11,
+            framesHold: 4,
+            width:20,
+            height:40,
+            //ColAnim:1,
+        }))
+
+}
+
+let rs_cRp1 = 0;
+let rs_cRp12 =0;
+let rs_cR123 =0;
+
+
+
+
+function R_colp1(fighterRival,arr){
+    
+    arr.forEach((knife ) =>{
+        knife.update()
+        if(collision(knife,fighterRival) && knife.framesCurrent >= 7 && knife.framesCurrent <= 9 ){
+            console.log('hit')
+            
+        }
+        if(knife.framesCurrent === knife.framesMax -1){
+            rs_cRp1 ++; // goes 6 each time
+            console.log(rs_cRp1)
+        }
+
+        if(rs_cRp1 == 3){
+            arr.splice(0,1)
+            rs_cRp1 = 0;
+            rs_cRp12 ++;
+            rs_cR123 ++;
+        }
+  
+    })
+    if(rs_cRp12 == 1 ){
+        rs_R(enemy,p1R)
+        rs_cRp12 = 0
+        if(rs_cR123 == 3){
+            arr.splice(0,1)
+            rs_cR123 = 0;
+        }
+        
+    }
+}
+
+let rs_cRp2 = 0;
+let rs_cRp22 =0;
+let rs_cR223 =0;
+
+function R_colp1(fighterRival,arr){
+    
+    arr.forEach((knife ) =>{
+        knife.update()
+        if(collision(knife,fighterRival) && knife.framesCurrent >= 7 && knife.framesCurrent <= 9 ){
+            console.log('hit')
+            
+        }
+        if(knife.framesCurrent === knife.framesMax -1){
+            rs_cRp2 ++; // goes 6 each time
+            console.log(rs_cRp1)
+        }
+
+        if(rs_cRp2 == 3){
+            arr.splice(0,1)
+            rs_cRp2 = 0;
+            rs_cRp22 ++;
+            rs_cR223 ++;
+        }
+  
+    })
+    if(rs_cRp22 == 1 ){
+        rs_R(enemy,p1R)
+        rs_cRp22 = 0
+        if(rs_cR223 == 3){
+            arr.splice(0,1)
+            rs_cR223 = 0;
+        }
+        
+    }
+}
+
+
+
+
+
 
 function p1RS(){
     Q_col(p1Q,enemy);
     E_colp1(p1E1,p1E2) // one collision for each
-   
+    R_colp1(enemy,p1R)
 }
 
 
@@ -419,3 +536,7 @@ function p1RS(){
    
     
  }
+
+
+
+

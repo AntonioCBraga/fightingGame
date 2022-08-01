@@ -160,3 +160,68 @@ const enemy = new Fighter({
 })
 
 
+
+function aap1(){
+     
+    if(player.isAttacking){
+        if(player.attackBox1.position.x + player.attackBox1.width >= enemy.position.x
+            && player.attackBox1.position.x <= enemy.position.x + enemy.width
+            && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
+            &&player.attackBox1.position.y <= enemy.position.y + enemy.height
+            && player.isAttacking && player1turn == 1){
+            p1AAcounter++;
+            
+            if(p1AAcounter >= 6){
+                enemy.health -= 10;
+                document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                p1AAcounter =0;
+            }
+            
+            
+        }
+        else if(player.attackBox1.position.x + player.attackBox1.width  >= enemy.position.x
+            && player.attackBox1.position.x <= enemy.position.x + enemy.width +50
+            && player1turn == -1 && player.isAttacking 
+            && player.attackBox1.position.y <= enemy.position.y + enemy.height
+            && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
+            ){
+                p1AAcounter ++;
+                if(p1AAcounter >= 6){
+                    
+                    enemy.health -= 10;
+                    document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                    p1AAcounter =0;
+                }
+            
+        }
+     }
+    else if(enemy.isAttacking){
+        if(enemy.attackBox1.position.x - enemy.attackBox1.width <= player.position.x + player.width
+            && enemy.attackBox1.position.y + enemy.attackBox1.height >= player.position.y
+            &&enemy.attackBox1.position.y <= player.position.y + player.height
+            && enemy.isAttacking && player1turn == 1){
+                p2AAcounter ++;
+                if(p2AAcounter >= 6){
+                    
+                    player.health -= 10;
+                    document.querySelector('#playerHealth').style.width = player.health +'%'
+                    p2AAcounter =0;
+                }
+        }
+        else if(enemy.attackBox1.position.x + enemy.attackBox1.width  >= player.position.x
+            && enemy.attackBox1.position.x <= player.position.x + player.width +50
+            && player1turn == -1 && enemy.isAttacking 
+            && enemy.attackBox1.position.y <= player.position.y + player.height
+            && enemy.attackBox1.position.y + enemy.attackBox1.height >= player.position.y
+            ){
+                p2AAcounter ++;
+                if(p2AAcounter >= 6){
+                    
+                    player.health -= 10;
+                    document.querySelector('#playerHealth').style.width = player.health +'%'
+                    p2AAcounter =0;
+                }
+        }
+
+    }
+}
