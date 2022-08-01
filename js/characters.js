@@ -74,6 +74,14 @@ const player = new Fighter({
         abilityEL :{
             imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRopeL.png',
             framesMax:13
+        },
+        abilityRR :{
+            imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckR.png',
+            framesMax:24,
+        },
+        abilityRL :{
+            imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckL.png',
+            framesMax:24,
         }
     }
 })

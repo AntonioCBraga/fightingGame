@@ -484,7 +484,7 @@ function R_colp1(fighterRival,arr){
     if(rs_cRp12 == 1 ){
         rs_R(enemy,p1R)
         rs_cRp12 = 0
-        if(rs_cR123 == 3){
+        if(rs_cR123 == 5){ //number of repetitions
             arr.splice(0,1)
             rs_cR123 = 0;
         }
@@ -517,10 +517,10 @@ function R_colp2(fighterRival,arr){
         }
   
     })
-    if(rs_cRp22 == 1 ){
+    if(rs_cRp22 == 1 ){ 
         rs_R(player,p2R)
         rs_cRp22 = 0
-        if(rs_cR223 == 3){
+        if(rs_cR223 == 5){ //number of repetitions
             arr.splice(0,1)
             rs_cR223 = 0;
         }

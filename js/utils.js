@@ -43,7 +43,7 @@ function animationTurns(fighterName,animationName){
         p1Animating = false;
     }
     
-
+    
     if(fighterName.pl == 1){
         if(player1turn == 1){
             

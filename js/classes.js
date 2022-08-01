@@ -207,50 +207,50 @@ class Fighter extends Sprite{
                 }
                 return
             }    
-        // else if(this.image === this.sprites.abilityRR.image// p1 RR
-        //     && this.framesCurrent < this.sprites.abilityRR.framesMax -1 
-        //     && this.pl == 1 && player1turn == 1){
-        //         p1Animating = true;
-        //         p1AnimationStun = 1; 
-        //         if(this.framesCurrent == this.sprites.abilityRR.framesMax -2){
-        //             p1Animating = false;
-        //             p1AnimationStun = 0;
-        //         }
-        //         return
-        //     }
-        // else if(this.image === this.sprites.abilityRL.image// p1 RL
-        //     && this.framesCurrent < this.sprites.abilityRL.framesMax -1 
-        //     && this.pl == 1 && player1turn == -1){
-        //         p1Animating = true;
-        //         p1AnimationStun = 1; 
-        //         if(this.framesCurrent == this.sprites.abilityRL.framesMax -2){
-        //             p1Animating = false;
-        //             p1AnimationStun = 0;
-        //         }
-        //         return
-        //     }   
-        // else if(this.image === this.sprites.abilityRL.image// p2 RL
-        //     && this.framesCurrent < this.sprites.abilityRL.framesMax -1 
-        //     && this.pl == 2 && player1turn == -1){
-        //         p2Animating = true;
-        //         p2AnimationStun = 1; 
-        //         if(this.framesCurrent == this.sprites.abilityRL.framesMax -2){
-        //             p2Animating = false;
-        //             p2AnimationStun = 0;
-        //         }
-        //         return
-        //     }     
-        // else if(this.image === this.sprites.abilityRR.image// p2 RR
-        //     && this.framesCurrent < this.sprites.abilityRR.framesMax -1 
-        //     && this.pl == 2 && player1turn == 1){
-        //         p2Animating = true;
-        //         p2AnimationStun = 1; 
-        //         if(this.framesCurrent == this.sprites.abilityRR.framesMax -2){
-        //             p2Animating = false;
-        //             p2AnimationStun = 0;
-        //         }
-        //         return
-        //     }    
+        else if(this.image === this.sprites.abilityRR.image// p1 RR
+            && this.framesCurrent < this.sprites.abilityRR.framesMax -1 
+            && this.pl == 1 && player1turn == 1){
+                p1Animating = true;
+                p1AnimationStun = 1; 
+                if(this.framesCurrent == this.sprites.abilityRR.framesMax -2){
+                    p1Animating = false;
+                    p1AnimationStun = 0;
+                }
+                return
+            }
+        else if(this.image === this.sprites.abilityRL.image// p1 RL
+            && this.framesCurrent < this.sprites.abilityRL.framesMax -1 
+            && this.pl == 1 && player1turn == -1){
+                p1Animating = true;
+                p1AnimationStun = 1; 
+                if(this.framesCurrent == this.sprites.abilityRL.framesMax -2){
+                    p1Animating = false;
+                    p1AnimationStun = 0;
+                }
+                return
+            }   
+        else if(this.image === this.sprites.abilityRL.image// p2 RL
+            && this.framesCurrent < this.sprites.abilityRL.framesMax -1 
+            && this.pl == 2 && player2turn == -1){
+                p2Animating = true;
+                p2AnimationStun = 1; 
+                if(this.framesCurrent == this.sprites.abilityRL.framesMax -2){
+                    p2Animating = false;
+                    p2AnimationStun = 0;
+                }
+                return
+            }     
+        else if(this.image === this.sprites.abilityRR.image// p2 RR
+            && this.framesCurrent < this.sprites.abilityRR.framesMax -1 
+            && this.pl == 2 && player2turn == 1){
+                p2Animating = true;
+                p2AnimationStun = 1; 
+                if(this.framesCurrent == this.sprites.abilityRR.framesMax -2){
+                    p2Animating = false;
+                    p2AnimationStun = 0;
+                }
+                return
+            }    
 
 
 
