@@ -61,7 +61,7 @@ class Sprite{
 
 
 class Fighter extends Sprite{
-    constructor({position,velocity,color = 'red',pl,imgSrc,scale = 1,framesMax = 1,offset = {x:0, y:0},sprites}){
+    constructor({position,velocity,framesHold = 8,color = 'red',pl,imgSrc,scale = 1,framesMax = 1,offset = {x:0, y:0},sprites}){
         super({
             position,
             imgSrc,
@@ -73,7 +73,7 @@ class Fighter extends Sprite{
         
         this.framesCurrent =0;
         this.framesElapsed = 0
-        this.framesHold = 8
+        this.framesHold = framesHold
         this.width = 50;
         this.velocity = velocity
         this.height = 150;
@@ -207,7 +207,50 @@ class Fighter extends Sprite{
                 }
                 return
             }    
-
+        // else if(this.image === this.sprites.abilityRR.image// p1 RR
+        //     && this.framesCurrent < this.sprites.abilityRR.framesMax -1 
+        //     && this.pl == 1 && player1turn == 1){
+        //         p1Animating = true;
+        //         p1AnimationStun = 1; 
+        //         if(this.framesCurrent == this.sprites.abilityRR.framesMax -2){
+        //             p1Animating = false;
+        //             p1AnimationStun = 0;
+        //         }
+        //         return
+        //     }
+        // else if(this.image === this.sprites.abilityRL.image// p1 RL
+        //     && this.framesCurrent < this.sprites.abilityRL.framesMax -1 
+        //     && this.pl == 1 && player1turn == -1){
+        //         p1Animating = true;
+        //         p1AnimationStun = 1; 
+        //         if(this.framesCurrent == this.sprites.abilityRL.framesMax -2){
+        //             p1Animating = false;
+        //             p1AnimationStun = 0;
+        //         }
+        //         return
+        //     }   
+        // else if(this.image === this.sprites.abilityRL.image// p2 RL
+        //     && this.framesCurrent < this.sprites.abilityRL.framesMax -1 
+        //     && this.pl == 2 && player1turn == -1){
+        //         p2Animating = true;
+        //         p2AnimationStun = 1; 
+        //         if(this.framesCurrent == this.sprites.abilityRL.framesMax -2){
+        //             p2Animating = false;
+        //             p2AnimationStun = 0;
+        //         }
+        //         return
+        //     }     
+        // else if(this.image === this.sprites.abilityRR.image// p2 RR
+        //     && this.framesCurrent < this.sprites.abilityRR.framesMax -1 
+        //     && this.pl == 2 && player1turn == 1){
+        //         p2Animating = true;
+        //         p2AnimationStun = 1; 
+        //         if(this.framesCurrent == this.sprites.abilityRR.framesMax -2){
+        //             p2Animating = false;
+        //             p2AnimationStun = 0;
+        //         }
+        //         return
+        //     }    
 
 
 
@@ -312,6 +355,20 @@ class Fighter extends Sprite{
                 if(this.image !== this.sprites.abilityEL.image){
                     this.image = this.sprites.abilityEL.image
                     this.framesMax = this.sprites.abilityEL.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "abilityRR":
+                if(this.image !== this.sprites.abilityRR.image){
+                    this.image = this.sprites.abilityRR.image
+                    this.framesMax = this.sprites.abilityRR.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            case "abilityRL":
+                if(this.image !== this.sprites.abilityRL.image){
+                    this.image = this.sprites.abilityRL.image
+                    this.framesMax = this.sprites.abilityRL.framesMax;
                     this.framesCurrent = 0;
                 }
                 break;

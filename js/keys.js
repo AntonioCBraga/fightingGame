@@ -69,8 +69,8 @@ window.addEventListener('keydown',(e)=>{
         
             break;
         case 'r':
+                //animationTurns(player,'abilityR')
                 rs_R(enemy,p1R)
-                console.log(p1R)
             break;
     
         //--------------------------------------------------Player 2 commands-------------------------------------------//
@@ -111,6 +111,8 @@ window.addEventListener('keydown',(e)=>{
             }
             break;
         case '6':
+            //animationTurns(enemy,'abilityR')
+            rs_R(player,p2R)
 
             break;
     }

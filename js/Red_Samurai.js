@@ -419,10 +419,19 @@ let p1R = []
 let p2R = []
 
 function rs_R(enemy,arr){
+
+    let compensation = 0
+    if(enemy.velocity.x > 0){
+        compensation = 100;
+    }
+    else if(enemy.velocity.x < 0){
+        compensation = -80
+    }
+
         arr.push(new Sprite({
             position:{
-                x:enemy.position.x +2 ,
-                y:  playerMinHeight + player.height - 45
+                x:enemy.position.x +2 + compensation ,
+                y:  playerMinHeight + enemy.height - 45
             },
             velocity:{
                 x:0,
@@ -451,7 +460,8 @@ let rs_cR123 =0;
 
 
 function R_colp1(fighterRival,arr){
-    
+ 
+
     arr.forEach((knife ) =>{
         knife.update()
         if(collision(knife,fighterRival) && knife.framesCurrent >= 7 && knife.framesCurrent <= 9 ){
@@ -486,7 +496,7 @@ let rs_cRp2 = 0;
 let rs_cRp22 =0;
 let rs_cR223 =0;
 
-function R_colp1(fighterRival,arr){
+function R_colp2(fighterRival,arr){
     
     arr.forEach((knife ) =>{
         knife.update()
@@ -508,7 +518,7 @@ function R_colp1(fighterRival,arr){
   
     })
     if(rs_cRp22 == 1 ){
-        rs_R(enemy,p1R)
+        rs_R(player,p2R)
         rs_cRp22 = 0
         if(rs_cR223 == 3){
             arr.splice(0,1)
@@ -517,6 +527,9 @@ function R_colp1(fighterRival,arr){
         
     }
 }
+
+
+
 
 
 
@@ -533,8 +546,7 @@ function p1RS(){
  function p2RS(){
     Q_col(p2Q,player)
     E_colp2(p2E1,p2E2)
-   
-    
+    R_colp2(player,p2R)
  }
 
 
