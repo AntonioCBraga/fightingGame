@@ -147,7 +147,7 @@ function rs_E(fighter,playerTurn,arr ,arr2){
         arr.push(new Sprite({
             position:{
                 x:fighter.position.x + distance2,
-                y:fighter.position.y  + 64 
+                y:fighter.position.y  + 72
             },
             velocity:{
                 x:8 * playerTurn,
@@ -168,7 +168,7 @@ function rs_E(fighter,playerTurn,arr ,arr2){
         arr2.push(new rope({ 
             position:{
                 x:fighter.position.x + distance,
-                y:fighter.position.y + 74
+                y:fighter.position.y + 82
             },
             velocity:{
                 x: 8 * playerTurn,

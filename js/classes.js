@@ -103,34 +103,117 @@ class Fighter extends Sprite{
     //-------------------------------------ANIMATIONS---------------------------------//
     switchSprite(sprite){
         
-        if(this.image === this.sprites.attackR.image 
+        if(this.image === this.sprites.attackR.image   // p1 AAR
             && this.framesCurrent < this.sprites.attackR.framesMax -1 
-            && player1turn ==1) {return}
-        else if(this.image === this.sprites.attackR.image 
+            && player1turn ==1) {
+                p1Animating = true;
+                p1stunned = 1;
+                if(this.framesCurrent == this.sprites.attackR.framesMax -2 ){
+                    p1Animating = false;
+                    p1stunned = 0;
+                }
+                return}
+        else if(this.image === this.sprites.attackR.image  //p2 AAR
             && this.framesCurrent < this.sprites.attackR.framesMax -1 
-            && player1turn ==-1 && this.pl ==2) {return}
-        else if(this.image === this.sprites.attackL.image 
+            && player1turn ==-1 && this.pl ==2) {
+                p2Animating = true;
+                p2stunned = 1;
+                if(this.framesCurrent == this.sprites.attackR.framesMax -2 ){
+                    p2Animating = false;
+                    p2stunned = 0;
+                }
+                return}
+        else if(this.image === this.sprites.attackL.image // p1 AAL
             && this.framesCurrent < this.sprites.attackL.framesMax -1 
-            && player1turn == -1) {return}
-        else if(this.image === this.sprites.attackL.image 
+            && player1turn == -1) {
+                p1Animating = true;
+                p1stunned = 1;
+                if(this.framesCurrent == this.sprites.attackL.framesMax -2 ){
+                    p1Animating = false;
+                    p1stunned = 0;
+                }
+                return}
+        else if(this.image === this.sprites.attackL.image // p2 AAL
                 && this.framesCurrent < this.sprites.attackL.framesMax -1 
-                && player1turn == 1&& this.pl ==2) {return}
-        else if(this.image === this.sprites.abilityQR.image 
+                && player1turn == 1&& this.pl ==2) {
+                    p2Animating = true;
+                    p2stunned = 1
+                    if(this.framesCurrent == this.sprites.attackL.framesMax -2){
+                        p2Animating = false;
+                        p2stunned = 0
+                    }
+                    return}
+        else if(this.image === this.sprites.abilityQR.image  //p1 QR
             && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
-            && player1turn == 1) return
-        else if(this.image === this.sprites.abilityQL.image 
+            && player1turn == 1) {
+                p1Animating = true;
+                return}
+        else if(this.image === this.sprites.abilityQL.image // p1 QL
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
-            && player1turn == -1) return
-        else if(this.image === this.sprites.abilityQR.image 
+            && player1turn == -1) {
+                p1Animating = true;
+                return}
+        else if(this.image === this.sprites.abilityQR.image  //p2 QR
             && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
-            && player1turn == -1 && this.pl ==2) return
-        else if(this.image === this.sprites.abilityQL.image 
+            && player1turn == -1 && this.pl ==2) {
+                p2Animating = true;
+                return}
+        else if(this.image === this.sprites.abilityQL.image  // p2 QL
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
-            && player2turn == 1 && this.pl ==2) return
-      
-       
-            
-        
+            && player2turn == 1 && this.pl ==2) {
+                p2Animating = true;
+                return}   
+       else if(this.image === this.sprites.abilityER.image //p1 ER
+            && this.framesCurrent < this.sprites.abilityER.framesMax -1 
+            && player1turn ==1 && this.pl == 1) {
+                p1Animating = true;
+                p1stunned = 1;
+                if(this.framesCurrent == this.sprites.abilityER.framesMax -2){
+                    p1stunned = 0;
+                    p1Animating = false;
+                }
+                return
+            }
+        else if(this.image === this.sprites.abilityEL.image // p1 EL
+            && this.framesCurrent < this.sprites.abilityEL.framesMax -1 
+            && this.pl == 1){
+                p1Animating = true;
+                p1stunned = 1;
+                if(this.framesCurrent == this.sprites.abilityEL.framesMax -2){
+                    p1stunned = 0;
+                    p1Animating = false;
+                }
+                return
+            }    
+        else if(this.image === this.sprites.abilityER.image // p2 ER
+            && this.framesCurrent < this.sprites.abilityER.framesMax -1 
+            && player2turn ==1 && this.pl == 2) {
+                p2Animating = true;
+                p2stunned = 1;
+                if(this.framesCurrent == this.sprites.abilityER.framesMax -2){
+                    p2Animating = false;
+                    p2stunned = 0;
+                }
+                return
+            }
+        else if(this.image === this.sprites.abilityEL.image// p2 EL
+            && this.framesCurrent < this.sprites.abilityEL.framesMax -1 
+            && this.pl == 2 && player2turn == -1){
+                p2Animating = true;
+                p2stunned = 1;
+                if(this.framesCurrent == this.sprites.abilityEL.framesMax -2){
+                    p2Animating = false;
+                    p2stunned = 0;
+                }
+                return
+            }    
+
+
+
+
+
+
+
         
         switch(sprite){
             case "idleR":

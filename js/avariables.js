@@ -18,15 +18,14 @@ let timerID
 
 //-------------------------------------------------Variables-------------------------------------------//
 
-let debugp1 = false;
-let debugp2 = false;
 
+let buggcounter = 0 // counter for double E bug
 
 
 let sideRope //Siderope indicates wich side red_samurai E ability comes from 
 
-let p1IsAnimating = 0; // tells if player1 is currently on attack animation | not implemented
-let p2IsAnimating = 0; // tells if player2 is currently on attack animation | not implemented
+let p1Animating = false; // tells if player1 is currently on attack animation | not implemented
+let p2Animating = false; // tells if player2 is currently on attack animation | not implemented
 
 let counterdjp1 = 0;   //doublejump player1 counter and may help with stun
 let counterdjp2 = 0;   //doublejump player2 counter and may help with stun

@@ -50,16 +50,14 @@ function animate(){
     }
     else if(coldred_samurai_Qp1 != 0){
         coldred_samurai_Qp1 ++;
-        
-     
     }
     console.log(p1stunned)
     //------------------------tells what way players should be facing and send abilities.
-    if(player.position.x <= enemy.position.x){
+    if(player.position.x <= enemy.position.x && p1Animating == false && p1stunned == 0){
         player1turn = 1;
         sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshuriken.png'
     }
-    else{
+    else if(player.position.x > enemy.position.x && p1Animating == false && p1stunned == 0){
         player1turn = -1;
         sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshurikenL.png'
     }
@@ -125,12 +123,12 @@ function animate(){
     //Tells what side enemy should be facing
     
     enemy.velocity.x = 0;
-
-    if(player.position.x <= enemy.position.x){
+    console.log(p2Animating)
+    if(player.position.x <= enemy.position.x && p2Animating == false  && p2stunned == 0){
         player2turn = -1;
         
     }
-    else{
+    else if(player.position.x > enemy.position.x && p2Animating == false && p2stunned == 0 ){
         player2turn = 1;
         
     }
@@ -196,7 +194,8 @@ function animate(){
 
     }
 
-
+    console.log(p1stunned)
+    console.log(p1Animating)
 
 
     if(p2CharSelect == 'redsamurai'){
@@ -204,8 +203,11 @@ function animate(){
 
         p2RS();
     }
-
-
+   
+   
+   
+    doubleRopeDebug();
+  
 
 }   // END OF ANIMATE()
 

@@ -45,18 +45,26 @@ window.addEventListener('keydown',(e)=>{
             counterdjp1 ++
             break;
         case ' ':
-            player.attack()
+            if(p1stunned === 0){
+                player.attack()
+            }
+          
             break;
         case 'q':
-            animationTurns(player,'abilityQ')
-            rs_Q(player,player1turn,p1Q);
+            if(p1stunned === 0){
+                animationTurns(player,'abilityQ')
+                rs_Q(player,player1turn,p1Q);
+            }
+            
             
             
             break;
         case 'e':
+            if(player.velocity.y === 0 && p1stunned === 0){
+                animationTurns(player,'abilityE');
+                rs_E(player,player1turn,p1E1,p1E2);
+            }
            
-            animationTurns(player,'abilityE')
-            rs_E(player,player1turn,p1E1,p1E2);
             
         
             break;
@@ -90,16 +98,23 @@ window.addEventListener('keydown',(e)=>{
              break;
         }
         case '0': {
+            if(p2stunned === 0){
+                enemy.attack()
+            }
             
-            enemy.attack()
             break;
         }
         case '4':
-            animationTurns(enemy,'abilityQ')
-            rs_Q(enemy,player2turn,p2Q)
+            if(p2stunned === 0){
+                animationTurns(enemy,'abilityQ')
+                rs_Q(enemy,player2turn,p2Q)
+            }
             break;
         case '8':
-            rs_E(enemy,player2turn,p2E1,p2E2);
+            if(enemy.velocity.y === 0){
+                animationTurns(enemy,'abilityE');
+                rs_E(enemy,player2turn,p2E1,p2E2);
+            }
             break;
         case '6':
             grounds2.push(new Ground({
