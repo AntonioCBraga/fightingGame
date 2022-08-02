@@ -45,31 +45,34 @@ window.addEventListener('keydown',(e)=>{
             counterdjp1 ++
             break;
         case ' ':
-            if(p1stunned === 0){
+            if(p1stunned === 0 && p2AnimationStun == 0){
                 player.attack()
             }
           
             break;
         case 'q':
-            if(p1stunned === 0){
+            
+            if(p1stunned === 0 && rs_CDQp1 == 0 && p2AnimationStun == 0){
                 animationTurns(player,'abilityQ')
                 rs_Q(player,player1turn,p1Q);
+                rs_CDQp1 ++;
             }
             
             
             
             break;
         case 'e':
-            if(player.velocity.y === 0 && p1stunned === 0){
+            if(player.velocity.y === 0 && p1stunned === 0 && rs_CDEp1 == 0 && p2AnimationStun == 0){
                 animationTurns(player,'abilityE');
                 rs_E(player,player1turn,p1E1,p1E2);
+                rs_CDEp1 ++ 
             }
            
             
         
             break;
         case 'r':
-            if(rs_cdRp1== 0){
+            if(rs_cdRp1== 0 && p2stunned == 0 && p2AnimationStun == 0){
                 rs_delayRp1 = 1;
             }
             if(rs_delayRp1 === 1 && p1stunned ===0 && player.velocity.y === 0){
@@ -97,7 +100,7 @@ window.addEventListener('keydown',(e)=>{
              break;
         }
         case '0': {
-            if(p2stunned === 0){
+            if(p2stunned === 0 && p2AnimationStun == 0 ){
                
                 enemy.attack()
             }
@@ -105,19 +108,22 @@ window.addEventListener('keydown',(e)=>{
             break;
         }
         case '4':
-            if(p2stunned === 0){
+            if(p2stunned === 0 && rs_CDQp2 == 0 && p2AnimationStun == 0){
                 animationTurns(enemy,'abilityQ')
                 rs_Q(enemy,player2turn,p2Q)
+                rs_CDQp2 ++
             }
             break;
         case '8':
-            if(enemy.velocity.y === 0 && p2stunned ===0){
+            if(enemy.velocity.y === 0 && p2stunned ===0 && rs_CDEp2 == 0  && p2AnimationStun == 0 ){
+
                 animationTurns(enemy,'abilityE');
                 rs_E(enemy,player2turn,p2E1,p2E2);
+                rs_CDEp2 ++
             }
             break;
         case '6':
-            if(rs_cdRp2== 0){
+            if(rs_cdRp2== 0 && p2stunned == 0 && p2AnimationStun == 0 ){
                 rs_delayRp2 = 1;
             }
             

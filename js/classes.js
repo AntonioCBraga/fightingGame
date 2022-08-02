@@ -147,21 +147,40 @@ class Fighter extends Sprite{
             && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
             && player1turn == 1) {
                 p1Animating = true;
-                return}
+                
+                if(this.framesCurrent == this.sprites.abilityQR.framesMax -2){
+                    p1Animating = false;
+                    
+                }
+                
+                return
+            }
         else if(this.image === this.sprites.abilityQL.image // p1 QL
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
             && player1turn == -1) {
                 p1Animating = true;
+                if(this.framesCurrent == this.sprites.abilityQL.framesMax -2){
+                    p1Animating = false;
+                    
+                }
                 return}
         else if(this.image === this.sprites.abilityQR.image  //p2 QR
             && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
-            && player1turn == -1 && this.pl ==2) {
+            && player1turn == -1 && this.pl ==2 ) {
                 p2Animating = true;
+                if(this.framesCurrent == this.sprites.abilityQR.framesMax -2){
+                    p2Animating = false;
+                    
+                }
                 return}
         else if(this.image === this.sprites.abilityQL.image  // p2 QL
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
-            && player2turn == 1 && this.pl ==2) {
+            && player1turn == 1 && this.pl ==2) {
                 p2Animating = true;
+                if(this.framesCurrent == this.sprites.abilityQL.framesMax -2){
+                    p2Animating = false;
+                    
+                }
                 return}   
        else if(this.image === this.sprites.abilityER.image //p1 ER
             && this.framesCurrent < this.sprites.abilityER.framesMax -1 

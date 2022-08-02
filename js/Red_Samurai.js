@@ -108,6 +108,34 @@ function rs_Q(fighter,playerTurn,arr){
     )
 }
 
+
+let rs_CDQp1 = 0;
+  
+function rs_CDQP1(){
+    rs_CDQp1 ++
+    
+    if(rs_CDQp1 == 170){
+        rs_CDQp1 =0;
+    }
+
+  
+    return
+}
+
+let rs_CDQp2 = 0;
+
+function rs_CDQP2(){
+    rs_CDQp2 ++
+    
+    if(rs_CDQp2 == 170){
+        rs_CDQp2 =0;
+    }
+
+  
+    return
+}
+
+
 //-------------------------------------------------------------------------Abilti Rope
 let p1E1 = []
 let p1E2 = []
@@ -409,7 +437,30 @@ function E_colp2(arr,arr2){
     }
 
 }
-  
+
+
+let rs_CDEp1 = 0;
+
+function rs_CDEP1(){
+    rs_CDEp1 ++
+    
+    if(rs_CDEp1 == 600){
+        rs_CDEp1 =0;
+    }
+    return
+}
+
+
+let rs_CDEp2 = 0;
+
+function rs_CDEP2(){
+    rs_CDEp2 ++
+    
+    if(rs_CDEp2 == 600){
+        rs_CDEp2 =0;
+    }
+    return
+}
 
 
 
