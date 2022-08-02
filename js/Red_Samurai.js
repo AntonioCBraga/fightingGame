@@ -484,7 +484,7 @@ function R_colp1(fighterRival,arr){
     if(rs_cRp12 == 1 ){
         rs_R(enemy,p1R)
         rs_cRp12 = 0
-        if(rs_cR123 == 5){ //number of repetitions
+        if(rs_cR123 == 3){ //number of repetitions
             arr.splice(0,1)
             rs_cR123 = 0;
         }
@@ -520,7 +520,7 @@ function R_colp2(fighterRival,arr){
     if(rs_cRp22 == 1 ){ 
         rs_R(player,p2R)
         rs_cRp22 = 0
-        if(rs_cR223 == 5){ //number of repetitions
+        if(rs_cR223 == 3){ //number of repetitions
             arr.splice(0,1)
             rs_cR223 = 0;
         }
@@ -528,6 +528,52 @@ function R_colp2(fighterRival,arr){
     }
 }
 
+
+
+//-------------------------------------------------------------Delay and cooldownSystem
+
+let rs_delayRp1 = 0;
+let rs_cdRp1 = 0;
+
+
+let rs_delayRp2 = 0;
+let rs_cdRp2 = 0;
+
+
+function rs_DelaysP1(){
+    rs_cdRp1 ++;
+    rs_delayRp1 ++
+    
+    if(rs_delayRp1 == 30){
+        rs_R(enemy,p1R)
+    }
+
+    if(rs_cdRp1 == 480){
+        rs_cdRp1= 0;
+        rs_delayRp1 =0;
+    }
+
+  
+    return
+}
+
+
+
+function rs_DelaysP2(){
+    rs_cdRp2 ++;
+    rs_delayRp2 ++
+    
+    if(rs_delayRp2 == 30){
+        rs_R(player,p2R)
+    }
+
+    if(rs_cdRp2 == 480){
+        rs_cdRp2= 0;
+        rs_delayRp2 =0;
+    }
+
+    return
+}
 
 
 

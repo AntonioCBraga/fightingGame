@@ -77,11 +77,11 @@ const player = new Fighter({
         },
         abilityRR :{
             imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckR.png',
-            framesMax:24,
+            framesMax:8,
         },
         abilityRL :{
             imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckL.png',
-            framesMax:24,
+            framesMax:8,
         }
     }
 })
@@ -166,12 +166,12 @@ const enemy = new Fighter({
         },
         abilityRR :{
             imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckR.png',
-            framesMax:24,
+            framesMax:8,
             framesHold:8
         },
         abilityRL :{
             imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckL.png',
-            framesMax:24,
+            framesMax:8,
             framesHold:8
         }
     }

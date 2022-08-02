@@ -69,8 +69,14 @@ window.addEventListener('keydown',(e)=>{
         
             break;
         case 'r':
+            if(rs_cdRp1== 0){
+                rs_delayRp1 = 1;
+            }
+            if(rs_delayRp1 === 1 && p1stunned ===0 && player.velocity.y === 0){
                 animationTurns(player,'abilityR')
-                rs_R(enemy,p1R)
+            }
+               
+                
             break;
     
         //--------------------------------------------------Player 2 commands-------------------------------------------//
@@ -105,14 +111,22 @@ window.addEventListener('keydown',(e)=>{
             }
             break;
         case '8':
-            if(enemy.velocity.y === 0){
+            if(enemy.velocity.y === 0 && p2stunned ===0){
                 animationTurns(enemy,'abilityE');
                 rs_E(enemy,player2turn,p2E1,p2E2);
             }
             break;
         case '6':
-            animationTurns(enemy,'abilityR')
-            rs_R(player,p2R)
+            if(rs_cdRp2== 0){
+                rs_delayRp2 = 1;
+            }
+            
+            if(rs_delayRp2 === 1 && p2stunned ===0 && enemy.velocity.y === 0){
+                animationTurns(enemy,'abilityR')
+            }
+           
+            
+            //rs_R(player,p2R)
 
             break;
     }

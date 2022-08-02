@@ -28,6 +28,9 @@ function animate(){
 
     //-------------------------------------------------Updates--------------------------------------------------------//
 
+    
+
+
 
     //-----------------------------------------Maps-------------------------------------------//
     mapUpdate();
@@ -41,7 +44,6 @@ function animate(){
     
 
 
-
     //------------------------tells what way players should be facing and send abilities.
     if(player.position.x <= enemy.position.x && p1Animating == false && p1stunned == 0 && p1AnimationStun == 0){
         player1turn = 1;
@@ -53,8 +55,8 @@ function animate(){
     }
 
     
-
-
+    
+  
     player.velocity.x = 0;
 
     if(keys.a.pressed && player.lastKey ==='a' && p1move ==1 && p1stunned ==0 && pl1WalkL == 1 && p1AnimationStun == 0){
@@ -168,7 +170,22 @@ function animate(){
         counterdjp2 = 0;
     }
 
-    //---------------------------------------------player collision------------------------------------------------//
+    //---------------------------------------------Cooldown && Delay Systems------------------------------------------------//
+
+
+
+    if(rs_delayRp1 != 0){
+        rs_DelaysP1();
+    }
+
+    if(rs_delayRp2 != 0){
+        rs_DelaysP2();
+    }
+
+
+
+
+    
 
    
     //----------------------------------------------And attacks doing stuff----------------------------------------//

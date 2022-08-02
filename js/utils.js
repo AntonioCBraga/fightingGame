@@ -117,11 +117,7 @@ function collision(projectile,fighter){
 }
 
 
-function delay(milliseconds){
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
+
 
 
 function doubleRopeDebug(){
@@ -140,5 +136,11 @@ function doubleRopeDebug(){
 }
 
 
+function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
 
-//collisoni of auto attacks--------------------------------------------------------------
+
+
