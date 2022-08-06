@@ -12,14 +12,14 @@
 
 <br/>
 
+1.make AutoA Diferent for every character <br />
+2.Make GetOverFromThere animations work properly.. <br />
+3.make timer function so collision detection isnt always ticking <br />
+4.Deal with Health properly<br />
 
 
-1.make timer function so collision detection isnt always ticking <br />
-2.Deal with Health properly<br />
 
-
-
-
+X.add cd timers maybe.
 X.add 3 more characters total <br />
 X.player2turn not working always<br />
 X.Add delay of 20 frames  between abilities.<br />

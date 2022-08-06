@@ -31,7 +31,7 @@ function decreaseTimer(){
     }  
 }
 
-// Takes fighterName and animationName to decide
+//Takes fighterName and animationName to decide
 //wich sided animation to use
 function animationTurns(fighterName,animationName){
 
@@ -134,13 +134,4 @@ function doubleRopeDebug(){
     }
     
 }
-
-
-function delay(milliseconds){
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
-
-
 

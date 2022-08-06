@@ -9,6 +9,130 @@ let p2Q = []
 //-----------------------------------------------------------------Ability Q
 
 
+// function aap1(){
+     
+//     if(player.isAttacking){
+//         if(player.attackBox1.position.x + player.attackBox1.width >= enemy.position.x
+//             && player.attackBox1.position.x <= enemy.position.x + enemy.width
+//             && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
+//             &&player.attackBox1.position.y <= enemy.position.y + enemy.height
+//             && player.isAttacking && player1turn == 1){
+//             p1AAcounter++;
+            
+//             if(p1AAcounter >= 6){
+//                 enemy.health -= 10;
+//                 document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+//                 p1AAcounter =0;
+//             }
+            
+            
+//         }
+//         else if(player.attackBox1.position.x + player.attackBox1.width  >= enemy.position.x
+//             && player.attackBox1.position.x <= enemy.position.x + enemy.width +50
+//             && player1turn == -1 && player.isAttacking 
+//             && player.attackBox1.position.y <= enemy.position.y + enemy.height
+//             && player.attackBox1.position.y + player.attackBox1.height >= enemy.position.y
+//             ){
+//                 p1AAcounter ++;
+//                 if(p1AAcounter >= 6){
+                    
+//                     enemy.health -= 10;
+//                     document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+//                     p1AAcounter =0;
+//                 }
+            
+//         }
+//      }
+//     else if(enemy.isAttacking){
+//         if(enemy.attackBox1.position.x - enemy.attackBox1.width <= player.position.x + player.width
+//             && enemy.attackBox1.position.y + enemy.attackBox1.height >= player.position.y
+//             &&enemy.attackBox1.position.y <= player.position.y + player.height
+//             && enemy.isAttacking && player1turn == 1){
+//                 p2AAcounter ++;
+//                 if(p2AAcounter >= 6){
+                    
+//                     player.health -= 10;
+//                     document.querySelector('#playerHealth').style.width = player.health +'%'
+//                     p2AAcounter =0;
+//                 }
+//         }
+//         else if(enemy.attackBox1.position.x + enemy.attackBox1.width  >= player.position.x
+//             && enemy.attackBox1.position.x <= player.position.x + player.width +50
+//             && player1turn == -1 && enemy.isAttacking 
+//             && enemy.attackBox1.position.y <= player.position.y + player.height
+//             && enemy.attackBox1.position.y + enemy.attackBox1.height >= player.position.y
+//             ){
+//                 p2AAcounter ++;
+//                 if(p2AAcounter >= 6){
+                    
+//                     player.health -= 10;
+//                     document.querySelector('#playerHealth').style.width = player.health +'%'
+//                     p2AAcounter =0;
+//                 }
+//         }
+
+//     }
+// }
+
+//--------------------------------------------------------------------------------------------------------AA--------------------------------------------------------------------------------------------------------
+let rs_aa_p1 = []
+let rs_aa_p2 = []
+
+function rs_AA(fighter,playerTurn,arr){
+    
+    let distance = 0;
+    
+    if(fighter.pl == 1 && playerTurn == 1){
+        distance = fighter.width ;
+    }
+
+    if(fighter.pl == 2 && playerTurn == 1){
+        distance = fighter.width
+    }
+
+    arr.push(new Sprite({
+        position:{
+            x:fighter.position.x + distance  ,
+            y:fighter.position.y + 40 
+        },
+        velocity:{
+            x:0 * playerTurn,
+            y:0
+        },
+        width:150 * playerTurn,
+        height:fighter.height - 40,
+        ColAnim:1
+    })
+    )
+}
+
+
+
+
+function rs_AA_col(fighterRival,arr){
+    arr.forEach((projectile,index )=> { 
+           if(collision(projectile,fighterRival)){
+                        console.log('huh')
+                        arr.splice(index,1)
+                        if(fighterRival === enemy){
+                            enemy.health -= 10;
+                            document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                        }
+                        else{
+                            player.health -= 10;
+                            document.querySelector('#playerHealth').style.width = player.health +'%'
+                        }
+                    
+                    
+                }
+           
+              
+        
+    })
+}
+
+
+
 
 
 
@@ -118,7 +242,7 @@ function rs_CDQP1(){
         rs_CDQp1 =0;
     }
 
-  
+
     return
 }
 
@@ -634,13 +758,16 @@ function rs_DelaysP2(){
 
 
 function p1RS(){
+    rs_AA_col(enemy,rs_aa_p1)
     Q_col(p1Q,enemy);
     E_colp1(p1E1,p1E2) // one collision for each
     R_colp1(enemy,p1R)
+
 }
 
 
  function p2RS(){
+    rs_AA_col(player,rs_aa_p2)
     Q_col(p2Q,player)
     E_colp2(p2E1,p2E2)
     R_colp2(player,p2R)

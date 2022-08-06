@@ -1,5 +1,5 @@
 class Sprite{
-    constructor({position,velocity = {x:0,y:0},framesHold = 8,ColAnim = 0,width = 50,height = 150 ,imgSrc,scale = 1,framesMax = 1, offset= {x:0, y:0}}){
+    constructor({position,velocity = {x:0,y:0},framesHold = 8,ColAnim = 0,width = 50,height = 150 ,imgSrc = "",scale = 1,framesMax = 1, offset= {x:0, y:0}}){
         this.position = position
         this.velocity = velocity
         this.width = width;
