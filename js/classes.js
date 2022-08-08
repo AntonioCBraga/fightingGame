@@ -106,7 +106,7 @@ class Fighter extends Sprite{
         if(this.image === this.sprites.attackR.image   // p1 AAR
             && this.framesCurrent < this.sprites.attackR.framesMax -1 
             && (player1turn == 1 ||  p1doingAAR == false) && this.pl ==1) {
-                p1doingAAR = true
+                p1doingAAR = false
                 p1Animating = true;
                 p1AnimationStun = 1;
                 
@@ -123,7 +123,7 @@ class Fighter extends Sprite{
                 p2Animating = true;
                 console.log('ugabuga')
                 p2AnimationStun = 1;
-                p2doingAAR = true;
+                p2doingAAR = false;
                 if(this.framesCurrent == this.sprites.attackR.framesMax -2 ){
                     p2Animating = false;
                     p2AnimationStun = 0;
@@ -133,7 +133,7 @@ class Fighter extends Sprite{
         else if(this.image === this.sprites.attackL.image // p1 AAL
             && this.framesCurrent < this.sprites.attackL.framesMax -1 
             && (player1turn == -1  || p2doingAAL == false) && this.pl == 1) {
-                p1doingAAL = true;
+                p1doingAAL = false;
                 p1Animating = true;
                 p1AnimationStun = 1;
                 if(this.framesCurrent == this.sprites.attackL.framesMax -2 ){
@@ -146,7 +146,7 @@ class Fighter extends Sprite{
                 && this.framesCurrent < this.sprites.attackL.framesMax -1 
                 &&  (player2turn == -1 ||  p2doingAAL == false ) && this.pl ==2) {
                     
-                    p2doingAAL = true;
+                    p2doingAAL = false;
                     p2Animating = true;
                     p2AnimationStun = 1
                     
