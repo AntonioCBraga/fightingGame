@@ -13,10 +13,10 @@
 <br/>
 
 
-2.make p2 AA not stop player1 movement <br/>
-3.Make GetOverFromThere animations work properly.. <br />
-4.make timer function so collision detection isnt always ticking <br />
-5.Deal with Health properly<br />
+1.Make delay for AAs and damage for R <br/>
+2.Make GetOverFromThere animations work properly.. <br />
+3.make timer function so collision detection isnt always ticking <br />
+4.Deal with Health properly<br />
 
 5.AnimationStun  <br />
 
