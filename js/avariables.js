@@ -24,7 +24,8 @@ let sideRope //Siderope indicates wich side red_samurai E ability comes from
 let buggcounter = 0;
 
 
-
+let doingAA1 = false;
+let doingAA2 = false;
 //-------------------------------------------------Variables-------------------------------------------//
 
 

@@ -12,8 +12,9 @@
 
 <br/>
 
-1.Make Stunned Animation and when animating and cross to other side doesnt stop animation <br />
-2.Make GetOverFromThere animations work properly.. <br />
+
+1.Make GetOverFromThere animations work properly.. <br />
+2.p1 AA gets canceled if enemy crosses him fix it <br />
 3.make timer function so collision detection isnt always ticking <br />
 4.Deal with Health properly<br />
 

@@ -45,13 +45,15 @@ function animate(){
 
 
     //------------------------tells what way players should be facing and send abilities.
-    if(player.position.x <= enemy.position.x && p1Animating == false && p1stunned == 0 && p1AnimationStun == 0){
+    if(player.position.x <= enemy.position.x && p1Animating == false  && p1stunned == 0 && p1AnimationStun == 0){
         player1turn = 1;
-        sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshuriken.png'
+        
+      
     }
-    else if(player.position.x > enemy.position.x && p1Animating == false && p1stunned == 0 && p1AnimationStun == 0){
+    else if(player.position.x > enemy.position.x && p1Animating == false  && p1stunned == 0 && p1AnimationStun == 0){
         player1turn = -1;
-        sideRope ='./img/Red_Samurai/Sprites/kunaiwithRope/ropeshurikenL.png'
+        
+        
     }
 
     
@@ -117,7 +119,7 @@ function animate(){
     enemy.velocity.x = 0;
     
 
-    if(player.position.x <= enemy.position.x && p2Animating == false  && p2stunned == 0 && p2AnimationStun == 0){
+    if(player.position.x <= enemy.position.x  && p2Animating == false  && p2stunned == 0 && p2AnimationStun == 0){
         player2turn = -1;
         
     }
