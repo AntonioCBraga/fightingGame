@@ -340,9 +340,11 @@ class rope{
 //-------------------------------------------------------------------Gotta make 1 collision detection for each dont know why 
 function E_colp1(arr,arr2){
     arr.forEach((rope,index ) =>{
+      
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
             if(arr2[0] != undefined){
                 arr2.splice(0,1);
+                
             }
             arr.splice(index,1)
            
@@ -354,6 +356,7 @@ function E_colp1(arr,arr2){
             getRoped1 =1 ;
             p1stunned = 1;
             p2stunned =1;
+            
             
        
         }
@@ -457,7 +460,7 @@ function E_colp2(arr,arr2){
             getRoped2 =1;
             p1stunned = 1;
             p2stunned =1;
-            console.log('hit')
+            
         }
         else {
             if(arr2.length >1){

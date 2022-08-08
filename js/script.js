@@ -60,6 +60,7 @@ function animate(){
     
   
     player.velocity.x = 0;
+     // p2 AA making p1 AnimationStunned
 
     if(keys.a.pressed && player.lastKey ==='a' && p1move ==1 && p1stunned ==0 && pl1WalkL == 1 && p1AnimationStun == 0){
         if(player.position.x >= 0){
@@ -84,6 +85,7 @@ function animate(){
 
     if(keys.w.pressed && p1stunned ==0 && p1move ==1 && p1AnimationStun == 0){
         if( counterdjp1 == 1 || counterdjp1 ==3  ){
+            
             player.velocity.y = -11.2;
             counterdjp1 ++
         }
@@ -91,7 +93,8 @@ function animate(){
 
 
 
-
+   
+    
 
 
     //--------------------------------jump animation

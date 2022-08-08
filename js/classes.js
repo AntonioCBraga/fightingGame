@@ -105,48 +105,55 @@ class Fighter extends Sprite{
         
         if(this.image === this.sprites.attackR.image   // p1 AAR
             && this.framesCurrent < this.sprites.attackR.framesMax -1 
-            && (player1turn == 1 ||  doingAA2 == false)) {
-                doingAA1 = true
+            && (player1turn == 1 ||  p1doingAAR == false) && this.pl ==1) {
+                p1doingAAR = true
                 p1Animating = true;
                 p1AnimationStun = 1;
                 
                 if(this.framesCurrent == this.sprites.attackR.framesMax -2 ){
-                    console.log('heyoo')
+                   
                     p1Animating = false;
                     p1AnimationStun = 0;
-                    doingAA1 = false;
+                    p1doingAAR = false;
                 }
                 return}
         else if(this.image === this.sprites.attackR.image  //p2 AAR
             && this.framesCurrent < this.sprites.attackR.framesMax -1 
-            && (player1turn ==-1 || p2Animating == true) && this.pl ==2) {
+            && (player2turn == 1 || p2doingAAR == false) && this.pl ==2) {
                 p2Animating = true;
+                console.log('ugabuga')
                 p2AnimationStun = 1;
+                p2doingAAR = true;
                 if(this.framesCurrent == this.sprites.attackR.framesMax -2 ){
                     p2Animating = false;
                     p2AnimationStun = 0;
+                    p2doingAAR = false;
                 }
                 return}
         else if(this.image === this.sprites.attackL.image // p1 AAL
             && this.framesCurrent < this.sprites.attackL.framesMax -1 
-            && (player1turn == -1  || doingAA1 == false)) {
-                doingAA2 = true;
+            && (player1turn == -1  || p2doingAAL == false) && this.pl == 1) {
+                p1doingAAL = true;
                 p1Animating = true;
                 p1AnimationStun = 1;
                 if(this.framesCurrent == this.sprites.attackL.framesMax -2 ){
                     p1Animating = false;
                     p1AnimationStun = 0;
-                    doingAA2 = false;
+                    p1doingAAL = false;
                 }
                 return}
         else if(this.image === this.sprites.attackL.image // p2 AAL
                 && this.framesCurrent < this.sprites.attackL.framesMax -1 
-                && (player1turn == 1 ||  p2Animating == true )&& this.pl ==2) {
+                &&  (player2turn == -1 ||  p2doingAAL == false ) && this.pl ==2) {
+                    
+                    p2doingAAL = true;
                     p2Animating = true;
                     p2AnimationStun = 1
+                    
                     if(this.framesCurrent == this.sprites.attackL.framesMax -2){
                         p2Animating = false;
                         p2AnimationStun = 0
+                        p2doingAAL = false;
                     }
                     return}
         else if(this.image === this.sprites.abilityQR.image  //p1 QR
@@ -173,18 +180,17 @@ class Fighter extends Sprite{
                 return}
         else if(this.image === this.sprites.abilityQR.image  //p2 QR
             && this.framesCurrent < this.sprites.abilityQR.framesMax -1 
-            && (player1turn == -1 || p2Animating == true )&& this.pl ==2 ) {
+            && (player2turn == 1 || p2Animating == true )&& this.pl ==2 ) {
                 p2Animating = true;
                 p2AnimationStun = 1;
                 if(this.framesCurrent == this.sprites.abilityQR.framesMax -2){
                     p2Animating = false;
                     p2AnimationStun = 0
-                    
                 }
                 return}
         else if(this.image === this.sprites.abilityQL.image  // p2 QL
             && this.framesCurrent < this.sprites.abilityQL.framesMax -1 
-            && (player1turn == 1 || p2animating == true )&& this.pl ==2) {
+            && (player2turn == -1 || p2Animating == true )&& this.pl ==2) {
                 p2Animating = true;
                 p2AnimationStun = 1
                 if(this.framesCurrent == this.sprites.abilityQL.framesMax -2){

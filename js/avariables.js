@@ -24,8 +24,12 @@ let sideRope //Siderope indicates wich side red_samurai E ability comes from
 let buggcounter = 0;
 
 
-let doingAA1 = false;
-let doingAA2 = false;
+let p1doingAAR = false;// makes AA animation finish if enemy crosses behind him // dont ask me why it works
+let p1doingAAL = false;// makes AA animation finish if enemy crosses behind him // dont ask me why it works
+
+
+let p2doingAAR = false; // makes AA animation finish if player crosses behind him// dont ask me why it works
+let p2doingAAL = false;// makes AA animation finish if player crosses behind him //dont ask me why it works
 //-------------------------------------------------Variables-------------------------------------------//
 
 
