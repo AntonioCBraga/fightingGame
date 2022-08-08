@@ -45,11 +45,12 @@ window.addEventListener('keydown',(e)=>{
             counterdjp1 ++
             break;
         case ' ':
-            rs_AA(player,player1turn,rs_aa_p1)
-            animationTurns(player,'attack')
-            // if(p1stunned === 0 && p2AnimationStun == 0){
-            //     player.attack()
-            // }
+
+            if(p1stunned === 0  && p2AnimationStun == 0){
+                rs_AA(player,player1turn,rs_aa_p1)
+                animationTurns(player,'attack')
+            }   
+            
           
             break;
         case 'q':
@@ -102,12 +103,10 @@ window.addEventListener('keydown',(e)=>{
              break;
         }
         case '0': {
-           
-            if(p2stunned === 0 && p2AnimationStun == 0 ){
-               
-                enemy.attack()
+            if(p2stunned === 0  && p2AnimationStun == 0){
+                rs_AA(enemy,player2turn,rs_aa_p2)
+                animationTurns(enemy,'attack')
             }
-            
             break;
         }
         case '4':

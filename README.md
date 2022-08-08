@@ -12,12 +12,12 @@
 
 <br/>
 
-1.make AutoA Diferent for every character <br />
+1.Make Stunned Animation and when animating and cross to other side doesnt stop animation <br />
 2.Make GetOverFromThere animations work properly.. <br />
 3.make timer function so collision detection isnt always ticking <br />
 4.Deal with Health properly<br />
 
-
+5.AnimationStun bugged <br />
 
 X.add cd timers maybe.
 X.add 3 more characters total <br />

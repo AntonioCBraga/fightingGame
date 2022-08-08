@@ -115,7 +115,8 @@ function animate(){
     //Tells what side enemy should be facing
     
     enemy.velocity.x = 0;
-    console.log(p2Animating)
+    
+
     if(player.position.x <= enemy.position.x && p2Animating == false  && p2stunned == 0 && p2AnimationStun == 0){
         player2turn = -1;
         
@@ -154,6 +155,7 @@ function animate(){
         }
     }
 
+
     if(enemy.velocity.y < 0){
 
         
@@ -164,11 +166,14 @@ function animate(){
     else if(enemy.velocity.y > 0 ){
         animationTurns(enemy,'fall');
     }
- 
+    
+
     if(enemy.position.y + enemy.height + enemy.velocity.y >= distance2Ground){
        
         counterdjp2 = 0;
     }
+
+
 
     //---------------------------------------------Cooldown && Delay Systems------------------------------------------------//
 
@@ -202,7 +207,6 @@ function animate(){
 
     
     
-
     
     //----------------------------------------------And attacks doing stuff----------------------------------------//
 

@@ -411,19 +411,7 @@ class Fighter extends Sprite{
         }
 
     }
-    attack(){
-        console.log(this.pl)
-        if(this.pl == 1){
-            animationTurns(player,'attack');
-        }
-        else{
-            animationTurns(enemy,'attack');
-        }
-        this.isAttacking = true;
-        setTimeout(()=>{
-            this.isAttacking = false;
-        },100)
-    }
+   
 
 }
 

@@ -37,10 +37,13 @@ function animationTurns(fighterName,animationName){
 
     if(fighterName == player && animationName == 'idle'){
         p1Animating = false;
+        
     }
 
     if(fighterName == enemy && animationName == 'idle'){
-        p1Animating = false;
+        p2Animating = false;
+        
+        
     }
     
     
