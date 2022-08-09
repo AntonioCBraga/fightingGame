@@ -115,7 +115,10 @@ class Fighter extends Sprite{
                     p1Animating = false;
                     p1AnimationStun = 0;
                     p1doingAAR = false;
+                    rs_AA_col(enemy,rs_aa_p1)
                 }
+
+               
                 return}
         else if(this.image === this.sprites.attackR.image  //p2 AAR
             && this.framesCurrent < this.sprites.attackR.framesMax -1 
@@ -128,7 +131,11 @@ class Fighter extends Sprite{
                     p2Animating = false;
                     p2AnimationStun = 0;
                     p2doingAAR = false;
+                    rs_AA_col(player,rs_aa_p2)
                 }
+
+               
+
                 return}
         else if(this.image === this.sprites.attackL.image // p1 AAL
             && this.framesCurrent < this.sprites.attackL.framesMax -1 
@@ -140,7 +147,10 @@ class Fighter extends Sprite{
                     p1Animating = false;
                     p1AnimationStun = 0;
                     p1doingAAL = false;
+                    rs_AA_col(enemy,rs_aa_p1)
+                    
                 }
+               
                 return}
         else if(this.image === this.sprites.attackL.image // p2 AAL
                 && this.framesCurrent < this.sprites.attackL.framesMax -1 
@@ -154,7 +164,10 @@ class Fighter extends Sprite{
                         p2Animating = false;
                         p2AnimationStun = 0
                         p2doingAAL = false;
+                        rs_AA_col(player,rs_aa_p2)
                     }
+
+                   
                     return}
         else if(this.image === this.sprites.abilityQR.image  //p1 QR
             && this.framesCurrent < this.sprites.abilityQR.framesMax -1 

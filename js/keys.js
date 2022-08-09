@@ -46,9 +46,10 @@ window.addEventListener('keydown',(e)=>{
             break;
         case ' ':
 
-            if(p1stunned === 0  && p2AnimationStun == 0){
+            if(p1stunned === 0  && p2AnimationStun == 0 && rs_AACDp1 == 0){
                 rs_AA(player,player1turn,rs_aa_p1)
                 animationTurns(player,'attack')
+                rs_AACDp1 ++;
             }   
             
           
@@ -103,9 +104,10 @@ window.addEventListener('keydown',(e)=>{
              break;
         }
         case '0': {
-            if(p2stunned === 0  && p2AnimationStun == 0){
+            if(p2stunned === 0  && p2AnimationStun == 0 && rs_AACDp2 == 0){
                 rs_AA(enemy,player2turn,rs_aa_p2)
                 animationTurns(enemy,'attack')
+                rs_AACDp2 ++;
             }
             break;
         }

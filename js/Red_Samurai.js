@@ -45,6 +45,21 @@ function rs_AA(fighter,playerTurn,arr){
 
 //add all types of possible collisions manualy.
 
+let rs_AACDp1 = 0;
+let rs_AACDp2 = 0;
+
+function rs_AAp1(){
+    rs_AACDp1 ++;
+    if(rs_AACDp1 == 95){
+        rs_AACDp1 = 0;
+    }
+}
+function rs_AAp2(){
+    rs_AACDp2 ++;
+    if(rs_AACDp2 == 95){
+        rs_AACDp2 = 0;
+    }
+}
 
 
 function rs_AA_col(fighterRival,arr){
@@ -662,31 +677,42 @@ let rs_cRp12 =0;
 let rs_cR123 =0;
 
 
+let counter_Rp1 = 0;
 
 
 function R_colp1(fighterRival,arr){
  
-
+    
     arr.forEach((knife ) =>{
         knife.update()
         if(collision(knife,fighterRival) && knife.framesCurrent >= 7 && knife.framesCurrent <= 9 ){
-            console.log('hit')
+            counter_Rp1 ++;
+            console.log(counter_Rp1)
+            if(counter_Rp1 == 8){
+                enemy.health -= 10;
+                document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                
+            }
             
         }
         if(knife.framesCurrent === knife.framesMax -1){
             rs_cRp1 ++; // goes 6 each time
-            console.log(rs_cRp1)
+          
+        
         }
 
         if(rs_cRp1 == 3){
+            counter_Rp1 = 0
             arr.splice(0,1)
             rs_cRp1 = 0;
             rs_cRp12 ++;
             rs_cR123 ++;
         }
+        
   
     })
     if(rs_cRp12 == 1 ){
+        
         rs_R(enemy,p1R)
         rs_cRp12 = 0
         if(rs_cR123 == 3){ //number of repetitions
@@ -701,12 +727,20 @@ let rs_cRp2 = 0;
 let rs_cRp22 =0;
 let rs_cR223 =0;
 
+
+let counter_Rp2 = 0;
+
 function R_colp2(fighterRival,arr){
     
     arr.forEach((knife ) =>{
         knife.update()
         if(collision(knife,fighterRival) && knife.framesCurrent >= 7 && knife.framesCurrent <= 9 ){
-            console.log('hit')
+            counter_Rp2 ++
+            if(counter_Rp2  == 8){
+                player.health -= 10;
+                document.querySelector('#playerHealth').style.width = player.health +'%'
+            }
+
             
         }
         if(knife.framesCurrent === knife.framesMax -1){
@@ -715,6 +749,7 @@ function R_colp2(fighterRival,arr){
         }
 
         if(rs_cRp2 == 3){
+            counter_Rp2 = 0
             arr.splice(0,1)
             rs_cRp2 = 0;
             rs_cRp22 ++;
@@ -743,6 +778,9 @@ let rs_cdRp1 = 0;
 
 let rs_delayRp2 = 0;
 let rs_cdRp2 = 0;
+
+
+
 
 
 function rs_DelaysP1(){
@@ -788,7 +826,6 @@ function rs_DelaysP2(){
 
 
 function p1RS(){
-    rs_AA_col(enemy,rs_aa_p1)
     Q_col(p1Q,enemy);
     E_colp1(p1E1,p1E2) // one collision for each
     R_colp1(enemy,p1R)
@@ -797,7 +834,6 @@ function p1RS(){
 
 
  function p2RS(){
-    rs_AA_col(player,rs_aa_p2)
     Q_col(p2Q,player)
     E_colp2(p2E1,p2E2)
     R_colp2(player,p2R)

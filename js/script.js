@@ -187,14 +187,12 @@ function animate(){
 
 
     //---------------------------------------------Cooldown && Delay Systems------------------------------------------------//
-
-    if(rs_CDEp1 != 0){ // rs p1 abE
-        rs_CDEP1();
+    if(rs_AACDp1 != 0){
+        rs_AAp1()
     }
-
-
-    if(rs_CDEp2 != 0){  //rs p2 abE
-        rs_CDEP2();
+    
+    if(rs_AACDp2 != 0){
+        rs_AAp2()
     }
 
 
@@ -206,6 +204,18 @@ function animate(){
     }
     
 
+
+    if(rs_CDEp1 != 0){ // rs p1 abE
+        rs_CDEP1();
+    }
+
+
+    if(rs_CDEp2 != 0){  //rs p2 abE
+        rs_CDEP2();
+    }
+
+
+    
     if(rs_delayRp1 != 0){ //rs p1 abE
         rs_DelaysP1();
     }

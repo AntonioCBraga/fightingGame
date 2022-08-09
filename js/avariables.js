@@ -31,8 +31,8 @@ let p1doingAAL = false;// makes AA animation finish if enemy crosses behind him 
 let p2doingAAR = false; // makes AA animation finish if player crosses behind him// if change sides enters through this that is always false
 let p2doingAAL = false;// makes AA animation finish if player crosses behind him // if change sides enters through this that is always false
 
-let p1Animrope = true;
-let p2Animrope = true;
+let p1Animrope = true; // tells when to stop the animation and when to stick to frame 4
+let p2Animrope = true; // tells when to stop the animation and when to stick to frame 4
 //-------------------------------------------------Variables-------------------------------------------//
 
 

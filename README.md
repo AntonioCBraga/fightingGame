@@ -13,11 +13,12 @@
 <br/>
 
 
-1.Make delay for AAs and damage for R <br/>
-2.make timer function so collision detection isnt always ticking <br />
-3.Deal with Health properly<br />
 
-5.Pass AA damage to keyframe <br/>
+1.make timer function so collision detection isnt always ticking <br />
+2.Deal with Health properly<br />
+
+
+
 
 X.add cd timers maybe.
 X.add 3 more characters total <br />
