@@ -642,7 +642,7 @@ function rs_R(enemy,arr){
 
     let compensation = 0
     if(enemy.velocity.x > 0){
-        compensation = 100;
+        compensation = 110;
     }
     else if(enemy.velocity.x < 0){
         compensation = -80
@@ -685,10 +685,10 @@ function R_colp1(fighterRival,arr){
     
     arr.forEach((knife ) =>{
         knife.update()
-        if(collision(knife,fighterRival) && knife.framesCurrent >= 7 && knife.framesCurrent <= 9 ){
+        if(collision(knife,fighterRival) && knife.framesCurrent >= 6 && knife.framesCurrent <= 10 ){
             counter_Rp1 ++;
-            console.log(counter_Rp1)
-            if(counter_Rp1 == 8){
+           
+            if(counter_Rp1 == 1){
                 enemy.health -= 10;
                 document.querySelector('#enemyHealth').style.width = enemy.health +'%'
                 
@@ -734,9 +734,10 @@ function R_colp2(fighterRival,arr){
     
     arr.forEach((knife ) =>{
         knife.update()
-        if(collision(knife,fighterRival) && knife.framesCurrent >= 7 && knife.framesCurrent <= 9 ){
+        if(collision(knife,fighterRival) && knife.framesCurrent >= 6 && knife.framesCurrent <= 10 ){
             counter_Rp2 ++
-            if(counter_Rp2  == 8){
+            console.log(counter_Rp2)
+            if(counter_Rp2  == 1){
                 player.health -= 10;
                 document.querySelector('#playerHealth').style.width = player.health +'%'
             }
@@ -745,7 +746,7 @@ function R_colp2(fighterRival,arr){
         }
         if(knife.framesCurrent === knife.framesMax -1){
             rs_cRp2 ++; // goes 6 each time
-            console.log(rs_cRp1)
+          
         }
 
         if(rs_cRp2 == 3){
