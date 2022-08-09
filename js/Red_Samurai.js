@@ -354,7 +354,7 @@ function E_colp1(arr,arr2){
             arr.splice(index,1);
             
             getRoped1 =1 ;
-            p1stunned = 1;
+            p1AnimationStun  = 1;
             p2stunned =1;
             
             
@@ -376,7 +376,7 @@ function E_colp1(arr,arr2){
     if(getRoped1 != 0 ){ // i------------------------if gets hit by rope
         if(getRoped1 == 1 &&  getRoped2 ==1){
             arr2.splice(1,1);
-            p1stunned = 0;
+            p1AnimationStun = 0;
             p2stunned = 0;
             getRoped1 = 0;
             getRoped2 = 0;
@@ -387,7 +387,7 @@ function E_colp1(arr,arr2){
             
             if(enemy.position.x > player.position.x + player.width  && p2stunned == 1){
                 enemy.velocity.x -= 4 * player1turn; 
-                p1stunned = 1;
+                p1AnimationStun = 1;
                 p2stunned = 1;
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
@@ -398,9 +398,9 @@ function E_colp1(arr,arr2){
                     arr2.splice(0,1);
                 }
                 p2stunned ++;
-                p1stunned = 0;
+                p1AnimationStun = 0;
                 if(p2stunned == 60){
-                    p1stunned = 0;
+                    p1AnimationStun = 0;
                     p2stunned = 0;
                     getRoped1 = 0;    
                     if(arr2[0] != undefined){
@@ -413,7 +413,7 @@ function E_colp1(arr,arr2){
         else if(player1turn == -1){
             if(enemy.position.x + enemy.width < player.position.x && p2stunned == 1){
                 enemy.velocity.x -= 4 * player1turn; 
-                p1stunned = 1;
+                p1AnimationStun = 1;
                 p2stunned = 1;
                 
                 if(arr2[0]!= undefined){
@@ -427,9 +427,9 @@ function E_colp1(arr,arr2){
                 }
                 
                 p2stunned ++;
-                p1stunned = 0;
+                p1AnimationStun = 0;
                 if(p2stunned == 60){
-                    p1stunned = 0;
+                    p1AnimationStun = 0;
                     p2stunned = 0;
                     getRoped1 = 0;   
                     if(arr2[0] != undefined){
@@ -459,7 +459,7 @@ function E_colp2(arr,arr2){
             arr.splice(index,1);         
             getRoped2 =1;
             p1stunned = 1;
-            p2stunned =1;
+            p2AnimationStun = 1;
             
         }
         else {
@@ -479,7 +479,7 @@ function E_colp2(arr,arr2){
     if(getRoped2 != 0 ){ // i------------------------if gets hit by rope
         if(getRoped1 == 1 &&  getRoped2 ==1){
             p1stunned = 0;
-            p2stunned = 0;
+            p2AnimationStun  = 0;
             getRoped2 = 0;
             getRoped1 = 0;
             return;
@@ -488,7 +488,7 @@ function E_colp2(arr,arr2){
             
             if(player.position.x > enemy.position.x + enemy.width && p1stunned == 1){
                 player.velocity.x -= 4 * player2turn; 
-                p2stunned = 1;
+                p2AnimationStun = 1;
                 p1stunned = 1;
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
@@ -500,10 +500,10 @@ function E_colp2(arr,arr2){
                 }
                 
                 p1stunned ++;
-                p2stunned = 0;
+                p2AnimationStun = 0;
                 if(p1stunned == 60){
                     p1stunned = 0;
-                    p2stunned = 0;
+                    p2AnimationStun  = 0;
                     getRoped2 = 0;  
                     if(arr2[0] != undefined){
                         arr2.splice(0,1);
@@ -515,7 +515,7 @@ function E_colp2(arr,arr2){
         else if(player2turn == -1){
             if(player.position.x + player.width < enemy.position.x && p1stunned == 1){
                 player.velocity.x -= 4 * player2turn; 
-                p2stunned = 1;
+                p2AnimationStun = 1;
                 p1stunned = 1;
                 
                 if(arr2[0]!= undefined){
@@ -530,10 +530,12 @@ function E_colp2(arr,arr2){
                 
                 p1stunned ++;
                 p2stunned = 0;
+                p2AnimationStun = 0;
                 if(p1stunned == 60){
                     p1stunned = 0;
                     getRoped2 = 0;
-                    p2stunned = 0;     
+                    p2AnimationStun  = 0;  
+                    p2stunned = 0;   
                     if(arr2[0] != undefined){
                         arr2.splice(0,1);
                     }        

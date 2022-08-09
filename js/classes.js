@@ -407,6 +407,22 @@ class Fighter extends Sprite{
                     this.framesCurrent = 0;
                 }
                 break;
+            case "stunnedR":{
+                if(this.image !== this.sprites.stunnedR.image){
+                    this.image = this.sprites.stunnedR.image
+                    this.framesMax = this.sprites.stunnedR.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            }
+            case "stunnedL":{
+                if(this.image !== this.sprites.stunnedL.image){
+                    this.image = this.sprites.stunnedL.image
+                    this.framesMax = this.sprites.stunnedL.framesMax;
+                    this.framesCurrent = 0;
+                }
+                break;
+            }
         }
     }
     update(){

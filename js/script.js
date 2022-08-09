@@ -76,6 +76,9 @@ function animate(){
             player.velocity.x = 5;
         }
     }  
+    else if(p1stunned != 0){
+        animationTurns(player,"stunned")
+    }
     else{
         
         animationTurns(player,'idle');
@@ -146,6 +149,9 @@ function animate(){
             animationTurns(enemy,'run');
             enemy.velocity.x = 5;
         }
+    }
+    else if(p2stunned != 0){
+        animationTurns(enemy,"stunned")
     }
     else{
         animationTurns(enemy,'idle');

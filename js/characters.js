@@ -82,7 +82,17 @@ const player = new Fighter({
         abilityRL :{
             imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckL.png',
             framesMax:8,
-        }
+        },
+        stunnedR :{
+            imgSrc: './img/Red_Samurai/Sprites/animationsR/stunnedR.png',
+            framesMax:4,
+            framesHold:4
+        },
+        stunnedL :{
+            imgSrc: './img/Red_Samurai/Sprites/animationsL/stunnedL.png',
+            framesMax:4,
+            framesHold:4
+        },
     }
 })
 
@@ -173,7 +183,17 @@ const enemy = new Fighter({
             imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckL.png',
             framesMax:8,
             framesHold:8
-        }
+        },
+        stunnedR :{
+            imgSrc: './img/Red_Samurai/Sprites/animationsR/stunnedR.png',
+            framesMax:4,
+            framesHold:4
+        },
+        stunnedL :{
+            imgSrc: './img/Red_Samurai/Sprites/animationsL/stunnedL.png',
+            framesMax:4,
+            framesHold:4
+        },
     }
 })
 
