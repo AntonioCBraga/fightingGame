@@ -69,11 +69,13 @@ const player = new Fighter({
         },
         abilityER :{
             imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRope.png',
-            framesMax:13
+            framesMax:13,
+            framesHold:9
         },
         abilityEL :{
             imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRopeL.png',
-            framesMax:13
+            framesMax:13,
+            framesHold:9
         },
         abilityRR :{
             imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckR.png',
@@ -168,11 +170,13 @@ const enemy = new Fighter({
         },
         abilityER :{
             imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRope.png',
-            framesMax:13
+            framesMax:13,
+            framesHold:9
         },
         abilityEL :{
             imgSrc: './img/Red_Samurai/Sprites/kunaiwithRope/throwRopeL.png',
-            framesMax:13
+            framesMax:13,
+            framesHold:9
         },
         abilityRR :{
             imgSrc: './img/Red_Samurai/Sprites/ground/groundAttckR.png',

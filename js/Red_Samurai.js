@@ -251,7 +251,7 @@ let p2E2 = []
 function rs_E(fighter,playerTurn,arr ,arr2){
     let distance = 0
     let distance2 = 0
-    if(player1turn == 1){
+    if(playerTurn == 1){
         distance = 20;
         distance2 = 40
     }
@@ -334,7 +334,10 @@ class rope{
     }
     deupdate(){
         this.draw();
+       
         this.width -= this.velocity.x / 2
+        
+       
     }
 }
 //-------------------------------------------------------------------Gotta make 1 collision detection for each dont know why 
@@ -351,8 +354,9 @@ function E_colp1(arr,arr2){
         }
         else if(collision(rope,enemy)){
             console.log('hello')
-            arr.splice(index,1);
             
+            arr.splice(index,1);
+            p1Animrope = true;
             getRoped1 =1 ;
             p1AnimationStun  = 1;
             p2stunned =1;
@@ -375,6 +379,7 @@ function E_colp1(arr,arr2){
     })
     if(getRoped1 != 0 ){ // i------------------------if gets hit by rope
         if(getRoped1 == 1 &&  getRoped2 ==1){
+            
             arr2.splice(1,1);
             p1AnimationStun = 0;
             p2stunned = 0;
@@ -389,8 +394,21 @@ function E_colp1(arr,arr2){
                 enemy.velocity.x -= 4 * player1turn; 
                 p1AnimationStun = 1;
                 p2stunned = 1;
+             
+                if(arr2[0].width + arr2[0].position.x - enemy.position.x  < 0  ){
+                    
+                    arr2[0].width ++
+                }
+                else if(arr2[0].width + arr2[0].position.x - enemy.position.x  > 0){
+                    arr2[0].width --;
+                }
+
+
                 if(arr2[0]!= undefined){
+                   
+                   
                     arr2[0].deupdate()
+                    
                 }
             }
             else if(p2stunned >= 1) {
@@ -399,10 +417,12 @@ function E_colp1(arr,arr2){
                 }
                 p2stunned ++;
                 p1AnimationStun = 0;
-                if(p2stunned == 60){
+                p1Animrope = false;
+                if(p2stunned == 75){//stun duration
                     p1AnimationStun = 0;
                     p2stunned = 0;
                     getRoped1 = 0;    
+                    p1Animrope = true;
                     if(arr2[0] != undefined){
                         arr2.splice(0,1);
                     }         
@@ -416,6 +436,14 @@ function E_colp1(arr,arr2){
                 p1AnimationStun = 1;
                 p2stunned = 1;
                 
+                
+                let x = arr2[0].width + arr2[0].position.x - (enemy.position.x + enemy.width) // atatches rope to enemy.
+                if(arr2[0].width + arr2[0].position.x > (enemy.position.x + enemy.width)    ){
+                    console.log('wah')
+                    arr2[0].width  -= x * 2.5; // dont ask me why 2.5 ...
+                }
+             
+
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
                 }
@@ -425,13 +453,14 @@ function E_colp1(arr,arr2){
                 if(arr2[0] != undefined){
                     arr2.splice(0,1);
                 }
-                
+                p1Animrope = false;
                 p2stunned ++;
                 p1AnimationStun = 0;
-                if(p2stunned == 60){
+                if(p2stunned == 75){ //stun duration
                     p1AnimationStun = 0;
                     p2stunned = 0;
                     getRoped1 = 0;   
+                    p1Animrope = true;
                     if(arr2[0] != undefined){
                         arr2.splice(0,1);
                     }          
@@ -460,7 +489,7 @@ function E_colp2(arr,arr2){
             getRoped2 =1;
             p1stunned = 1;
             p2AnimationStun = 1;
-            
+            p2Animrope = true;
         }
         else {
             if(arr2.length >1){
@@ -490,6 +519,13 @@ function E_colp2(arr,arr2){
                 player.velocity.x -= 4 * player2turn; 
                 p2AnimationStun = 1;
                 p1stunned = 1;
+                if(arr2[0].width + arr2[0].position.x - player.position.x  < 0  ){
+                    
+                    arr2[0].width ++
+                }
+                else if(arr2[0].width + arr2[0].position.x - enemy.position.x  > 0){
+                    arr2[0].width --;
+                }
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
                 }
@@ -498,13 +534,14 @@ function E_colp2(arr,arr2){
                 if(arr2[0] != undefined){
                     arr2.splice(0,1);
                 }
-                
+                p2Animrope = false;
                 p1stunned ++;
                 p2AnimationStun = 0;
-                if(p1stunned == 60){
+                if(p1stunned == 75){ //stun duration
                     p1stunned = 0;
                     p2AnimationStun  = 0;
                     getRoped2 = 0;  
+                    p2Animrope = true;
                     if(arr2[0] != undefined){
                         arr2.splice(0,1);
                     }      
@@ -518,6 +555,12 @@ function E_colp2(arr,arr2){
                 p2AnimationStun = 1;
                 p1stunned = 1;
                 
+
+                let x = arr2[0].width + arr2[0].position.x - (player.position.x + player.width) // atatches rope to enemy.
+                if(arr2[0].width + arr2[0].position.x > (player.position.x + player.width)    ){
+                    console.log('wah')
+                    arr2[0].width  -= x * 2.5; // dont ask me why 2.5 ...
+                }
                 if(arr2[0]!= undefined){
                     arr2[0].deupdate()
                 }
@@ -527,15 +570,16 @@ function E_colp2(arr,arr2){
                 if(arr2[0] != undefined){
                     arr2.splice(0,1);
                 }
-                
+                p2Animrope = false;
                 p1stunned ++;
                 p2stunned = 0;
                 p2AnimationStun = 0;
-                if(p1stunned == 60){
+                if(p1stunned == 75){ //stun duration
                     p1stunned = 0;
                     getRoped2 = 0;
                     p2AnimationStun  = 0;  
-                    p2stunned = 0;   
+                    p2stunned = 0;  
+                    p2Animrope = true; 
                     if(arr2[0] != undefined){
                         arr2.splice(0,1);
                     }        

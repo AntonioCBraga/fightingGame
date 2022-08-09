@@ -203,10 +203,18 @@ class Fighter extends Sprite{
             && (player1turn ==1 || p1Animating == true )&& this.pl == 1) {
                 p1Animating = true;
                 p1AnimationStun = 1 ;
-                if(this.framesCurrent == this.sprites.abilityER.framesMax -2){
+                
+                if(p1Animrope == true ){
+                    this.framesCurrent = 4;
+                }
+                else if(p1Animrope == false  ){
                     p1AnimationStun = 0;
                     p1Animating = false;
+                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    
                 }
+
+               
                 return
             }
         else if(this.image === this.sprites.abilityEL.image // p1 EL
@@ -214,9 +222,14 @@ class Fighter extends Sprite{
             && this.pl == 1){
                 p1Animating = true;
                 p1AnimationStun  = 1;
-                if(this.framesCurrent == this.sprites.abilityEL.framesMax -2){
+                if(p1Animrope == true ){
+                    this.framesCurrent = 4;
+                }
+                else if(p1Animrope == false  ){
                     p1AnimationStun = 0;
                     p1Animating = false;
+                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    
                 }
                 return
             }    
@@ -225,9 +238,14 @@ class Fighter extends Sprite{
             && player2turn ==1 && this.pl == 2) {
                 p2Animating = true;
                 p2AnimationStun = 1;
-                if(this.framesCurrent == this.sprites.abilityER.framesMax -2){
-                    p2Animating = false;
+                if(p2Animrope == true ){
+                    this.framesCurrent = 4;
+                }
+                else if(p2Animrope == false  ){
                     p2AnimationStun = 0;
+                    p2Animating = false;
+                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    
                 }
                 return
             }
@@ -236,9 +254,14 @@ class Fighter extends Sprite{
             && this.pl == 2 && player2turn == -1){
                 p2Animating = true;
                 p2stunned = 1; 
-                if(this.framesCurrent == this.sprites.abilityEL.framesMax -2){
+                if(p2Animrope == true ){
+                    this.framesCurrent = 4;
+                }
+                else if(p2Animrope == false  ){
+                    p2AnimationStun = 0;
                     p2Animating = false;
-                    p2stunned = 0;
+                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    
                 }
                 return
             }    
