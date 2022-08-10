@@ -14,13 +14,13 @@
 
 
 
-1.Cant use rope at same time dunno why <br/>
-2.Deal with Health properly <br/>
+
+1.Deal with Health properly <br/>
 
 
 
-
-
+X.Animation Cancel is a thing
+X.1.Cant use rope at same time dunno why <br/>
 X.add cd timers maybe.
 X.add 3 more characters total <br />
 X.player2turn not working always<br />
@@ -29,6 +29,9 @@ X.Add a Menu<br />
 X.Add Game Loop <br />
 X.Do a chroma version of the Hero<br />
 X.Add character2 <br />
+
+
+
 
 
 Idea  maybe 60sec map <br/>

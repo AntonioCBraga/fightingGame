@@ -73,8 +73,7 @@ function rs_AA_col(fighterRival,arr){
                         
                         
                         if(fighterRival === enemy){
-                            enemy.health -= 10;
-                            document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                           dealDamage(enemy,10)
                         }
                         
                     
@@ -87,10 +86,7 @@ function rs_AA_col(fighterRival,arr){
                     console.log(projectile.position.y)
                     console.log(fighterRival.position.y)
                         console.log('what')
-                        if(fighterRival === enemy){
-                            enemy.health -= 10;
-                            document.querySelector('#enemyHealth').style.width = enemy.health +'%'
-                        }
+                        dealDamage(enemy,10)
                     }   
                    
                        
@@ -102,8 +98,7 @@ function rs_AA_col(fighterRival,arr){
                     && projectile.position.y + projectile.height >= fighterRival.position.y
                     &&projectile.position.y <= fighterRival.position.y + fighterRival.height){
                         if(fighterRival === player){
-                            player.health -= 10;
-                            document.querySelector('#playerHealth').style.width = player.health +'%'
+                            dealDamage(player,10)
                         }
                     }
             }
@@ -115,8 +110,7 @@ function rs_AA_col(fighterRival,arr){
                         
                         
                         if(fighterRival === player){
-                            player.health -= 10;
-                            document.querySelector('#playerHealth').style.width = player.health +'%'
+                            dealDamage(player,10)
                     }
                 
                 }
@@ -145,12 +139,10 @@ function Q_col(arr,fighter){
             else if(collision(projectile,fighter)){
                         arr.splice(index,1)
                         if(fighter === enemy){
-                            enemy.health -= 10;
-                            document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                            dealDamage(enemy,7.5)
                         }
                         else{
-                            player.health -= 10;
-                            document.querySelector('#playerHealth').style.width = player.health +'%'
+                            dealDamage(player,7.5)
                         }
 
                 }
@@ -376,6 +368,8 @@ function E_colp1(arr,arr2){
             getRoped1 =1 ;
             p1AnimationStun  = 1;
             p2stunned =1;
+          
+            dealDamage(enemy,10)
             
             
        
@@ -512,6 +506,7 @@ function E_colp2(arr,arr2){
             p1stunned = 1;
             p2AnimationStun = 1;
             p2Animrope = true;
+            dealDamage(player,10)
         }
         else {
             if(arr2.length >1){
@@ -701,8 +696,7 @@ function R_colp1(fighterRival,arr){
             counter_Rp1 ++;
            
             if(counter_Rp1 == 1){
-                enemy.health -= 10;
-                document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+                dealDamage(enemy,15)
                 
             }
             
@@ -750,8 +744,7 @@ function R_colp2(fighterRival,arr){
             counter_Rp2 ++
             console.log(counter_Rp2)
             if(counter_Rp2  == 1){
-                player.health -= 10;
-                document.querySelector('#playerHealth').style.width = player.health +'%'
+               dealDamage(player,15)
             }
 
             

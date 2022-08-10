@@ -34,17 +34,6 @@ function decreaseTimer(){
 //Takes fighterName and animationName to decide
 //wich sided animation to use
 function animationTurns(fighterName,animationName){
-
-    // if(fighterName == player && animationName == 'idle'){
-    //     p1Animating = false;
-        
-    // }
-
-    // if(fighterName == enemy && animationName == 'idle'){
-    //     p2Animating = false;
-        
-        
-    // }
     
     
     if(fighterName.pl == 1){
@@ -119,6 +108,29 @@ function collision(projectile,fighter){
     return false
 }
 
+
+function dealDamage(fighter,percent){
+    
+    if(fighter == enemy){
+        enemy.health -= percent
+        document.querySelector('#enemyHealth').style.width = enemy.health +'%'
+        if(enemy.health <= 0){
+            document.querySelector('#enemyHealth').style.width = 0 +'%'
+
+        }
+    }
+    else if(fighter == player){
+        player.health -= percent
+        document.querySelector('#playerHealth').style.width = player.health +'%'
+        if(player.health <= 0){
+            document.querySelector('#playerHealth').style.width = 0 +'%'
+
+        }
+    }
+    console.log(player.health)
+    return;
+
+}
 
 
 

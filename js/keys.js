@@ -56,7 +56,7 @@ window.addEventListener('keydown',(e)=>{
             break;
         case 'q':
             
-            if(p1stunned === 0 && rs_CDQp1 == 0 && p2AnimationStun == 0){
+            if(p1stunned === 0 && rs_CDQp1 == 0 && p2AnimationStun == 0 && p1Animating == false){
                 animationTurns(player,'abilityQ')
                 rs_Q(player,player1turn,p1Q);
                 rs_CDQp1 ++;
@@ -67,7 +67,7 @@ window.addEventListener('keydown',(e)=>{
             break;
         case 'e':
             
-            if(player.velocity.y === 0 && p1stunned === 0 && rs_CDEp1 == 0 && p2AnimationStun == 0){
+            if(player.velocity.y === 0 && p1stunned === 0 && rs_CDEp1 == 0 && p2AnimationStun == 0 && p1Animating == false){
                 animationTurns(player,'abilityE');
                 rs_E(player,player1turn,p1E1,p1E2);
                 rs_CDEp1 ++ 
@@ -76,8 +76,9 @@ window.addEventListener('keydown',(e)=>{
             
         
             break;
+
         case 'r':
-            if(rs_cdRp1== 0 && p2stunned == 0 && p2AnimationStun == 0){
+            if(rs_cdRp1== 0 && p2stunned == 0 && p2AnimationStun == 0 && p1Animating == false){
                 rs_delayRp1 = 1;
             }
             if(rs_delayRp1 === 1 && p1stunned ===0 && player.velocity.y === 0){
@@ -105,7 +106,7 @@ window.addEventListener('keydown',(e)=>{
              break;
         }
         case '0': {
-            if(p2stunned === 0  && p2AnimationStun == 0 && rs_AACDp2 == 0){
+            if(p2stunned === 0  && p2AnimationStun == 0 && rs_AACDp2 == 0 && p2Animating == false){
                 rs_AA(enemy,player2turn,rs_aa_p2)
                 animationTurns(enemy,'attack')
                 rs_AACDp2 ++;
@@ -113,7 +114,7 @@ window.addEventListener('keydown',(e)=>{
             break;
         }
         case '4':
-            if(p2stunned === 0 && rs_CDQp2 == 0 && p2AnimationStun == 0){
+            if(p2stunned === 0 && rs_CDQp2 == 0 && p2AnimationStun == 0 && p2Animating == false){
                 animationTurns(enemy,'abilityQ')
                 rs_Q(enemy,player2turn,p2Q)
                 rs_CDQp2 ++
@@ -121,7 +122,7 @@ window.addEventListener('keydown',(e)=>{
             break;
         case '8':
             
-            if(enemy.velocity.y === 0 && p2stunned ===0 && rs_CDEp2 == 0  && p2AnimationStun == 0 ){
+            if(enemy.velocity.y === 0 && p2stunned ===0 && rs_CDEp2 == 0  && p2AnimationStun == 0 && p2Animating == false){
 
                 animationTurns(enemy,'abilityE');
                 rs_E(enemy,player2turn,p2E1,p2E2);
