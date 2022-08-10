@@ -123,18 +123,4 @@ function collision(projectile,fighter){
 
 
 
-function doubleRopeDebug(){
-    if(p1stunned != 0 && p2stunned != 0){
-        if(player.velocity.x ==0 && enemy.velocity.x == 0){
-            console.log(buggcounter)
-            buggcounter ++;
-        }
-        if(p1stunned != 0 && p2stunned != 0 && buggcounter ==150){
-            p1stunned = 0;
-            p2stunned = 0;
-            buggcounter =0;
-        }
-    }
-    
-}
 

@@ -190,7 +190,7 @@ function animate(){
     if(rs_AACDp1 != 0){
         rs_AAp1()
     }
-    
+    //Q_col(p1Q,enemy);
     if(rs_AACDp2 != 0){
         rs_AAp2()
     }
@@ -237,20 +237,20 @@ function animate(){
     //--------------------------------Character Select -----------------------------//
     if(p1CharSelect == 'redsamurai'){
 
-
+        p1RS();
        
 
     }
 
     if(p2CharSelect == 'redsamurai'){
         
-
+        p2RS();
         
     }
  
    
    
-    doubleRopeDebug();
+    
   
 
 }   // END OF ANIMATE()

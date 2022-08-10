@@ -66,6 +66,7 @@ window.addEventListener('keydown',(e)=>{
             
             break;
         case 'e':
+            
             if(player.velocity.y === 0 && p1stunned === 0 && rs_CDEp1 == 0 && p2AnimationStun == 0){
                 animationTurns(player,'abilityE');
                 rs_E(player,player1turn,p1E1,p1E2);
@@ -119,6 +120,7 @@ window.addEventListener('keydown',(e)=>{
             }
             break;
         case '8':
+            
             if(enemy.velocity.y === 0 && p2stunned ===0 && rs_CDEp2 == 0  && p2AnimationStun == 0 ){
 
                 animationTurns(enemy,'abilityE');

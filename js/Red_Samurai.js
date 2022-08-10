@@ -169,7 +169,7 @@ function rs_Q(fighter,playerTurn,arr){
                 y:fighter.position.y  + 54 
             },
             velocity:{
-                x:8 * playerTurn,
+                x:10 * playerTurn,
                 y:0
             },
             offset:{
@@ -190,8 +190,8 @@ function rs_Q(fighter,playerTurn,arr){
                 y:fighter.position.y  + 50
             },
             velocity:{
-                x:8 * playerTurn,
-                y: 3.5
+                x:10 * playerTurn,
+                y: 5
             },
             offset:{
                 x: 8,
@@ -211,8 +211,8 @@ function rs_Q(fighter,playerTurn,arr){
                 y:fighter.position.y  + 50
             },
             velocity:{
-                x:8 * playerTurn,
-                y: -3.5
+                x:10 * playerTurn,
+                y: -5
             },
             offset:{
                 x: 8,
@@ -394,11 +394,15 @@ function E_colp1(arr,arr2){
         }
     })
     if(getRoped1 != 0 ){ // i------------------------if gets hit by rope
-        if(getRoped1 == 1 &&  getRoped2 ==1){
+        if(getRoped1 ==1 &&  getRoped2 ==1){
             
             arr2.splice(1,1);
             p1AnimationStun = 0;
+            p2AnimationStun = 0;
             p2stunned = 0;
+            p1stunned = 0;
+            p1Colwall = true;
+            p2Colwall = true;
             getRoped1 = 0;
             getRoped2 = 0;
             return;
@@ -526,9 +530,14 @@ function E_colp2(arr,arr2){
     if(getRoped2 != 0 ){ // i------------------------if gets hit by rope
         if(getRoped1 == 1 &&  getRoped2 ==1){
             p1stunned = 0;
+            p2stunned = 0;
+            p1AnimationStun= 0;
             p2AnimationStun  = 0;
             getRoped2 = 0;
             getRoped1 = 0;
+            p1Colwall = true;
+            p2Colwall = true;
+            
             return;
         }
         if(player2turn == 1){    
@@ -615,7 +624,7 @@ let rs_CDEp1 = 0;
 
 function rs_CDEP1(){
     rs_CDEp1 ++
-    E_colp1(p1E1,p1E2)
+   
     if(rs_CDEp1 == 600){
         rs_CDEp1 =0;
     }
@@ -627,7 +636,7 @@ let rs_CDEp2 = 0;
 
 function rs_CDEP2(){
     rs_CDEp2 ++
-    E_colp2(p2E1,p2E2)
+   
     if(rs_CDEp2 == 600){
         rs_CDEp2 =0;
     }
@@ -830,17 +839,17 @@ function rs_DelaysP2(){
 
 
 function p1RS(){
-    //Q_col(p1Q,enemy);
-    //E_colp1(p1E1,p1E2) // one collision for each
-    //R_colp1(enemy,p1R)
+    
+    E_colp1(p1E1,p1E2) 
+    
 
 }
 
 
  function p2RS(){
-    //Q_col(p2Q,player)
-    //E_colp2(p2E1,p2E2)
-    //R_colp2(player,p2R)
+    
+    E_colp2(p2E1,p2E2)
+    
  }
 
 

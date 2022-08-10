@@ -252,7 +252,7 @@ class Fighter extends Sprite{
                 else if(p1Animrope == false  ){
                     p1AnimationStun = 0;
                     p1Animating = false;
-                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    this.framesCurrent = this.sprites.abilityEL.framesMax -1
                     
                 }
 
@@ -260,7 +260,7 @@ class Fighter extends Sprite{
 
                     p1AnimationStun = 0;
                     p1Animating = false;
-                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    this.framesCurrent = this.sprites.abilityEL.framesMax -1
                     p1Colwall = false;
                 }
                 return
