@@ -217,14 +217,25 @@ class Fighter extends Sprite{
                 p1Animating = true;
                 p1AnimationStun = 1 ;
                 
+               
+
                 if(p1Animrope == true ){
                     this.framesCurrent = 4;
                 }
                 else if(p1Animrope == false  ){
+                   
                     p1AnimationStun = 0;
                     p1Animating = false;
                     this.framesCurrent = this.sprites.abilityER.framesMax -1
                     
+                }
+
+                if(p1Colwall == true ){
+
+                    p1AnimationStun = 0;
+                    p1Animating = false;
+                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    p1Colwall = false;
                 }
 
                
@@ -244,6 +255,14 @@ class Fighter extends Sprite{
                     this.framesCurrent = this.sprites.abilityER.framesMax -1
                     
                 }
+
+                if(p1Colwall == true ){
+
+                    p1AnimationStun = 0;
+                    p1Animating = false;
+                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    p1Colwall = false;
+                }
                 return
             }    
         else if(this.image === this.sprites.abilityER.image // p2 ER
@@ -260,22 +279,37 @@ class Fighter extends Sprite{
                     this.framesCurrent = this.sprites.abilityER.framesMax -1
                     
                 }
+
+                if(p2Colwall == true){
+                    p2AnimationStun = 0;
+                    p2Animating = false;
+                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    p2Colwall = false;
+                }
+                
                 return
             }
         else if(this.image === this.sprites.abilityEL.image// p2 EL
             && this.framesCurrent < this.sprites.abilityEL.framesMax -1 
             && this.pl == 2 && player2turn == -1){
                 p2Animating = true;
-                p2stunned = 1; 
+                p2AnimationStun = 1; 
                 if(p2Animrope == true ){
                     this.framesCurrent = 4;
                 }
                 else if(p2Animrope == false  ){
                     p2AnimationStun = 0;
                     p2Animating = false;
-                    this.framesCurrent = this.sprites.abilityER.framesMax -1
+                    this.framesCurrent = this.sprites.abilityEL.framesMax -1
                     
                 }
+                if(p2Colwall == true){
+                    p2AnimationStun = 0;
+                    p2Animating = false;
+                    this.framesCurrent = this.sprites.abilityEL.framesMax -1
+                    p2Colwall = false 
+                }
+
                 return
             }    
         else if(this.image === this.sprites.abilityRR.image// p1 RR

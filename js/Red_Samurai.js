@@ -362,6 +362,7 @@ function E_colp1(arr,arr2){
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
             if(arr2[0] != undefined){
                 arr2.splice(0,1);
+                p1Colwall = true;
                 
             }
             arr.splice(index,1)
@@ -495,6 +496,8 @@ function E_colp2(arr,arr2){
         if(rope.position.x + rope.width >= 1024 || rope.position.x + rope.width <= 0  ){
             if(arr2[0] != undefined){
                 arr2.splice(0,1);
+                p2Colwall = true;
+
             }
             arr.splice(index,1)
            

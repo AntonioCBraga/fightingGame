@@ -15,7 +15,7 @@ let mapChecker = 0;
 
 let timer = 60; // game timer
 let timerID  
-//---------------------------------------------Ability counters----------------------------------------//
+//---------------------------------------------Ability stuff----------------------------------------//
 
 let p1AAcounter= 0;//Auto attack p1 counter 
 let p2AAcounter= 0;//Auto attack p2 counter
@@ -33,6 +33,9 @@ let p2doingAAL = false;// makes AA animation finish if player crosses behind him
 
 let p1Animrope = true; // tells when to stop the animation and when to stick to frame 4
 let p2Animrope = true; // tells when to stop the animation and when to stick to frame 4
+
+let p1Colwall = false;
+let p2Colwall = false;
 //-------------------------------------------------Variables-------------------------------------------//
 
 
