@@ -369,7 +369,7 @@ function E_colp1(arr,arr2){
            
         }
         else if(collision(rope,enemy)){
-            console.log('hello')
+            
             
             arr.splice(index,1);
             p1Animrope = true;
@@ -624,7 +624,7 @@ let rs_CDEp1 = 0;
 
 function rs_CDEP1(){
     rs_CDEp1 ++
-   
+    E_colp1(p1E1,p1E2)
     if(rs_CDEp1 == 600){
         rs_CDEp1 =0;
     }
@@ -636,7 +636,7 @@ let rs_CDEp2 = 0;
 
 function rs_CDEP2(){
     rs_CDEp2 ++
-   
+    E_colp2(p2E1,p2E2)
     if(rs_CDEp2 == 600){
         rs_CDEp2 =0;
     }
@@ -839,16 +839,12 @@ function rs_DelaysP2(){
 
 
 function p1RS(){
-    
-    E_colp1(p1E1,p1E2) 
-    
-
+ 
 }
 
 
  function p2RS(){
-    
-    E_colp2(p2E1,p2E2)
+   
     
  }
 

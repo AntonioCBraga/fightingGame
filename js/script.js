@@ -187,42 +187,26 @@ function animate(){
 
 
     //---------------------------------------------Cooldown && Delay Systems------------------------------------------------//
-    if(rs_AACDp1 != 0){
-        rs_AAp1()
-    }
+   
     //Q_col(p1Q,enemy);
-    if(rs_AACDp2 != 0){
-        rs_AAp2()
-    }
+   
 
 
-    if(rs_CDQp1 != 0){ // rs p1 abQ
-        rs_CDQP1();
-    }
-    if(rs_CDQp2!= 0){
-        rs_CDQP2();
-    }
+  
+   
     
 
 
-    if(rs_CDEp1 != 0){ // rs p1 abE
-        rs_CDEP1();
-    }
+   
 
 
-    if(rs_CDEp2 != 0){  //rs p2 abE
-        rs_CDEP2();
-    }
+  
 
 
     
-    if(rs_delayRp1 != 0){ //rs p1 abE
-        rs_DelaysP1();
-    }
+   
 
-    if(rs_delayRp2 != 0){//rs p2 abE
-        rs_DelaysP2();
-    }
+    
 
 
 
@@ -236,16 +220,37 @@ function animate(){
     
     //--------------------------------Character Select -----------------------------//
     if(p1CharSelect == 'redsamurai'){
-
-        p1RS();
+        if(rs_AACDp1 != 0){
+            rs_AAp1()
+        }
+        if(rs_CDQp1 != 0){ // rs p1 abQ
+            rs_CDQP1();
+        }
        
+        if(rs_CDEp1 != 0){ // rs p1 abE
+            rs_CDEP1();
+        }
 
+        if(rs_delayRp1 != 0){ //rs p1 abE
+            rs_DelaysP1();
+        }
     }
 
     if(p2CharSelect == 'redsamurai'){
+        if(rs_AACDp2 != 0){
+            rs_AAp2()
+        }
         
-        p2RS();
+        if(rs_CDQp2!= 0){
+            rs_CDQP2();
+        }
         
+        if(rs_CDEp2 != 0){  //rs p2 abE
+            rs_CDEP2();
+        }
+        if(rs_delayRp2 != 0){//rs p2 abE
+            rs_DelaysP2();
+        }
     }
  
    
