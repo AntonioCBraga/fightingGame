@@ -13,13 +13,15 @@
 <br/>
 
 
+1.Add a character select  <br/>
+1.Add rounds<br/>
 
 
-1.Deal with Health properly <br/>
 
 
 
-X.Animation Cancel is a thing
+
+
 X.1.Cant use rope at same time dunno why <br/>
 X.add cd timers maybe.
 X.add 3 more characters total <br />
