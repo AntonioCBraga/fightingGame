@@ -238,14 +238,14 @@ function animate(){
     if(p1CharSelect == 'redsamurai'){
 
 
-        p1RS()
+       
 
     }
 
     if(p2CharSelect == 'redsamurai'){
         
 
-        p2RS();
+        
     }
  
    

@@ -34,8 +34,8 @@ let p2doingAAL = false;// makes AA animation finish if player crosses behind him
 let p1Animrope = true; // tells when to stop the animation and when to stick to frame 4
 let p2Animrope = true; // tells when to stop the animation and when to stick to frame 4
 
-let p1Colwall = false;
-let p2Colwall = false;
+let p1Colwall = false;// stops animation on E wall collision
+let p2Colwall = false;// stops animation on E wall collision
 //-------------------------------------------------Variables-------------------------------------------//
 
 
