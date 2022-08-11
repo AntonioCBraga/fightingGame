@@ -100,7 +100,7 @@ function animate(){
     if(p1DJarr.length != 0){
         p1DJcounter ++
         p1DJarr[0].update()
-        if(p1DJcounter == 30){
+        if(p1DJcounter == 16){
             p1DJarr.splice(0,1)
             p1DJcounter = 0;
         }
@@ -174,7 +174,7 @@ function animate(){
             
             enemy.velocity.y = -11.2;
             if(counterdjp2 == 3){
-                doubleJump(enemy,p2DJarr)
+            doubleJump(enemy,p2DJarr)
             }
            
             counterdjp2 ++;
@@ -187,7 +187,7 @@ function animate(){
     if(p2DJarr.length != 0){
         p2DJcounter ++
         p2DJarr[0].update()
-        if(p2DJcounter == 30){
+        if(p2DJcounter == 16){
             p2DJarr.splice(0,1)
             p2DJcounter = 0;
         }

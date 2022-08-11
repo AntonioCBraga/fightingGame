@@ -225,7 +225,9 @@ let rs_CDQp1 = 0;
   
 function rs_CDQP1(){
     rs_CDQp1 ++
-    Q_col(p1Q,enemy)
+    if(p1Q.lenght != 0){
+        Q_col(p1Q,enemy)
+    }
     if(rs_CDQp1 == 170){
         rs_CDQp1 =0;
     }
@@ -238,7 +240,10 @@ let rs_CDQp2 = 0;
 
 function rs_CDQP2(){
     rs_CDQp2 ++
-    Q_col(p2Q,player)
+    if(p2Q.lenght != 0){
+        Q_col(p2Q,player)
+    }
+    
     if(rs_CDQp2 == 170){
         rs_CDQp2 =0;
     }
@@ -619,7 +624,10 @@ let rs_CDEp1 = 0;
 
 function rs_CDEP1(){
     rs_CDEp1 ++
-    E_colp1(p1E1,p1E2)
+    if(p1E1.lenght != 0 || p1E2.lenght != 0){
+        E_colp1(p1E1,p1E2)
+    }
+    
     if(rs_CDEp1 == 600){
         rs_CDEp1 =0;
     }
@@ -631,7 +639,10 @@ let rs_CDEp2 = 0;
 
 function rs_CDEP2(){
     rs_CDEp2 ++
-    E_colp2(p2E1,p2E2)
+    if(p2E1.lenght != 0 || p2E2.lenght != 0){
+        E_colp2(p2E1,p2E2)
+    }
+    
     if(rs_CDEp2 == 600){
         rs_CDEp2 =0;
     }
@@ -792,7 +803,10 @@ let rs_cdRp2 = 0;
 function rs_DelaysP1(){
     rs_cdRp1 ++;
     rs_delayRp1 ++
-    R_colp1(enemy,p1R)
+    if(p1R.lenght != 0){
+        R_colp1(enemy,p1R)
+    }
+   
     if(rs_delayRp1 == 30){
         rs_R(enemy,p1R)
     }
@@ -811,7 +825,11 @@ function rs_DelaysP1(){
 function rs_DelaysP2(){
     rs_cdRp2 ++;
     rs_delayRp2 ++
-    R_colp2(player,p2R)
+    if(p2R.lenght != 0){
+        R_colp2(player,p2R)
+    }
+
+    
     if(rs_delayRp2 == 30){
         rs_R(player,p2R)
     }

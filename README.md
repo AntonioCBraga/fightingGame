@@ -12,10 +12,12 @@
 
 <br/>
 
-1.nxt time make function that stops ticking when Arr is empty >_<<br/>
-2.Add a characters<br/>
-3.Add rounds<br/>
-4.Add game menu<br/>
+
+
+
+1.Add a characters<br/>
+2.Add rounds<br/>
+3.Add game menu<br/>
 
 
 

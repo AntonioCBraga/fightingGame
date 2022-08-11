@@ -141,14 +141,14 @@ let p2DJarr = []
 function doubleJump(fighter,arr){
     arr.push(new Sprite({
         position:{
-            x:fighter.position.x  - 76,
+            x:fighter.position.x  - 80,
             y:fighter.position.y  + 10
         },
         imgSrc: './img/DoubleJump.png',
         scale:1,
         framesMax: 5,
-        framesHold: 7,
-        scale:2.3
+        framesHold: 4,
+        scale:2.5
     })
     )
 }
