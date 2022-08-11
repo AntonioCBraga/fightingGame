@@ -131,6 +131,37 @@ function dealDamage(fighter,percent){
     return;
 
 }
+let p1DJcounter = 0
+let p1DJarr = []
+
+let p2DJcounter = 0
+let p2DJarr = []
+
+
+function doubleJump(fighter,arr){
+    arr.push(new Sprite({
+        position:{
+            x:fighter.position.x  - 76,
+            y:fighter.position.y  + 10
+        },
+        imgSrc: './img/DoubleJump.png',
+        scale:1,
+        framesMax: 5,
+        framesHold: 7,
+        scale:2.3
+    })
+    )
+}
+
+
+
+const doublejump = new Sprite({
+    position:{
+        x:0,
+        y:0
+    },
+    imgSrc: './img/Maps/Default/background.png'
+})
 
 
 

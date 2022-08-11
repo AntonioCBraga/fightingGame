@@ -90,11 +90,22 @@ function animate(){
         if( counterdjp1 == 1 || counterdjp1 ==3  ){
             
             player.velocity.y = -11.2;
+            if(counterdjp1 == 3){
+                doubleJump(player,p1DJarr)
+            }
             counterdjp1 ++
         }
     }
 
-
+    if(p1DJarr.length != 0){
+        p1DJcounter ++
+        p1DJarr[0].update()
+        if(p1DJcounter == 30){
+            p1DJarr.splice(0,1)
+            p1DJcounter = 0;
+        }
+    }
+   
 
    
     
@@ -162,9 +173,26 @@ function animate(){
         if( counterdjp2 == 1|| counterdjp2 ==3 ){
             
             enemy.velocity.y = -11.2;
+            if(counterdjp2 == 3){
+                doubleJump(enemy,p2DJarr)
+            }
+           
             counterdjp2 ++;
         }
     }
+
+
+
+
+    if(p2DJarr.length != 0){
+        p2DJcounter ++
+        p2DJarr[0].update()
+        if(p2DJcounter == 30){
+            p2DJarr.splice(0,1)
+            p2DJcounter = 0;
+        }
+    }
+
 
 
     if(enemy.velocity.y < 0){
