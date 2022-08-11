@@ -67,7 +67,7 @@ window.addEventListener('keydown',(e)=>{
             break;
         case 'e':
             
-            if(player.velocity.y === 0 && p1stunned === 0 && rs_CDEp1 == 0 && p2AnimationStun == 0 && p1Animating == false){
+            if(player.velocity.y === 0 && p1stunned === 0 && rs_CDEp1 == 0 && p1AnimationStun == 0 && p1Animating == false){
                 animationTurns(player,'abilityE');
                 rs_E(player,player1turn,p1E1,p1E2);
                 rs_CDEp1 ++ 
@@ -78,7 +78,7 @@ window.addEventListener('keydown',(e)=>{
             break;
 
         case 'r':
-            if(rs_cdRp1== 0 && p2stunned == 0 && p2AnimationStun == 0 && p1Animating == false){
+            if(rs_cdRp1== 0 && p2stunned == 0 && p1AnimationStun == 0 && p1Animating == false){
                 rs_delayRp1 = 1;
             }
             if(rs_delayRp1 === 1 && p1stunned ===0 && player.velocity.y === 0){
