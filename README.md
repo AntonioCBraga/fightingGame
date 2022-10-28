@@ -36,10 +36,3 @@ X.Do a chroma version of the Hero<br />
 X.Add character2 <br />
 
 
-
-
-
-Idea  maybe 60sec map <br/>
-https://freemusicarchive.org/music/John_Harrison_with_the_Wichita_State_University_Chamber_Players/The_Four_Seasons_Vivaldi <br/>
-
-Antonio Vivaldi - Storm <br/>
